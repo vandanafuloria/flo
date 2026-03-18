@@ -1,0 +1,37 @@
+[
+  {"name":"Riya Sharma","location":"Mumbai","type":"very_small","rating":5,"review":"Instant glow, love it!"},
+  {"name":"Ananya Kapoor","location":"Delhi","type":"small","rating":5,"review":"Gives a nice glow without making my skin greasy."},
+  {"name":"Mehak Arora","location":"Jaipur","type":"mid","rating":4,"review":"The texture is really light and blends easily. The gold shade suits my skin tone perfectly."},
+  {"name":"Pooja Mehta","location":"Pune","type":"large","rating":5,"review":"Very lightweight and gives a natural glow. I use it daily before makeup and it works great as a primer."},
+  {"name":"Simran Dhillon","location":"Chandigarh","type":"very_small","rating":5,"review":"Rose gold is my fav!"},
+  
+  {"name":"Neha Verma","location":"Lucknow","type":"small","rating":4,"review":"Hydrating and smooth, doesn’t feel heavy."},
+  {"name":"Kritika Jain","location":"Indore","type":"mid","rating":5,"review":"I use it before makeup and it smoothens my skin really well. Glow looks natural."},
+  {"name":"Ishita Singh","location":"Bangalore","type":"large","rating":5,"review":"Blends easily and gives a soft radiant glow. Works well for both daily and party looks."},
+  {"name":"Ayesha Khan","location":"Hyderabad","type":"very_small","rating":4,"review":"Subtle shine, not oily."},
+  {"name":"Tanvi Desai","location":"Ahmedabad","type":"mid","rating":5,"review":"Not too shiny, gives a soft glow which looks very natural in daylight."},
+
+  {"name":"Sneha Gupta","location":"Noida","type":"small","rating":5,"review":"Perfect base for makeup. Skin feels smooth."},
+  {"name":"Radhika Iyer","location":"Chennai","type":"large","rating":5,"review":"I’ve been using the pink variant and it gives a fresh glow. Doesn’t clog pores and feels light."},
+  {"name":"Priya Nair","location":"Kochi","type":"very_small","rating":5,"review":"Nice everyday glow."},
+  {"name":"Shreya Bose","location":"Kolkata","type":"mid","rating":4,"review":"Good texture and easy to blend. Works well with foundation."},
+  {"name":"Divya Reddy","location":"Hyderabad","type":"small","rating":5,"review":"Glow is natural, not over the top."},
+
+  {"name":"Nikita Patil","location":"Nagpur","type":"large","rating":5,"review":"Using this as a primer daily. Skin looks brighter and feels hydrated throughout the day."},
+  {"name":"Payal Agarwal","location":"Surat","type":"very_small","rating":4,"review":"Gold shade is nice."},
+  {"name":"Mansi Shah","location":"Vadodara","type":"mid","rating":5,"review":"I like how it gives a dewy finish without making my skin oily."},
+  {"name":"Komal Arora","location":"Ludhiana","type":"small","rating":5,"review":"Easy to apply and blends well."},
+  {"name":"Tanya Bhatia","location":"Delhi","type":"large","rating":5,"review":"Great 3-in-1 product. Saves time and gives a soft glow. Works well even without makeup."},
+
+  {"name":"Aarti Singh","location":"Patna","type":"very_small","rating":4,"review":"Good for daily use."},
+  {"name":"Pallavi Mishra","location":"Varanasi","type":"small","rating":5,"review":"Lightweight and gives instant brightness."},
+  {"name":"Sonal Choudhary","location":"Jaipur","type":"mid","rating":5,"review":"The rose gold variant looks amazing on my skin tone. Very natural finish."},
+  {"name":"Ritu Saxena","location":"Kanpur","type":"large","rating":4,"review":"Nice product for daily wear. Doesn’t feel heavy and gives a decent glow."},
+  {"name":"Nisha Yadav","location":"Gurgaon","type":"very_small","rating":5,"review":"Smooth finish!"},
+
+  {"name":"Bhavna Joshi","location":"Dehradun","type":"small","rating":4,"review":"Hydrating and gives a soft glow."},
+  {"name":"Swati Kulkarni","location":"Pune","type":"mid","rating":5,"review":"Blends quickly and gives a radiant look without shimmer particles."},
+  {"name":"Heena Shaikh","location":"Mumbai","type":"large","rating":5,"review":"I’ve tried many strobe creams but this one feels the most natural. Perfect glow for daily use."},
+  {"name":"Garima Khanna","location":"Delhi","type":"very_small","rating":5,"review":"Love the glow."},
+  {"name":"Sakshi Verma","location":"Bhopal","type":"mid","rating":4,"review":"Works well as both primer and highlighter. Good value for money."}
+]
