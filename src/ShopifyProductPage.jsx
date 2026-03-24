@@ -9,14 +9,31 @@ import SocialProofBadge from './SocialProofBadge';
 // EDIT THESE VALUES TO CUSTOMIZE YOUR PRODUCT
 // ============================================
 
-// Product images now use external URL
-import productImage1 from './assets/product/SPP_8830.jpg';
-import productImage2 from './assets/product/SPP_8834.jpg';
-import productImage3 from './assets/product/SPP_8844.jpg';
 import product1 from './assets/product1.png';
 import product2 from './assets/product2.png';
+import productHeader from './assets/product_header.png';
 
-// Brand Images — review photos
+
+import reviewData from '../review.json';
+
+// Product Images — used in review section
+import pi1  from './assets/Product Images/1.png';
+import pi2  from './assets/Product Images/2.png';
+import pi3  from './assets/Product Images/3.png';
+import pi4  from './assets/Product Images/4.png';
+import pi5  from './assets/Product Images/5.png';
+import pi6  from './assets/Product Images/6.png';
+import pi7  from './assets/Product Images/7.png';
+import pi8  from './assets/Product Images/8.png';
+import pi9  from './assets/Product Images/9.png';
+import pi10 from './assets/Product Images/10.png';
+import pi11 from './assets/Product Images/11.png';
+import pi12 from './assets/Product Images/12.png';
+import pi13 from './assets/Product Images/13.png';
+import pi14 from './assets/Product Images/14.png';
+import pi15 from './assets/Product Images/15.png';
+
+// Brand Images — used in brand image section
 import bi1 from './assets/Brand Images/1.png';
 import bi2 from './assets/Brand Images/2.png';
 import bi3 from './assets/Brand Images/3.png';
@@ -30,13 +47,17 @@ import bi10 from './assets/Brand Images/10.png';
 import bi11 from './assets/Brand Images/11.png';
 import bi12 from './assets/Brand Images/12.png';
 
-import reviewData from '../review.json';
+// Product images — used in review section
+const PROD_IMG_1 = 'https://cavinkart.com/cdn/shop/files/fairever-beauty-lift-saffron-milk-rosehip-oil-face-cream-50g-3521142_500x500.png?v=1763021857';
+const PROD_IMG_2 = 'https://cavinkart.com/cdn/shop/files/raaga-professional-de-tan-pack-tan-removal-cream-with-kojic-and-milk-500-gm-7374242_500x500.png?v=1763022091';
+const PROD_IMG_3 = 'https://cavinkart.com/cdn/shop/files/nyle-naturals-damage-repair-shampoo-800ml-for-stronger-healthier-hair-with-shikakai-amla-and-hibiscus-paraben-free-herbal-shampoo-for-men-women-8732261_1197x1197.jpg?v=1763021902';
+const PROD_IMG_4 = 'https://cavinkart.com/cdn/shop/files/spinz-face-powder-spinz-bb-pro-brightening-face-cream-spinz-exotic-perfumed-deo-for-women-bulgarian-rose-fragrance-7049652_1078x1078.png?v=1766007009';
+const PROD_IMG_5 = 'https://cavinkart.com/cdn/shop/products/karthika-hair-fall-shield-shampoo-650-ml-with-the-goodness-of-shikakai-hibiscus-for-men-women-4484026_994x994.jpg?v=1763021903';
 
-// Image arrays for review cycling
-// Product reviews: 1 → 12 (ascending)
-const ST_PRODUCT_IMGS = [bi1, bi2, bi3, bi4, bi5, bi6, bi7, bi8, bi9, bi10, bi11, bi12];
-// Brand reviews: 12 → 1 (descending)
-const ST_BRAND_IMGS = [bi12, bi11, bi10, bi9, bi8, bi7, bi6, bi5, bi4, bi3, bi2, bi1];
+/// Review section: Product Images folder (1–15)
+const ST_PRODUCT_IMGS = [pi1, pi2, pi3, pi4, pi5, pi6, pi7, pi8, pi9, pi10, pi11, pi12, pi13, pi14, pi15];
+// Brand image section: actual brand images
+const ST_BRAND_IMGS = [bi1, bi2, bi3, bi4, bi5, bi6, bi7, bi8, bi9, bi10, bi11, bi12];
 
 function getReviewTitle(text) {
   const first = text.split(/[.!,]/)[0].trim();
@@ -49,28 +70,26 @@ const BRAND_NAME = "wordofmouth";
 
 // Product Images Array - All product images
 const PRODUCT_IMAGES = [
-  "https://thebaeshop.com/cdn/shop/files/11_755a3607-c9cb-4454-a07f-5a1e20e2d454.jpg?v=1771311357&width=1000",
-  "https://thebaeshop.com/cdn/shop/files/5_a829b020-8293-4669-a908-e2b74c0793eb.jpg?v=1771311357&width=1000",
-  "https://thebaeshop.com/cdn/shop/files/4_f576be0a-7134-47dc-8131-9279cc3e46ee.jpg?v=1771311357&width=1000",
-  "https://thebaeshop.com/cdn/shop/files/2_6fa6df98-2639-4302-9159-e1569bbbe8bb.jpg?v=1771311357&width=1000",
-  "https://thebaeshop.com/cdn/shop/files/3_d8c07677-5f85-4974-aea2-4ea281ed5c82.jpg?v=1771311357&width=1000",
-  "https://thebaeshop.com/cdn/shop/files/6_801394e4-f984-4d22-b7f8-e1aba3f4b469.jpg?v=1771311357&width=1000",
+  "https://cavinkart.com/cdn/shop/products/spinz-enchante-perfumed-deo-for-women-with-international-fragrances-for-long-lasting-freshness-and-24-hours-protection-150ml-international-fragrances-for-long-l-5333513_798x798.jpg?v=1763533560",
+  "https://cavinkart.com/cdn/shop/files/spinz-face-powder-spinz-bb-pro-brightening-face-cream-spinz-exotic-perfumed-deo-for-women-bulgarian-rose-fragrance-7049652_1078x1078.png?v=1766007009",
+  "https://cavinkart.com/cdn/shop/files/fairever-beauty-lift-saffron-milk-rosehip-oil-face-cream-50g-3521142_500x500.png?v=1763021857",
 ];
 
 // Product Video
-const PRODUCT_VIDEO = 'https://static.zegsuapps.com/user-data/instagenie/bf98230ee1c9d00319d98ef61cde61afc2efbd63.mp4#t=0.1';
+const PRODUCT_VIDEO = 'https://www.pexels.com/download/video/4251604/';
 
 // Product Details
-const PRODUCT_NAME = "Bae Bag — Personalised Vegan Leather Pouch";
-const PRODUCT_PRICE = 1699;
-const PRODUCT_ORIGINAL_PRICE = 1999;
-const PRODUCT_DISCOUNT = 15;
-const PRODUCT_SKU = "TB-BAG-001";
-const PRODUCT_DESCRIPTION = "Handcrafted with premium 100% vegan leather — soft, durable, and cruelty-free. Features a smooth metal zip, satin-lined interior, and personalised name embossing. Gift-ready in an elegant magnetic box. Perfect for everyday carry, travel, and gifting.";
+const PRODUCT_NAME = "Spinz Enchante Perfumed Deo for Women, with International Fragrances for Long Lasting Freshness and 24 Hours Protection, 150ml";
+const PRODUCT_PRICE = 99;
+const PRODUCT_ORIGINAL_PRICE = 190;
+const PRODUCT_DISCOUNT = 48;
+const PRODUCT_SKU = "SPINZ-DEO-001";
+const PRODUCT_DESCRIPTION = "If you're looking for a premium deodorant, that blends international fragrances, ensuring long lasting fragrances and also a powerful odour protection, then Spinz Enchante Perfumed Deo is an ideal choice for you. This duo for women is created for those who desire a quality of perfume of being elegant and sophisticated with scent, and a quality of deodorant offering long lasting protection of 24 hours from sweat and body odour. A combined elegance with subtlety makes this Spinz Deo alluring and perfect for daily wear, as well as for special occasions. If you want to go work or gym, or you might just want to spend a good evening, Spinz perfume gives you a luxurious experience and helps you boost confidence by keeping you fresh anywhere.";
+const PRODUCT_BRAND = "Spinz";
 const PRODUCT_COLORS = [
-  { name: "Black", value: "#1a1a1a" },
+  { name: "Purple", value: "#7B2D8B" },
 ];
-const PRODUCT_SIZES = ["One Size"];
+const PRODUCT_SIZES = ["150ml"];
 
 // You May Also Like Products Data
 const RELATED_PRODUCTS = [
@@ -113,16 +132,12 @@ const RELATED_PRODUCTS = [
 ];
 
 // Best Seller Products data — same as home page
-const BS_IMG_1 = 'https://thebaeshop.com/cdn/shop/files/2_6fa6df98-2639-4302-9159-e1569bbbe8bb.jpg?v=1771311357&width=1080';
-const BS_IMG_2 = 'https://thebaeshop.com/cdn/shop/files/12_df44ffa7-3472-4888-9f08-0566995b2cda.jpg?v=1771311291&width=2000';
-const BS_IMG_3 = 'https://thebaeshop.com/cdn/shop/files/8_8dd5c96c-2111-4a49-99cc-3de41e1ca1ff.jpg?v=1771311343&width=2000';
-const BS_IMG_4 = 'https://thebaeshop.com/cdn/shop/files/6_a60ca2c3-e0e9-4282-8350-c20bc6472dda.jpg?v=1770214028&width=1080';
-
 const bestSellerProducts = [
-  { id: 1, image: BS_IMG_1, title: 'BAE BAG CARAMEL CRUSH', currentPrice: 1699, originalPrice: 1999, rating: 4.6, reviewCount: 312, isBestseller: true },
-  { id: 2, image: BS_IMG_2, title: 'BAE BAG VINTAGE GOLD', currentPrice: 1799, originalPrice: 2199, rating: 4.6, reviewCount: 278, isBestseller: true },
-  { id: 3, image: BS_IMG_3, title: 'BAE BAG CHERRY ROUGE', currentPrice: 1799, originalPrice: 2199, rating: 4.6, reviewCount: 245, isBestseller: true },
-  { id: 4, image: BS_IMG_4, title: 'BAE BAG GOLD RUSH', currentPrice: 1799, originalPrice: 2199, rating: 4.6, reviewCount: 198, isBestseller: true },
+  { id: 1, image: 'https://cavinkart.com/cdn/shop/files/fairever-beauty-lift-saffron-milk-rosehip-oil-face-cream-50g-3521142_500x500.png?v=1763021857',  title: 'Fairever Beauty Lift Saffron, Milk & Rosehip Oil Face Cream 50g', currentPrice: 115,  originalPrice: 122,  rating: 4.2, reviewCount: 3847, inStock: true },
+  { id: 2, image: 'https://cavinkart.com/cdn/shop/files/raaga-professional-de-tan-pack-tan-removal-cream-with-kojic-and-milk-500-gm-7374242_500x500.png?v=1763022091', title: 'Raaga Professional De-Tan Pack | Tan Removal Cream 500g',            currentPrice: 1345, originalPrice: 1495, rating: 4.5, reviewCount: 1203, inStock: true },
+  { id: 3, image: 'https://cavinkart.com/cdn/shop/files/nyle-naturals-damage-repair-shampoo-800ml-for-stronger-healthier-hair-with-shikakai-amla-and-hibiscus-paraben-free-herbal-shampoo-for-men-women-8732261_1197x1197.jpg?v=1763021902', title: 'Nyle Naturals Damage Repair Shampoo 800ml | Shikakai & Amla',        currentPrice: 449,  originalPrice: 749,  rating: 4.3, reviewCount: 2156, inStock: true },
+  { id: 4, image: 'https://cavinkart.com/cdn/shop/files/spinz-face-powder-spinz-bb-pro-brightening-face-cream-spinz-exotic-perfumed-deo-for-women-bulgarian-rose-fragrance-7049652_1078x1078.png?v=1766007009', title: 'Spinz BB Pro Brightening Face Cream | Bulgarian Rose Deo',           currentPrice: 799,  originalPrice: 1070, rating: 4.1, reviewCount: 892,  inStock: true },
+  { id: 5, image: 'https://cavinkart.com/cdn/shop/products/karthika-hair-fall-shield-shampoo-650-ml-with-the-goodness-of-shikakai-hibiscus-for-men-women-4484026_994x994.jpg?v=1763021903', title: 'Karthika Hair Fall Shield Shampoo 650ml | Shikakai & Hibiscus',      currentPrice: 499,  originalPrice: 999,  rating: 4.4, reviewCount: 1678, inStock: true },
 ];
 
 // ============================================
@@ -224,8 +239,8 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
   const productImages  = passedProduct?.image
     ? [passedProduct.image, ...PRODUCT_IMAGES]
     : PRODUCT_IMAGES;
-  const productRating  = passedProduct?.rating        || 4.6;
-  const productReviews = passedProduct?.reviewCount   || 0;
+  const productRating  = passedProduct?.rating        || 4.8;
+  const productReviews = passedProduct?.reviewCount   || 320;
   const [selectedImage, setSelectedImage] = useState(0);
   const [selectedSize, setSelectedSize] = useState('S');
   const [quantity, setQuantity] = useState(1);
@@ -370,7 +385,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
       rating: r.rating,
       title: getReviewTitle(r.review),
       text: r.review,
-      images: [ST_PRODUCT_IMGS[(i * 2) % 12], ST_PRODUCT_IMGS[(i * 2 + 1) % 12]],
+      images: [ST_PRODUCT_IMGS[(i * 2) % 15], ST_PRODUCT_IMGS[(i * 2 + 1) % 15]],
     }));
 
   // Brand Reviews — from 'mid' type entries in review.json
@@ -553,21 +568,21 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
       name: 'Pooja',
       action: 'bought this dress',
       time: 'Just now',
-      image: productImage1
+      image: pi1
     },
     {
       type: 'review',
       name: 'Neha',
       action: 'gave the review',
       time: '30 min ago',
-      image: productImage2
+      image: pi2
     },
     {
       type: 'viewed',
       name: 'Priya',
       action: 'recently viewed',
       time: '1 hour ago',
-      image: productImage3
+      image: pi3
     }
   ];
 
@@ -631,6 +646,11 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
           </button>
         </div>
       )}
+
+      {/* Product Page Header Banner */}
+      <div className="w-full">
+        <img src={productHeader} alt="Product Header" className="w-full object-cover" />
+      </div>
 
       {/* Product Video - Draggable floating card */}
       {showVideoCard && (
@@ -754,9 +774,9 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
             {/* Product Details Section */}
             <div className="flex flex-col gap-5 pt-2">
 
-              {/* Rating + sold count row — above title */}
               {/* Title */}
               <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">{productName}</h1>
+              <p className="text-sm text-gray-500">by <span className="font-semibold text-gray-700">{PRODUCT_BRAND}</span></p>
 
               {/* Rating + sold count row — below title */}
               <div className="flex items-center gap-2.5 flex-wrap">
@@ -777,7 +797,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                   <span className="text-sm font-bold text-gray-800 ml-1">{productRating}</span>
                 </div>
                 <span className="w-px h-4 bg-gray-300 rounded"/>
-                <span className="text-sm text-gray-500"><span className="font-semibold text-gray-700">{productReviews > 0 ? productReviews : 300}</span> Reviews</span>
+                <span className="text-sm text-gray-500"><span className="font-semibold text-gray-700">{productReviews}</span> {productReviews === 1 ? 'Review' : 'Reviews'}</span>
                 <span className="w-px h-4 bg-gray-300 rounded"/>
                 <span className="text-sm text-gray-500 flex items-center gap-1">
                   <svg className="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"/></svg>
@@ -787,7 +807,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
 
               {/* Keyword pills — below rating */}
               <div className="flex flex-wrap gap-2">
-                {['Personalised', 'Vegan Leather', 'Gift Ready', 'Handcrafted', 'Travel Friendly'].map(kw => (
+                {['24Hr Protection', 'Long Lasting', 'For Women', 'Premium Fragrance', 'No Gas'].map(kw => (
                   <span key={kw} className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-[#f5f0f4] text-[#5c3a52] border border-[#e8d8e4]">
                     <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
                     {kw}
@@ -927,24 +947,18 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
       {/* Videos Section */}
       {(() => {
         const PDP_VIDEOS = [
-          'https://static.zegsuapps.com/user-data/instagenie/fcf16e7602400ff148106a4823cf11c8f36a49f6.mp4',
-          'https://static.zegsuapps.com/user-data/instagenie/ea61e7f228905000ee6a0e1eec4ae4228b334414.mp4',
-          'https://static.zegsuapps.com/user-data/instagenie/b0eed95e675c0254b1c4e1a5835bb9efae1de7b3.mp4',
-          'https://static.zegsuapps.com/user-data/instagenie/18d42e8ff21548957ccc45ca4dc1711c4889e8ac.mp4',
-          'https://static.zegsuapps.com/user-data/instagenie/bf98230ee1c9d00319d98ef61cde61afc2efbd63.mp4',
-          'https://static.zegsuapps.com/user-data/instagenie/02690b7ae3a0bcf8590cae2454cbd864ae32a23a.mp4',
+          'https://www.pexels.com/download/video/4251604/',
+          'https://www.pexels.com/download/video/9015595/',
+          'https://www.pexels.com/download/video/6584528/',
+          'https://www.pexels.com/download/video/6648853/',
+          'https://www.pexels.com/download/video/5095328/',
         ];
+
+        const THUMB_LABELS = ['Fairever', 'Raaga', 'Nyle', 'Spinz', 'Karthika'];
 
         const VideoSection = () => {
           const [activeVideo, setActiveVideo] = React.useState(null);
-          const modalVideoRef = React.useRef(null);
           const touchStartX = React.useRef(null);
-
-          React.useEffect(() => {
-            if (activeVideo === null) return;
-            const v = modalVideoRef.current;
-            if (v) { v.currentTime = 0; v.play().catch(() => {}); }
-          }, [activeVideo]);
 
           React.useEffect(() => {
             const onKey = (e) => {
@@ -959,120 +973,103 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
 
           return (
             <>
-              <div className="w-full py-12" style={{ background: '#1a0f18' }}>
+              <div className="w-full py-12" style={{ background: '#264171' }}>
                 <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+
                   {/* Header */}
                   <div className="flex items-end justify-between mb-8">
                     <div>
-                      <p className="text-xs font-semibold tracking-[0.25em] mb-2" style={{ color: '#c9a0b8' }}>REAL PEOPLE · REAL BAGS</p>
+                      <p className="text-xs font-semibold tracking-[0.25em] mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>REAL PEOPLE · REAL PRODUCTS</p>
                       <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">See It In The Wild</h2>
                     </div>
-                    <span className="hidden md:flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border" style={{ color: '#c9a0b8', borderColor: 'rgba(201,160,184,0.3)' }}>
-                      <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                      @thebaeshop.xoxo
+                    <span className="hidden md:flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full" style={{ color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.15)' }}>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                      @cavinkart
                     </span>
                   </div>
 
-                  {/* Scrollable video row */}
-                  <div className="flex gap-4 overflow-x-auto pb-4" style={{ scrollbarWidth: 'none' }}>
-                    {PDP_VIDEOS.map((src, idx) => (
-                      <div
-                        key={idx}
-                        className="relative flex-shrink-0 rounded-2xl overflow-hidden group cursor-pointer"
-                        style={{ width: '160px', height: '285px', background: '#2a1525' }}
-                        onClick={() => setActiveVideo(idx)}
-                      >
-                        <video
-                          src={src}
-                          className="w-full h-full object-cover"
-                          muted
-                          autoPlay
-                          playsInline
-                          preload="auto"
-                          loop
-                        />
-                        {/* Gradient overlay */}
-                        <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(26,15,24,0.75) 0%, transparent 50%)' }} />
-                        {/* Bottom label */}
-                        <div className="absolute bottom-3 left-3 right-3">
-                          <span className="text-[10px] font-semibold text-white/80 tracking-wide">#{idx + 1} The Bae Shop</span>
+                  {/* Video cards — actual autoplay videos */}
+                  <div className="overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
+                    <div className="flex gap-4 min-w-max">
+                      {PDP_VIDEOS.map((url, idx) => (
+                        <div key={idx} className="flex flex-col items-center gap-2">
+                          {/* Card */}
+                          <div
+                            className="relative overflow-hidden"
+                            style={{ width: '130px', height: '220px', borderRadius: '999px', border: '2px solid rgba(255,255,255,0.2)' }}
+                          >
+                            <video
+                              src={url}
+                              className="w-full h-full object-cover"
+                              autoPlay
+                              muted
+                              playsInline
+                              onEnded={e => { e.target.currentTime = 0; e.target.play().catch(() => {}); }}
+                            />
+                            {/* Gradient overlay */}
+                            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 55%)' }} />
+                          </div>
+                          <span className="text-[11px] font-medium text-white/70">{THUMB_LABELS[idx]}</span>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              {/* Full-screen video modal */}
+              {/* Full-screen video modal — video only loads when opened */}
               {activeVideo !== null && (
                 <div
                   className="fixed inset-0 z-[999] flex items-center justify-center"
-                  style={{ background: 'rgba(0,0,0,0.92)' }}
+                  style={{ background: 'rgba(0,0,0,0.93)' }}
                   onClick={() => setActiveVideo(null)}
                 >
-                  {/* Video container */}
                   <div
-                    className="relative"
-                    style={{ width: 'min(360px, 90vw)', height: 'min(640px, 85vh)' }}
+                    className="relative bg-black rounded-2xl overflow-hidden"
+                    style={{ width: 'min(380px, 92vw)', height: 'min(660px, 88vh)' }}
                     onClick={e => e.stopPropagation()}
                     onTouchStart={e => { touchStartX.current = e.touches[0].clientX; }}
                     onTouchEnd={e => {
                       if (touchStartX.current === null) return;
                       const diff = touchStartX.current - e.changedTouches[0].clientX;
-                      if (Math.abs(diff) > 50) {
-                        setActiveVideo(i => diff > 0 ? (i + 1) % PDP_VIDEOS.length : (i - 1 + PDP_VIDEOS.length) % PDP_VIDEOS.length);
-                      }
+                      if (Math.abs(diff) > 50) setActiveVideo(i => diff > 0 ? (i + 1) % PDP_VIDEOS.length : (i - 1 + PDP_VIDEOS.length) % PDP_VIDEOS.length);
                       touchStartX.current = null;
                     }}
                   >
                     <video
-                      ref={modalVideoRef}
                       key={activeVideo}
                       src={PDP_VIDEOS[activeVideo]}
-                      className="w-full h-full object-cover rounded-2xl"
-                      autoPlay
-                      playsInline
-                      loop
-                      controls
+                      className="w-full h-full object-cover"
+                      autoPlay muted playsInline controls
                       style={{ background: '#000' }}
                     />
 
                     {/* Close */}
                     <button
                       className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center z-10"
-                      style={{ background: 'rgba(0,0,0,0.55)', backdropFilter: 'blur(6px)' }}
+                      style={{ background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)' }}
                       onClick={() => setActiveVideo(null)}
                     >
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
                     </button>
 
-                    {/* Prev */}
-                    <button
-                      className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10"
-                      style={{ background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(6px)' }}
-                      onClick={() => setActiveVideo(i => (i - 1 + PDP_VIDEOS.length) % PDP_VIDEOS.length)}
-                    >
+                    {/* Prev / Next */}
+                    <button className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10"
+                      style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(6px)' }}
+                      onClick={() => setActiveVideo(i => (i - 1 + PDP_VIDEOS.length) % PDP_VIDEOS.length)}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
                     </button>
-
-                    {/* Next */}
-                    <button
-                      className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10"
-                      style={{ background: 'rgba(0,0,0,0.45)', backdropFilter: 'blur(6px)' }}
-                      onClick={() => setActiveVideo(i => (i + 1) % PDP_VIDEOS.length)}
-                    >
+                    <button className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10"
+                      style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(6px)' }}
+                      onClick={() => setActiveVideo(i => (i + 1) % PDP_VIDEOS.length)}>
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
                     </button>
 
                     {/* Dots */}
                     <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5">
                       {PDP_VIDEOS.map((_, i) => (
-                        <button
-                          key={i}
-                          onClick={() => setActiveVideo(i)}
-                          className="rounded-full transition-all"
-                          style={{ width: i === activeVideo ? '20px' : '6px', height: '6px', background: i === activeVideo ? 'white' : 'rgba(255,255,255,0.4)' }}
-                        />
+                        <button key={i} onClick={() => setActiveVideo(i)} className="rounded-full transition-all"
+                          style={{ width: i === activeVideo ? '20px' : '6px', height: '6px', background: i === activeVideo ? 'white' : 'rgba(255,255,255,0.35)' }} />
                       ))}
                     </div>
                   </div>
@@ -1095,7 +1092,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
           </div>
           <div className="overflow-x-auto scrollbar-hide -mx-4 px-4">
             <div className="flex gap-4 md:gap-6 min-w-max pb-2">
-              {bestSellerProducts.slice(0, 4).map((product) => (
+              {bestSellerProducts.map((product) => (
                 <div
                   key={product.id}
                   className="w-[90vw] md:w-[380px] lg:w-[280px] flex-shrink-0 cursor-pointer"
@@ -1126,13 +1123,13 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     <div
                       className="w-32 h-32 rounded-full flex items-center justify-center mb-4 relative mx-auto"
                       style={{
-                        background: `conic-gradient(#7a4f6d 0% 96%, #ede0eb 96% 100%)`,
-                        boxShadow: '0 8px 24px rgba(122,79,109,0.22)'
+                        background: `conic-gradient(#264171 0% 96%, #dce6f5 96% 100%)`,
+                        boxShadow: '0 8px 24px rgba(38,65,113,0.22)'
                       }}
                     >
                       <div className="absolute inset-[6px] rounded-full bg-white flex items-center justify-center">
                         <div className="flex items-baseline gap-0.5">
-                          <span className="text-3xl font-bold" style={{ color: '#7a4f6d' }}>4.8</span>
+                          <span className="text-3xl font-bold" style={{ color: '#264171' }}>4.8</span>
                           <span className="text-sm font-medium text-gray-400">/5</span>
                         </div>
                       </div>
@@ -1147,7 +1144,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                       ))}
                     </div>
                     <p className="text-sm text-gray-500 mb-3">Based on <strong className="text-gray-800">147</strong> reviews</p>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border" style={{ backgroundColor: 'rgba(53,31,49,0.07)', color: '#351F31', borderColor: 'rgba(53,31,49,0.2)' }}>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border" style={{ backgroundColor: 'rgba(38,65,113,0.07)', color: '#264171', borderColor: 'rgba(38,65,113,0.2)' }}>
                       <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                       </svg>
@@ -1177,7 +1174,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                             style={{
                               width: `${item.percent}%`,
                               minWidth: '2px',
-                              backgroundColor: '#7a4f6d',
+                              backgroundColor: '#264171',
                               borderRadius: '1px'
                             }}
                           />

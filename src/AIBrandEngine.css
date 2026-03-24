@@ -1,7 +1,7 @@
 :root {
-  --brand: #351F31;
-  --brand-light: rgba(53, 31, 49, 0.1);
-  --brand-mid: rgba(53, 31, 49, 0.25);
+  --brand: #264171;
+  --brand-light: rgba(38, 65, 113, 0.1);
+  --brand-mid: rgba(38, 65, 113, 0.25);
 }
 
 .ai-brand-engine {
@@ -172,11 +172,26 @@
 .panel-content::-webkit-scrollbar-track { background: transparent; }
 .panel-content::-webkit-scrollbar-thumb { background: var(--brand-mid); border-radius: 3px; }
 
+.content-header-row {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 12px;
+}
+
 .content-title {
   font-size: 13px;
   font-weight: 700;
   color: var(--brand);
-  margin: 0 0 12px;
+  margin: 0;
+}
+
+.content-category {
+  font-size: 9px;
+  font-weight: 500;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
 }
 
 /* Stats */

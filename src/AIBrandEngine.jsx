@@ -1,91 +1,110 @@
 import React, { useState } from 'react';
 import './AIBrandEngine.css';
 
-const BRAND_COLOR = '#351F31';
-
 const AIBrandEngine = ({ showExtras = true }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [activeTab, setActiveTab] = useState('products');
+  const [activeTab, setActiveTab] = useState('meera');
 
   if (!showExtras) return null;
 
   const tabs = [
-    { id: 'products',    label: 'Products'    },
-    { id: 'materials',   label: 'Materials'   },
-    { id: 'personalise', label: 'Personalise' },
-    { id: 'gifting',     label: 'Gifting'     },
-    { id: 'shipping',    label: 'Shipping'    },
+    { id: 'meera',    label: 'Meera'    },
+    { id: 'chik',     label: 'Chik'     },
+    { id: 'fairever', label: 'Fairever' },
+    { id: 'spinz',    label: 'Spinz'    },
+    { id: 'karthika', label: 'Karthika' },
+    { id: 'raaga',    label: 'Raaga'    },
   ];
 
   const content = {
-    products: {
-      title: 'Our Collections',
+    meera: {
+      title: 'Meera — Herbal Hair Care',
+      category: 'Hair Care · Herbal',
       stats: [
-        { value: 'Makeup Bags',      label: 'Vanity & cosmetic organisers' },
-        { value: 'Earring Pouches',  label: 'Compact jewellery carry cases' },
-        { value: 'Travel Kits',      label: 'All-in-one travel organisers' },
+        { value: 'Herbal Shampoo',  label: 'Shikakai & Hibiscus blend' },
+        { value: 'Hair Oil',        label: 'Nourishing scalp treatment' },
+        { value: 'Hair Wash',       label: 'Traditional powder formula' },
       ],
       highlights: [
-        'Zipper pouches for makeup & skincare',
-        'Earring + ring organiser pouches',
-        'Passport holders & travel wallets',
-        'Personalised name-embossed bags',
+        'Trusted herbal haircare for 30+ years',
+        'Key ingredients: Shikakai, Amla, Hibiscus',
+        'Reduces hairfall & promotes growth',
+        'Available in shampoo, oil & powder',
       ],
     },
-    materials: {
-      title: 'Premium Materials',
+    chik: {
+      title: 'Chik — Everyday Shampoo',
+      category: 'Hair Care · Everyday',
       stats: [
-        { value: '100% Vegan',    label: 'No animal leather used' },
-        { value: 'Premium PU',   label: 'Soft, durable vegan leather' },
-        { value: 'Care-Lined',   label: 'Satin & microfibre interiors' },
+        { value: 'Egg Protein',     label: 'Strengthens hair shaft' },
+        { value: '650ml / 1000ml',  label: 'Value family pack sizes' },
+        { value: 'Hairfall Control', label: 'Clinically tested formula' },
       ],
       highlights: [
-        'Scratch & water resistant exterior',
-        'Smooth zip pulls with metal hardware',
-        'Colour-safe, fade-resistant material',
-        'Cruelty-free certified production',
+        'Affordable daily-use shampoo range',
+        'Protein-enriched for stronger hair',
+        'Variants: Hairfall, Jasmine, Blackshine',
+        'Best value-for-money in hair care',
       ],
     },
-    personalise: {
-      title: 'Personalisation',
+    fairever: {
+      title: 'Fairever — Skin Brightening',
+      category: 'Skin Care · Brightening',
       stats: [
-        { value: 'Name / Initials', label: 'Embossed on every piece' },
-        { value: '48 Hr',           label: 'Personalisation turnaround' },
-        { value: '15+ Colours',     label: 'Pick your perfect shade' },
+        { value: 'Saffron',         label: 'Natural glow booster' },
+        { value: 'Milk & Rosehip',  label: 'Moisturising skin blend' },
+        { value: 'SPF Protection',  label: 'Sun defence in daily cream' },
       ],
       highlights: [
-        'Custom name embossing on all bags',
-        'Gift-ready with personalised tags',
-        'Monogram & initial options available',
-        'Perfect for birthdays & anniversaries',
+        'Visible brightness in 4 weeks',
+        'Key ingredients: Saffron, Milk, Rosehip Oil',
+        'Lightweight, non-greasy formula',
+        'Gentle enough for daily use',
       ],
     },
-    gifting: {
-      title: 'Gift Ready',
+    spinz: {
+      title: 'Spinz — Deo & Fragrance',
+      category: 'Deodorant · Fragrance',
       stats: [
-        { value: 'Gift Wrapped',  label: 'Every order elegantly packed' },
-        { value: 'Custom Note',   label: 'Add a personal message' },
-        { value: '4.8★ Gifting', label: 'Rated by gifters' },
+        { value: '24hr Fresh',      label: 'Long-lasting odour protection' },
+        { value: 'Bulgarian Rose',  label: 'Signature women\'s fragrance' },
+        { value: 'BB Cream',        label: 'Brightening face coverage' },
       ],
       highlights: [
-        'Magnetic gift boxes on request',
-        'Bulk gifting for corporates',
-        'Special occasion bundles available',
-        'Surprise delivery options',
+        'Premium deodorant for men & women',
+        'Multiple fragrance variants available',
+        'Spinz BB cream for instant glow',
+        'Alcohol-free gentle formulas',
       ],
     },
-    shipping: {
-      title: 'Fast Delivery',
+    karthika: {
+      title: 'Karthika — Hair Fall Shield',
+      category: 'Hair Care · Specialised',
       stats: [
-        { value: '2–4 Days',    label: 'Pan-India standard delivery' },
-        { value: 'Free Ship',   label: 'On orders above ₹499' },
-        { value: 'Easy Return', label: '7-day hassle-free returns' },
+        { value: 'Shikakai',        label: 'Traditional hair cleanser' },
+        { value: 'Hibiscus',        label: 'Strengthens & adds shine' },
+        { value: '650ml',           label: 'Value pack shampoo' },
       ],
       highlights: [
-        'Real-time tracking on every order',
-        'Safe padded packaging for bags',
-        'Cash on delivery available',
-        'Express 1–2 day delivery in metros',
+        'Clinically proven hairfall reduction',
+        'Rooted in South Indian hair rituals',
+        'Suitable for men & women',
+        'No harsh sulphates in key variants',
+      ],
+    },
+    raaga: {
+      title: 'Raaga Professional',
+      category: 'Skin Care · Professional',
+      stats: [
+        { value: 'De-Tan Pack',     label: 'Kojic acid + Milk formula' },
+        { value: 'Salon Quality',   label: 'Professional-grade at home' },
+        { value: '500g Value',      label: 'Large professional size' },
+      ],
+      highlights: [
+        'Professional skin treatments at home',
+        'Visible tan removal in one use',
+        'Kojic acid for even skin tone',
+        'Full range: scrubs, packs & creams',
       ],
     },
   };
@@ -98,12 +117,11 @@ const AIBrandEngine = ({ showExtras = true }) => {
         <button
           className="ai-brand-engine-trigger"
           onClick={() => setIsExpanded(true)}
-          aria-label="Open Brand Info"
+          aria-label="Explore Brands"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <path d="M16 10a4 4 0 01-8 0"/>
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
           </svg>
         </button>
       ) : (
@@ -117,8 +135,8 @@ const AIBrandEngine = ({ showExtras = true }) => {
                 <path d="M16 10a4 4 0 01-8 0"/>
               </svg>
               <div>
-                <h3 className="panel-title">The Bae Shop</h3>
-                <p className="panel-subtitle">Handcrafted · Vegan Leather · Personalised</p>
+                <h3 className="panel-title">CavinKart</h3>
+                <p className="panel-subtitle">25+ Brands · One Store · Trusted Since 1983</p>
               </div>
             </div>
             <button className="panel-close-btn" onClick={() => setIsExpanded(false)} aria-label="Close">
@@ -143,7 +161,10 @@ const AIBrandEngine = ({ showExtras = true }) => {
 
           {/* Content */}
           <div className="panel-content">
-            <h4 className="content-title">{current.title}</h4>
+            <div className="content-header-row">
+              <h4 className="content-title">{current.title}</h4>
+              <span className="content-category">{current.category}</span>
+            </div>
 
             <div className="stats-grid">
               {current.stats.map((item, i) => (

@@ -1,49 +1,28 @@
 import React, { useState, useEffect } from 'react';
-import QuinnVideo from './QuinnVideo';
 import ShopifyHeader from './ShopifyHeader';
 import ShopifyFooter from './ShopifyFooter';
 import ProductCard from './ProductCard';
 import AIBrandEngine from './AIBrandEngine';
 import LiveUserCounter from './LiveUserCounter';
 import './HomePage.css';
+import pi1 from './assets/Product Images/1.png';
+import pi2 from './assets/Product Images/2.png';
+import pi3 from './assets/Product Images/3.png';
+// Bestseller product images
+const BS_IMG_1 = 'https://cavinkart.com/cdn/shop/files/fairever-beauty-lift-saffron-milk-rosehip-oil-face-cream-50g-3521142_500x500.png?v=1763021857';
+const BS_IMG_2 = 'https://cavinkart.com/cdn/shop/files/raaga-professional-de-tan-pack-tan-removal-cream-with-kojic-and-milk-500-gm-7374242_500x500.png?v=1763022091';
+const BS_IMG_3 = 'https://cavinkart.com/cdn/shop/files/nyle-naturals-damage-repair-shampoo-800ml-for-stronger-healthier-hair-with-shikakai-amla-and-hibiscus-paraben-free-herbal-shampoo-for-men-women-8732261_1197x1197.jpg?v=1763021902';
+const BS_IMG_4 = 'https://cavinkart.com/cdn/shop/files/spinz-face-powder-spinz-bb-pro-brightening-face-cream-spinz-exotic-perfumed-deo-for-women-bulgarian-rose-fragrance-7049652_1078x1078.png?v=1766007009';
+const BS_IMG_5 = 'https://cavinkart.com/cdn/shop/products/karthika-hair-fall-shield-shampoo-650-ml-with-the-goodness-of-shikakai-hibiscus-for-men-women-4484026_994x994.jpg?v=1763021903';
+const MEERA_IMG = 'https://cavinkart.com/cdn/shop/files/meera-strong-and-healthy-shampoo-650ml-with-sunflower-radan-7259302_500x500.png?v=1763021902';
+const CHIK_IMG  = 'https://cavinkart.com/cdn/shop/files/chik-protein-solution-hairfall-prevent-shampoo-650-ml-3947821_500x500.jpg?v=1763021903';
 
-
-// Import bestseller images
-const BS_IMG_1 = 'https://thebaeshop.com/cdn/shop/files/2_6fa6df98-2639-4302-9159-e1569bbbe8bb.jpg?v=1771311357&width=1080';
-const BS_IMG_2 = 'https://thebaeshop.com/cdn/shop/files/12_df44ffa7-3472-4888-9f08-0566995b2cda.jpg?v=1771311291&width=2000';
-const BS_IMG_3 = 'https://thebaeshop.com/cdn/shop/files/8_8dd5c96c-2111-4a49-99cc-3de41e1ca1ff.jpg?v=1771311343&width=2000';
-const BS_IMG_4 = 'https://thebaeshop.com/cdn/shop/files/6_a60ca2c3-e0e9-4282-8350-c20bc6472dda.jpg?v=1770214028&width=1080';
-
-// Import product images for social proof
-import productImage1 from './assets/product/SPP_8830.jpg';
-import productImage2 from './assets/product/SPP_8834.jpg';
-import productImage3 from './assets/product/SPP_8844.jpg';
-
-// Import Instagram images
-import instaDesktop from './assets/insta.png';
-import instaPhone from './assets/insta_phone.png';
-
-// Import logo
-import logo from './assets/logo.png';
-
-
-// Local video URLs - will be populated when videos are added to src/assets/vdo/
-const LOCAL_VIDEO_URLS = [];
-
-// Fallback to external URLs if local videos are not available
 const SHOPIFY_VIDEO_URLS = [
-  'https://static.zegsuapps.com/user-data/instagenie/fcf16e7602400ff148106a4823cf11c8f36a49f6.mp4',
-  'https://static.zegsuapps.com/user-data/instagenie/ea61e7f228905000ee6a0e1eec4ae4228b334414.mp4',
-  'https://static.zegsuapps.com/user-data/instagenie/b0eed95e675c0254b1c4e1a5835bb9efae1de7b3.mp4',
-  'https://static.zegsuapps.com/user-data/instagenie/18d42e8ff21548957ccc45ca4dc1711c4889e8ac.mp4',
-  'https://static.zegsuapps.com/user-data/instagenie/bf98230ee1c9d00319d98ef61cde61afc2efbd63.mp4',
-  'https://static.zegsuapps.com/user-data/instagenie/02690b7ae3a0bcf8590cae2454cbd864ae32a23a.mp4',
-];
-
-const QUINN_VIDEO_URLS = [
-  'https://thebaeshop.com/cdn/shop/files/quinn_p44p295rhjgiqlp2zcac31qd.mp4#t=0.1',
-  'https://thebaeshop.com/cdn/shop/files/quinn_w4tf5t0mybktkhvea5jsyy9p.mp4#t=0.1',
-  'https://thebaeshop.com/cdn/shop/files/quinn_t04pe80npmig6c4c7yqaxkuh.mp4#t=0.1',
+  'https://www.pexels.com/download/video/4251604/',
+  'https://www.pexels.com/download/video/9015595/',
+  'https://www.pexels.com/download/video/6584528/',
+  'https://www.pexels.com/download/video/6648853/',
+  'https://www.pexels.com/download/video/5095328/',
 ];
 
 const BRAND_NAME = "wordofmouth";
@@ -53,80 +32,52 @@ const bestSellerProducts = [
   {
     id: 1,
     image: BS_IMG_1,
-    title: 'BAE BAG CARAMEL CRUSH',
-    currentPrice: 1699,
-    originalPrice: 1999,
-    rating: 4.6,
-    reviewCount: 312,
-    isBestseller: true,
+    title: 'Fairever Beauty Lift Saffron, Milk & Rosehip Oil Face Cream 50g',
+    currentPrice: 115,
+    originalPrice: 122,
+    inStock: true,
+    rating: 4.2,
+    reviewCount: 3847,
   },
   {
     id: 2,
     image: BS_IMG_2,
-    title: 'BAE BAG VINTAGE GOLD',
-    currentPrice: 1799,
-    originalPrice: 2199,
-    rating: 4.6,
-    reviewCount: 278,
-    isBestseller: true,
+    title: 'Raaga Professional De-Tan Pack | Tan Removal Cream with Kojic & Milk 500g',
+    currentPrice: 1345,
+    originalPrice: 1495,
+    inStock: true,
+    rating: 4.5,
+    reviewCount: 1203,
   },
   {
     id: 3,
     image: BS_IMG_3,
-    title: 'BAE BAG CHERRY ROUGE',
-    currentPrice: 1799,
-    originalPrice: 2199,
-    rating: 4.6,
-    reviewCount: 245,
-    isBestseller: true,
+    title: 'Nyle Naturals Damage Repair Shampoo 800ml | Shikakai, Amla & Hibiscus',
+    currentPrice: 449,
+    originalPrice: 749,
+    inStock: true,
+    rating: 4.3,
+    reviewCount: 2156,
   },
   {
     id: 4,
     image: BS_IMG_4,
-    title: 'BAE BAG GOLD RUSH',
-    currentPrice: 1799,
-    originalPrice: 2199,
-    rating: 4.6,
-    reviewCount: 198,
-    isBestseller: true,
+    title: 'Spinz BB Pro Brightening Face Cream | Exotic Perfumed Deo Bulgarian Rose',
+    currentPrice: 799,
+    originalPrice: 1070,
+    inStock: true,
+    rating: 4.1,
+    reviewCount: 892,
   },
   {
     id: 5,
-    image: BS_IMG_1,
-    title: 'BAE BAG CARAMEL CRUSH',
-    currentPrice: 1699,
-    originalPrice: 1999,
-    rating: 4.6,
-    reviewCount: 312,
-    isBestseller: true,
-  },
-  {
-    id: 6,
-    image: BS_IMG_2,
-    title: 'BAE BAG VINTAGE GOLD',
-    currentPrice: 1799,
-    originalPrice: 2199,
-    rating: 4.6,
-    reviewCount: 278,
-    isBestseller: true,
-  },
-  {
-    id: 7,
-    image: BS_IMG_3,
-    title: 'Daily Strobe Cream with SPF 50+ | Rose Gold',
-    currentPrice: 399,
-    originalPrice: 499,
-    rating: 4.57,
-    reviewCount: 134,
-  },
-  {
-    id: 8,
-    image: BS_IMG_4,
-    title: 'Prep & Glow Combo | Primer + Strobe Cream (Pink)',
+    image: BS_IMG_5,
+    title: 'Karthika Hair Fall Shield Shampoo 650ml | Shikakai & Hibiscus',
     currentPrice: 499,
-    originalPrice: 748,
-    rating: 4.71,
-    reviewCount: 59,
+    originalPrice: 999,
+    inStock: true,
+    rating: 4.4,
+    reviewCount: 1678,
   },
 ];
 
@@ -137,63 +88,52 @@ const getRandomSoldThisWeek = (min = 180, max = 420) =>
 const videoProducts = [
   {
     id: 1,
-    video: LOCAL_VIDEO_URLS[0] || SHOPIFY_VIDEO_URLS[0],
+    video: SHOPIFY_VIDEO_URLS[0],
     image: BS_IMG_1,
     views: '4.0K',
-    title: 'BAE BAG CARAMEL CRUSH',
-    currentPrice: 1699,
-    originalPrice: 1999,
+    title: 'Fairever Beauty Lift Face Cream',
+    currentPrice: 115,
+    originalPrice: 122,
     soldThisWeek: getRandomSoldThisWeek(),
   },
   {
     id: 2,
-    video: LOCAL_VIDEO_URLS[1] || SHOPIFY_VIDEO_URLS[1],
+    video: SHOPIFY_VIDEO_URLS[1],
     image: BS_IMG_2,
     views: '4.2K',
-    title: 'BAE BAG VINTAGE GOLD',
-    currentPrice: 1799,
-    originalPrice: 2199,
+    title: 'Raaga De-Tan Pack 500g',
+    currentPrice: 1345,
+    originalPrice: 1495,
     soldThisWeek: getRandomSoldThisWeek(),
   },
   {
     id: 3,
-    video: LOCAL_VIDEO_URLS[2] || SHOPIFY_VIDEO_URLS[2],
+    video: SHOPIFY_VIDEO_URLS[2],
     image: BS_IMG_3,
     views: '3.8K',
-    title: 'BAE BAG CHERRY ROUGE',
-    currentPrice: 1799,
-    originalPrice: 2199,
+    title: 'Nyle Damage Repair Shampoo 800ml',
+    currentPrice: 449,
+    originalPrice: 749,
     soldThisWeek: getRandomSoldThisWeek(),
   },
   {
     id: 4,
-    video: LOCAL_VIDEO_URLS[3] || SHOPIFY_VIDEO_URLS[3],
+    video: SHOPIFY_VIDEO_URLS[3],
     image: BS_IMG_4,
     views: '3.1K',
-    title: 'BAE BAG GOLD RUSH',
-    currentPrice: 1799,
-    originalPrice: 2199,
+    title: 'Spinz BB Pro Brightening Cream',
+    currentPrice: 799,
+    originalPrice: 1070,
     soldThisWeek: getRandomSoldThisWeek(),
   },
   {
     id: 5,
-    video: LOCAL_VIDEO_URLS[4] || SHOPIFY_VIDEO_URLS[4],
-    image: BS_IMG_1,
-    views: '2.3K',
-    title: 'BAE BAG CARAMEL CRUSH',
-    currentPrice: 1699,
-    originalPrice: 1999,
-    soldThisWeek: getRandomSoldThisWeek(),
-  },
-  {
-    id: 6,
-    video: LOCAL_VIDEO_URLS[5] || SHOPIFY_VIDEO_URLS[5],
-    image: BS_IMG_2,
-    views: '2.0K',
-    title: 'BAE BAG VINTAGE GOLD',
-    currentPrice: 1799,
-    originalPrice: 2199,
-    discount: 50,
+    video: SHOPIFY_VIDEO_URLS[4],
+    image: BS_IMG_5,
+    views: '2.9K',
+    title: 'Karthika Hair Fall Shield Shampoo',
+    currentPrice: 499,
+    originalPrice: 999,
     soldThisWeek: getRandomSoldThisWeek(),
   },
 ];
@@ -230,21 +170,21 @@ const HomePage = ({ onProductClick }) => {
       name: 'Pooja',
       action: 'bought this dress',
       time: 'Just now',
-      image: productImage1
+      image: pi1
     },
     {
       type: 'review',
       name: 'Neha',
       action: 'gave the review',
       time: '30 min ago',
-      image: productImage2
+      image: pi2
     },
     {
       type: 'viewed',
       name: 'Priya',
       action: 'recently viewed',
       time: '1 hour ago',
-      image: productImage3
+      image: pi3
     }
   ];
 
@@ -277,18 +217,17 @@ const HomePage = ({ onProductClick }) => {
   
   // Instagram post URLs
   const instagramPosts = [
-    'https://www.instagram.com/p/DWBwnwzCGz-/',
-    'https://www.instagram.com/p/DV8evfAk8WK/',
-    'https://www.instagram.com/p/DVi06_pGDZ4/',
-    'https://www.instagram.com/p/DVYgmN_mOky/',
-    'https://www.instagram.com/p/DVONcAQkxKq/',
-    'https://www.instagram.com/p/DVGjQReEtZu/',
-    'https://www.instagram.com/p/DUuX_tMk8YK/',
-    'https://www.instagram.com/p/DUDiVtxk1et/',
-    'https://www.instagram.com/p/DTfbzsAE2kt/',
-    'https://www.instagram.com/p/DTS0wspE5sx/',
-    'https://www.instagram.com/p/DSC2COMkzyQ/',
-    'https://www.instagram.com/p/DU-tK8PkxVI/',
+    'https://www.instagram.com/p/DSpyocPCd1T/',
+    'https://www.instagram.com/p/DJl5YM3vaqO/',
+    'https://www.instagram.com/p/DJlSRciS967/',
+    'https://www.instagram.com/p/DJjQY1fyQUh/',
+    'https://www.instagram.com/p/DJeUcZwogHb/',
+    'https://www.instagram.com/p/Cxxk1kRBfQA/',
+    'https://www.instagram.com/p/DJRPfIqPUOr/',
+    'https://www.instagram.com/p/CxvAzdQijln/',
+    'https://www.instagram.com/p/Cwm3r68PoH0/',
+    'https://www.instagram.com/p/Cx0Icu9sNR3/',
+    'https://www.instagram.com/p/DJjZr_ysWWS/',
   ];
 
   // Load Instagram embed script
@@ -443,24 +382,6 @@ const HomePage = ({ onProductClick }) => {
     }
   }, [selectedVideo]);
 
-  const goToSlide = (index) => {
-    setCurrentSlide(index);
-    setIsAutoPlaying(false);
-    // Resume auto-play after 10 seconds
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  };
-
-  const goToPrevious = () => {
-    setCurrentSlide((prev) => (prev - 1 + maxSlides) % maxSlides);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  };
-
-  const goToNext = () => {
-    setCurrentSlide((prev) => (prev + 1) % maxSlides);
-    setIsAutoPlaying(false);
-    setTimeout(() => setIsAutoPlaying(true), 10000);
-  };
 
   return (
     <div className="min-h-screen flex flex-col bg-white">
@@ -514,11 +435,12 @@ const HomePage = ({ onProductClick }) => {
             </h2>
           </div>
           <div className="overflow-x-auto -mx-4 px-4 scrollbar-hide">
-            <div className="flex gap-4 md:gap-6 min-w-max">
+            <div className="flex gap-4 md:gap-5 min-w-max pb-2">
               {bestSellerProducts.map((product) => (
                 <div
                   key={product.id}
-                  className="w-[90vw] md:w-[380px] lg:w-[280px] flex-shrink-0 cursor-pointer"
+                  className="flex-shrink-0 cursor-pointer"
+                  style={{ width: '240px' }}
                   onClick={() => onProductClick && onProductClick(product)}
                 >
                   <ProductCard product={product} />
@@ -530,8 +452,121 @@ const HomePage = ({ onProductClick }) => {
       </section>
 
 
-      {/* Video Section */}
-      <section className="w-full py-12 md:py-16 bg-white">
+      {/* Testimonials Section */}
+      <section className="w-full py-16 md:py-24 bg-white overflow-hidden">
+
+        {/* Header */}
+        <div className="text-center mb-12 px-4">
+          <p className="text-gray-400 text-xs font-semibold tracking-[0.25em] uppercase mb-3">Customer Stories</p>
+          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
+            Loved Across Every Brand
+          </h2>
+          <p className="text-gray-400 text-base max-w-xl mx-auto leading-relaxed">
+            From Meera to Raaga — millions trust the CavinKare family of brands every single day.
+          </p>
+        </div>
+
+        {/* Marquee rows */}
+        <style>{`
+          @keyframes marquee-left  { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+          @keyframes marquee-right { from { transform: translateX(-50%) } to { transform: translateX(0) } }
+          .marquee-left  { animation: marquee-left  35s linear infinite; }
+          .marquee-right { animation: marquee-right 35s linear infinite; }
+          .marquee-left:hover, .marquee-right:hover { animation-play-state: paused; }
+        `}</style>
+
+        {(() => {
+          const row1 = [
+            { name: 'Priya Sharma',   location: 'Mumbai',    brand: 'Meera',    brandImg: MEERA_IMG, stars: 5, text: 'Meera shampoo has been my go-to for years. Hair feels so nourished — herbal goodness truly unmatched.' },
+            { name: 'Anjali Reddy',   location: 'Hyderabad', brand: 'Fairever', brandImg: BS_IMG_1,  stars: 5, text: 'Fairever cream is my daily essential. Skin feels visibly brighter and softer. Gentle enough for everyday.' },
+            { name: 'Karthik Nair',   location: 'Chennai',   brand: 'Chik',     brandImg: CHIK_IMG,  stars: 4, text: 'Best value shampoo out there. Clean hair without drying it out.' },
+            { name: 'Meena Pillai',   location: 'Pune',      brand: 'Nyle',     brandImg: BS_IMG_3,  stars: 5, text: 'Nyle Naturals transformed my damaged hair. Smells amazing and leaves hair silky smooth every wash.' },
+            { name: 'Rohan Verma',    location: 'Jaipur',    brand: 'Raaga',    brandImg: BS_IMG_2,  stars: 5, text: 'Raaga De-Tan Pack is a game changer. Salon-level results right at home. Worth every rupee.' },
+          ];
+          const row2 = [
+            { name: 'Sneha Iyer',     location: 'Bengaluru', brand: 'Spinz',    brandImg: BS_IMG_4,  stars: 5, text: "Stays fresh all day even in Bangalore's heat. The fragrance is subtle and long-lasting." },
+            { name: 'Divya Menon',    location: 'Kochi',     brand: 'Karthika', brandImg: BS_IMG_5,  stars: 5, text: "Transformed my hair in two months. Less hairfall, more shine. My grandmother's pick — and now mine too." },
+            { name: 'Rahul Gupta',    location: 'Delhi',     brand: 'Raaga',    brandImg: BS_IMG_2,  stars: 4, text: 'Visible tan removal in a single use. I\'m genuinely impressed by the results.' },
+            { name: 'Lakshmi Iyer',   location: 'Chennai',   brand: 'Meera',    brandImg: MEERA_IMG, stars: 5, text: 'Been using Meera hair oil for 10 years. Nothing else comes close to that herbal nourishment.' },
+            { name: 'Pooja Tiwari',   location: 'Mumbai',    brand: 'Fairever', brandImg: BS_IMG_1,  stars: 5, text: 'My skin looks noticeably brighter. The saffron blend is so gentle — zero irritation whatsoever.' },
+          ];
+
+          const Card = ({ t }) => (
+            <div
+              className="flex-shrink-0 flex flex-col bg-white rounded-2xl mx-3"
+              style={{ width: '280px', border: '1px solid #efefef', boxShadow: '0 2px 16px rgba(0,0,0,0.05)' }}
+            >
+              <div className="flex items-center gap-2.5 px-4 pt-4 pb-2">
+                <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 bg-gray-50" style={{ border: '1px solid #f0f0f0' }}>
+                  <img src={t.brandImg || BS_IMG_1} alt={t.brand} className="w-full h-full object-contain p-0.5"
+                    onError={e => { e.target.onerror=null; e.target.src=BS_IMG_1; }} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-gray-900 font-bold text-xs leading-tight truncate">{t.brand}</p>
+                  <p className="text-gray-400 text-[10px]">CavinKare Brand</p>
+                </div>
+                <span className="shrink-0 flex items-center gap-0.5 text-[10px] font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
+                  <svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#059669" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  Verified
+                </span>
+              </div>
+              <div className="px-4 pb-4 flex flex-col gap-2.5">
+                <div className="flex gap-0.5">
+                  {[1,2,3,4,5].map(s => (
+                    <svg key={s} width="13" height="13" viewBox="0 0 24 24">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                        fill={s <= t.stars ? '#F59E0B' : '#E5E7EB'} />
+                    </svg>
+                  ))}
+                </div>
+                <p className="text-gray-600 text-[12.5px] leading-[1.65]">"{t.text}"</p>
+                <div style={{ height: '1px', background: '#f3f3f3' }} />
+                <div>
+                  <p className="text-gray-900 text-xs font-semibold">{t.name}</p>
+                  <p className="text-gray-400 text-[10px] mt-0.5">{t.location} · Verified Buyer</p>
+                </div>
+              </div>
+            </div>
+          );
+
+          return (
+            <div className="flex flex-col gap-4">
+              {/* Row 1 — scrolls left */}
+              <div className="w-full overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)' }}>
+                <div className="flex marquee-left" style={{ width: 'max-content' }}>
+                  {[...row1, ...row1].map((t, i) => <Card key={i} t={t} />)}
+                </div>
+              </div>
+              {/* Row 2 — scrolls right */}
+              <div className="w-full overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)' }}>
+                <div className="flex marquee-right" style={{ width: 'max-content' }}>
+                  {[...row2, ...row2].map((t, i) => <Card key={i} t={t} />)}
+                </div>
+              </div>
+            </div>
+          );
+        })()}
+
+        {/* Bottom stat strip */}
+        <div className="max-w-4xl mx-auto px-4 mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center" style={{ borderTop: '1px solid #f0f0f0', paddingTop: '3rem' }}>
+          {[
+            { value: '25+', label: 'Brands Acquired' },
+            { value: '500M+', label: 'Products Sold Yearly' },
+            { value: '4.8★', label: 'Average Rating' },
+            { value: '40+', label: 'Years of Trust' },
+          ].map((stat, i) => (
+            <div key={i} className="flex flex-col gap-1">
+              <span className="text-3xl md:text-4xl font-bold text-gray-900">{stat.value}</span>
+              <span className="text-gray-400 text-sm">{stat.label}</span>
+            </div>
+          ))}
+        </div>
+
+      </section>
+
+
+      {/* Video Section - moved to product page */}
+      <section className="w-full py-12 md:py-16 bg-white hidden">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
           <div className="text-center mb-8 md:mb-12">
             <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#8B4513] mb-3 tracking-wide">
@@ -574,36 +609,6 @@ const HomePage = ({ onProductClick }) => {
                 </button>
               ))}
 
-              {/* 2 extra pills from AS SEEN ON videos */}
-              {QUINN_VIDEO_URLS.slice(0, 2).map((url, index) => (
-                <button
-                  key={`quinn-pill-${index}`}
-                  onClick={() => setSelectedVideo({ id: `quinn-${index}`, video: url, title: 'Shop The Look', views: '' })}
-                  className="flex flex-col items-center gap-1.5 focus:outline-none"
-                >
-                  <div
-                    className="rounded-[999px] p-[2px]"
-                    style={{ background: 'linear-gradient(180deg,#c9a8d4,#e0cfe8,#ede7f3)' }}
-                  >
-                    <div className="rounded-[999px] overflow-hidden bg-gray-100"
-                      style={{ width: '140px', height: '210px' }}>
-                      <video
-                        src={url}
-                        className="w-full h-full object-cover"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="none"
-                        style={{ pointerEvents: 'none' }}
-                      />
-                    </div>
-                  </div>
-                  <span className="text-xs text-gray-700 text-center max-w-[140px] leading-tight">
-                    Shop The Look
-                  </span>
-                </button>
-              ))}
             </div>
           </div>
 
@@ -765,7 +770,7 @@ const HomePage = ({ onProductClick }) => {
                           e.stopPropagation();
                           console.log('Add to cart:', product);
                         }}
-                        className="w-full text-white py-2.5 px-4 rounded-lg font-semibold text-xs uppercase tracking-wide transition-all duration-300 hover:shadow-md mt-3" style={{ backgroundColor: '#5c3452', marginTop: '12px' }}
+                        className="w-full text-white py-2.5 px-4 rounded-lg font-semibold text-xs uppercase tracking-wide transition-all duration-300 hover:shadow-md mt-3" style={{ backgroundColor: '#264171', marginTop: '12px' }}
                       >
                         ADD TO CART
                       </button>
@@ -855,7 +860,7 @@ const HomePage = ({ onProductClick }) => {
                       </div>
                       <button
                         onClick={(e) => e.stopPropagation()}
-                        className="w-full text-white py-2.5 px-4 rounded-lg font-semibold text-xs uppercase tracking-wide transition-all duration-300 hover:shadow-md mt-3" style={{ backgroundColor: '#5c3452' }}
+                        className="w-full text-white py-2.5 px-4 rounded-lg font-semibold text-xs uppercase tracking-wide transition-all duration-300 hover:shadow-md mt-3" style={{ backgroundColor: '#264171' }}
                       >
                         ADD TO CART
                       </button>
@@ -869,32 +874,6 @@ const HomePage = ({ onProductClick }) => {
       </section>
 
 
-      {/* Quinn-Style Video Section */}
-      <section className="w-full py-10 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="font-serif text-3xl md:text-4xl font-normal text-[#8B4513] mb-3 tracking-wide">
-              AS SEEN ON
-            </h2>
-          </div>
-          <div className="flex justify-center gap-4 md:gap-6 flex-wrap">
-            {QUINN_VIDEO_URLS.map((url, index) => (
-              <div
-                key={index}
-                className="flex-shrink-0 rounded-2xl overflow-hidden"
-                style={{ width: '220px', height: '390px', boxShadow: '0 4px 20px rgba(0,0,0,0.12)' }}
-              >
-                <QuinnVideo
-                  src={url}
-                  borderRadius="16px"
-                  onTapLeft={index > 0 ? () => {} : undefined}
-                  onTapRight={index < QUINN_VIDEO_URLS.length - 1 ? () => {} : undefined}
-                />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Instagram Profile Section */}
       <section className="w-full py-6 md:py-10 bg-white">
@@ -907,7 +886,7 @@ const HomePage = ({ onProductClick }) => {
             <div className="flex justify-center">
               <div className="rounded-full p-[3px]" style={{ background: 'linear-gradient(45deg, #f9a825, #f06292, #ab47bc)' }}>
                 <div className="w-32 h-32 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <span className="text-[#4a1942] font-bold text-xl tracking-tight text-center leading-tight px-2">The<br/>Bae Shop</span>
+                  <img src="https://cavinkart.com/cdn/shop/files/CavinKart_Official_Online_Store_of_CavinKare_Products_805x220.webp?v=1772102542" alt="CavinKart" className="w-full h-full object-contain p-2" />
                 </div>
               </div>
             </div>
@@ -915,51 +894,56 @@ const HomePage = ({ onProductClick }) => {
             {/* CENTER: username + stats */}
             <div className="flex flex-col items-center gap-3 text-center">
               <div className="flex items-center gap-3">
-                <a href="https://www.instagram.com/thebaeshop.xoxo/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/cavinkart/" target="_blank" rel="noopener noreferrer"
                   className="text-gray-900 font-semibold text-xl hover:opacity-70 transition-opacity">
-                  thebaeshop.xoxo
+                  cavinkart
                 </a>
                 <span className="text-gray-400 text-base tracking-widest">···</span>
               </div>
               <div className="flex gap-8">
                 <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">98</p>
-                  <p className="text-gray-500 text-sm">posts</p>
+                  <p className="font-bold text-gray-900 text-base">271</p>
+                  <p className="text-gray-400 text-sm">posts</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">1,412</p>
-                  <p className="text-gray-500 text-sm">followers</p>
+                  <p className="font-bold text-gray-900 text-base">2,456</p>
+                  <p className="text-gray-400 text-sm">followers</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">2</p>
-                  <p className="text-gray-500 text-sm">following</p>
+                  <p className="font-bold text-gray-900 text-base">66</p>
+                  <p className="text-gray-400 text-sm">following</p>
                 </div>
               </div>
               <div className="flex gap-2 pt-1">
-                <a href="https://www.instagram.com/thebaeshop.xoxo/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/cavinkart/" target="_blank" rel="noopener noreferrer"
                   className="px-8 py-1.5 rounded-lg text-sm font-semibold text-white" style={{ backgroundColor: '#4f6ef7' }}>
                   Follow
                 </a>
-                <a href="https://www.instagram.com/thebaeshop.xoxo/" target="_blank" rel="noopener noreferrer"
-                  className="px-6 py-1.5 rounded-lg text-sm font-semibold text-gray-800 bg-gray-100 hover:bg-gray-200 transition-colors">
+                <a href="https://www.instagram.com/cavinkart/" target="_blank" rel="noopener noreferrer"
+                  className="px-6 py-1.5 rounded-lg text-sm font-semibold text-white hover:opacity-80 transition-opacity" style={{ backgroundColor: '#363636' }}>
                   Message
                 </a>
-                <button className="w-9 h-8 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors flex items-center justify-center">
-                  <svg className="w-4 h-4 text-gray-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+                <button className="w-9 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#363636' }}>
+                  <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-3h-1.26c-.19-.73-.49-1.42-.87-2.05l.89-.89a1 1 0 0 0 0-1.41l-2.41-2.41a1 1 0 0 0-1.41 0l-.89.89A8.007 8.007 0 0 0 16 2.26V1a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v1.26c-.73.19-1.42.49-2.05.87l-.89-.89a1 1 0 0 0-1.41 0L5.24 4.65a1 1 0 0 0 0 1.41l.89.89A8.007 8.007 0 0 0 5.26 9H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1.26c.19.73.49 1.42.87 2.05l-.89.89a1 1 0 0 0 0 1.41l2.41 2.41a1 1 0 0 0 1.41 0l.89-.89c.63.38 1.32.68 2.05.87V22a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1.26c.73-.19 1.42-.49 2.05-.87l.89.89a1 1 0 0 0 1.41 0l2.41-2.41a1 1 0 0 0 0-1.41l-.89-.89c.38-.63.68-1.32.87-2.05H22a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"/>
                   </svg>
                 </button>
               </div>
             </div>
 
             {/* RIGHT: bio */}
-            <div className="space-y-0.5">
-              <p className="text-gray-900 text-sm font-semibold">The Bae Shop</p>
-              <p className="text-gray-500 text-sm">Shopping &amp; retail</p>
-              <p className="text-gray-800 text-sm">Personalised gifts that feel special 💝</p>
-              <p className="text-gray-800 text-sm">Lifestyle &amp; travel organisers</p>
-              <p className="text-gray-800 text-sm">Handcrafted | Vegan Leather | Premium Materials</p>
-              <p className="text-gray-800 text-sm">👇Shop now</p>
+            <div className="space-y-1">
+              <p className="text-gray-900 text-sm font-semibold">CavinKart</p>
+              <p className="text-gray-400 text-sm">E-commerce website</p>
+              <p className="text-gray-800 text-sm">Never run out of your essentials!</p>
+              <p className="text-gray-800 text-sm">Shop all your favorite <span className="text-[#4f6ef7]">@cavinkareindia</span> brands now from Cavinkart.</p>
+              <a href="https://bit.ly/cavinkart" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-1 text-[#4f6ef7] text-sm pt-0.5">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 0 0-5.656 0l-4 4a4 4 0 1 0 5.656 5.656l1.102-1.101m-.758-4.899a4 4 0 0 0 5.656 0l4-4a4 4 0 0 0-5.656-5.656l-1.1 1.1"/>
+                </svg>
+                bit.ly/cavinkart
+              </a>
             </div>
           </div>
 
@@ -971,50 +955,55 @@ const HomePage = ({ onProductClick }) => {
               <div className="flex-shrink-0">
                 <div className="rounded-full p-[3px]" style={{ background: 'linear-gradient(45deg, #f9a825, #f06292, #ab47bc)' }}>
                   <div className="w-20 h-20 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                    <span className="text-[#4a1942] font-bold text-sm tracking-tight text-center leading-tight px-1">The<br/>Bae Shop</span>
+                    <img src="https://cavinkart.com/cdn/shop/files/CavinKart_Official_Online_Store_of_CavinKare_Products_805x220.webp?v=1772102542" alt="CavinKart" className="w-full h-full object-contain p-1.5" />
                   </div>
                 </div>
               </div>
               {/* Stats row */}
               <div className="flex flex-1 justify-around">
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">98</p>
-                  <p className="text-gray-500 text-xs">posts</p>
+                  <p className="font-semibold text-gray-900 text-base">271</p>
+                  <p className="text-gray-400 text-xs">posts</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">1,412</p>
-                  <p className="text-gray-500 text-xs">followers</p>
+                  <p className="font-semibold text-gray-900 text-base">2,456</p>
+                  <p className="text-gray-400 text-xs">followers</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">2</p>
-                  <p className="text-gray-500 text-xs">following</p>
+                  <p className="font-semibold text-gray-900 text-base">66</p>
+                  <p className="text-gray-400 text-xs">following</p>
                 </div>
               </div>
             </div>
 
             {/* Bio block */}
             <div className="space-y-0.5">
-              <p className="text-gray-900 text-sm font-semibold">The Bae Shop</p>
-              <p className="text-gray-500 text-xs">Shopping &amp; retail</p>
-              <p className="text-gray-800 text-sm">Personalised gifts that feel special 💝</p>
-              <p className="text-gray-800 text-sm">Lifestyle &amp; travel organisers</p>
-              <p className="text-gray-800 text-sm">Handcrafted | Vegan Leather | Premium Materials</p>
-              <p className="text-gray-800 text-sm">👇Shop now</p>
+              <p className="text-gray-900 text-sm font-semibold">CavinKart</p>
+              <p className="text-gray-400 text-xs">E-commerce website</p>
+              <p className="text-gray-800 text-sm">Never run out of your essentials!</p>
+              <p className="text-gray-800 text-sm">Shop all your favorite <span className="text-[#4f6ef7]">@cavinkareindia</span> brands now from Cavinkart.</p>
+              <a href="https://bit.ly/cavinkart" target="_blank" rel="noopener noreferrer"
+                className="flex items-center gap-1 text-[#4f6ef7] text-sm pt-0.5">
+                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 0 0-5.656 0l-4 4a4 4 0 1 0 5.656 5.656l1.102-1.101m-.758-4.899a4 4 0 0 0 5.656 0l4-4a4 4 0 0 0-5.656-5.656l-1.1 1.1"/>
+                </svg>
+                bit.ly/cavinkart
+              </a>
             </div>
 
             {/* Buttons — full width like Instagram */}
             <div className="flex gap-2">
-              <a href="https://www.instagram.com/thebaeshop.xoxo/" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.instagram.com/cavinkart/" target="_blank" rel="noopener noreferrer"
                 className="flex-1 py-1.5 rounded-lg text-sm font-semibold text-white text-center" style={{ backgroundColor: '#4f6ef7' }}>
                 Follow
               </a>
-              <a href="https://www.instagram.com/thebaeshop.xoxo/" target="_blank" rel="noopener noreferrer"
-                className="flex-1 py-1.5 rounded-lg text-sm font-semibold text-gray-800 bg-gray-100 text-center">
+              <a href="https://www.instagram.com/cavinkart/" target="_blank" rel="noopener noreferrer"
+                className="flex-1 py-1.5 rounded-lg text-sm font-semibold text-white text-center" style={{ backgroundColor: '#363636' }}>
                 Message
               </a>
-              <button className="w-9 h-8 rounded-lg bg-gray-100 flex items-center justify-center flex-shrink-0">
-                <svg className="w-4 h-4 text-gray-700" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-6-3v3m0 0v3m0-3h3m-3 0H6"/>
+              <button className="w-9 h-8 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#363636' }}>
+                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M15 12c0 1.654-1.346 3-3 3s-3-1.346-3-3 1.346-3 3-3 3 1.346 3 3zm9-3h-1.26c-.19-.73-.49-1.42-.87-2.05l.89-.89a1 1 0 0 0 0-1.41l-2.41-2.41a1 1 0 0 0-1.41 0l-.89.89A8.007 8.007 0 0 0 16 2.26V1a1 1 0 0 0-1-1h-2a1 1 0 0 0-1 1v1.26c-.73.19-1.42.49-2.05.87l-.89-.89a1 1 0 0 0-1.41 0L5.24 4.65a1 1 0 0 0 0 1.41l.89.89A8.007 8.007 0 0 0 5.26 9H4a1 1 0 0 0-1 1v2a1 1 0 0 0 1 1h1.26c.19.73.49 1.42.87 2.05l-.89.89a1 1 0 0 0 0 1.41l2.41 2.41a1 1 0 0 0 1.41 0l.89-.89c.63.38 1.32.68 2.05.87V22a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-1.26c.73-.19 1.42-.49 2.05-.87l.89.89a1 1 0 0 0 1.41 0l2.41-2.41a1 1 0 0 0 0-1.41l-.89-.89c.38-.63.68-1.32.87-2.05H22a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1z"/>
                 </svg>
               </button>
             </div>

@@ -8,8 +8,8 @@ function ShopifyApp() {
   const [currentPage, setCurrentPage] = useState('home');
   const [selectedProduct, setSelectedProduct] = useState(null);
 
-  const handleProductClick = (product) => {
-    setSelectedProduct(product || null);
+  const handleProductClick = () => {
+    setSelectedProduct(null);
     setCurrentPage('product');
   };
 
