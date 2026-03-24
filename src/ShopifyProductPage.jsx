@@ -267,6 +267,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
   const [selectedVideo, setSelectedVideo] = useState(null);
   const [currentReviewIndex, setCurrentReviewIndex] = useState(0);
   const [showVideoCard, setShowVideoCard] = useState(true);
+  const [wildVideoIdx, setWildVideoIdx] = useState(null);
   const dragCardRef = React.useRef(null);
   const dragOffset = React.useRef({ x: 0, y: 0 });
   const dragPos = React.useRef({ x: null, y: null });
@@ -944,142 +945,69 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
         <img src={product2} alt="" className="w-full block" />
       </div>
 
-      {/* Videos Section */}
+      {/* See It In The Wild */}
       {(() => {
-        const PDP_VIDEOS = [
+        const WILD_VIDEOS = [
           'https://www.pexels.com/download/video/4251604/',
           'https://www.pexels.com/download/video/9015595/',
           'https://www.pexels.com/download/video/6584528/',
           'https://www.pexels.com/download/video/6648853/',
           'https://www.pexels.com/download/video/5095328/',
         ];
-
-        const THUMB_LABELS = ['Fairever', 'Raaga', 'Nyle', 'Spinz', 'Karthika'];
-
-        const VideoSection = () => {
-          const [activeVideo, setActiveVideo] = React.useState(null);
-          const touchStartX = React.useRef(null);
-
-          React.useEffect(() => {
-            const onKey = (e) => {
-              if (activeVideo === null) return;
-              if (e.key === 'Escape') setActiveVideo(null);
-              if (e.key === 'ArrowRight') setActiveVideo(i => (i + 1) % PDP_VIDEOS.length);
-              if (e.key === 'ArrowLeft') setActiveVideo(i => (i - 1 + PDP_VIDEOS.length) % PDP_VIDEOS.length);
-            };
-            window.addEventListener('keydown', onKey);
-            return () => window.removeEventListener('keydown', onKey);
-          }, [activeVideo]);
-
-          return (
-            <>
-              <div className="w-full py-12" style={{ background: '#264171' }}>
-                <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-
-                  {/* Header */}
-                  <div className="flex items-end justify-between mb-8">
-                    <div>
-                      <p className="text-xs font-semibold tracking-[0.25em] mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>REAL PEOPLE · REAL PRODUCTS</p>
-                      <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">See It In The Wild</h2>
-                    </div>
-                    <span className="hidden md:flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full" style={{ color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.15)' }}>
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                      @cavinkart
-                    </span>
+        const WILD_LABELS = ['Fairever', 'Raaga', 'Nyle', 'Spinz', 'Karthika'];
+        return (
+          <>
+            <div className="w-full py-12" style={{ background: '#264171' }}>
+              <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
+                <div className="flex items-end justify-between mb-8">
+                  <div>
+                    <p className="text-xs font-semibold tracking-[0.25em] mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>REAL PEOPLE · REAL PRODUCTS</p>
+                    <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">See It In The Wild</h2>
                   </div>
-
-                  {/* Video cards — actual autoplay videos */}
-                  <div className="overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
-                    <div className="flex gap-4 min-w-max">
-                      {PDP_VIDEOS.map((url, idx) => (
-                        <div key={idx} className="flex flex-col items-center gap-2">
-                          {/* Card */}
-                          <div
-                            className="relative overflow-hidden"
-                            style={{ width: '130px', height: '220px', borderRadius: '999px', border: '2px solid rgba(255,255,255,0.2)' }}
-                          >
-                            <video
-                              src={url}
-                              className="w-full h-full object-cover"
-                              autoPlay
-                              muted
-                              playsInline
-                              onEnded={e => { e.target.currentTime = 0; e.target.play().catch(() => {}); }}
-                            />
-                            {/* Gradient overlay */}
-                            <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.45) 0%, transparent 55%)' }} />
-                          </div>
-                          <span className="text-[11px] font-medium text-white/70">{THUMB_LABELS[idx]}</span>
+                  <span className="hidden md:flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full" style={{ color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.15)' }}>
+                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                    @cavinkart
+                  </span>
+                </div>
+                <div className="overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
+                  <div className="flex gap-4 min-w-max">
+                    {WILD_VIDEOS.map((url, idx) => (
+                      <button key={idx} className="flex flex-col items-center gap-2 focus:outline-none" onClick={() => setWildVideoIdx(idx)}>
+                        <div className="relative overflow-hidden" style={{ width: '130px', height: '220px', borderRadius: '999px', border: '2px solid rgba(255,255,255,0.2)' }}>
+                          <video src={url} className="w-full h-full object-cover" autoPlay muted playsInline loop />
+                          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 55%)' }} />
                         </div>
-                      ))}
-                    </div>
+                        <span className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.7)' }}>{WILD_LABELS[idx]}</span>
+                      </button>
+                    ))}
                   </div>
                 </div>
               </div>
+            </div>
 
-              {/* Full-screen video modal — video only loads when opened */}
-              {activeVideo !== null && (
-                <div
-                  className="fixed inset-0 z-[999] flex items-center justify-center"
-                  style={{ background: 'rgba(0,0,0,0.93)' }}
-                  onClick={() => setActiveVideo(null)}
-                >
-                  <div
-                    className="relative bg-black rounded-2xl overflow-hidden"
-                    style={{ width: 'min(380px, 92vw)', height: 'min(660px, 88vh)' }}
-                    onClick={e => e.stopPropagation()}
-                    onTouchStart={e => { touchStartX.current = e.touches[0].clientX; }}
-                    onTouchEnd={e => {
-                      if (touchStartX.current === null) return;
-                      const diff = touchStartX.current - e.changedTouches[0].clientX;
-                      if (Math.abs(diff) > 50) setActiveVideo(i => diff > 0 ? (i + 1) % PDP_VIDEOS.length : (i - 1 + PDP_VIDEOS.length) % PDP_VIDEOS.length);
-                      touchStartX.current = null;
-                    }}
-                  >
-                    <video
-                      key={activeVideo}
-                      src={PDP_VIDEOS[activeVideo]}
-                      className="w-full h-full object-cover"
-                      autoPlay muted playsInline controls
-                      style={{ background: '#000' }}
-                    />
-
-                    {/* Close */}
-                    <button
-                      className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center z-10"
-                      style={{ background: 'rgba(0,0,0,0.6)', backdropFilter: 'blur(8px)' }}
-                      onClick={() => setActiveVideo(null)}
-                    >
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-                    </button>
-
-                    {/* Prev / Next */}
-                    <button className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10"
-                      style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(6px)' }}
-                      onClick={() => setActiveVideo(i => (i - 1 + PDP_VIDEOS.length) % PDP_VIDEOS.length)}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-                    </button>
-                    <button className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10"
-                      style={{ background: 'rgba(0,0,0,0.5)', backdropFilter: 'blur(6px)' }}
-                      onClick={() => setActiveVideo(i => (i + 1) % PDP_VIDEOS.length)}>
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-                    </button>
-
-                    {/* Dots */}
-                    <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5">
-                      {PDP_VIDEOS.map((_, i) => (
-                        <button key={i} onClick={() => setActiveVideo(i)} className="rounded-full transition-all"
-                          style={{ width: i === activeVideo ? '20px' : '6px', height: '6px', background: i === activeVideo ? 'white' : 'rgba(255,255,255,0.35)' }} />
-                      ))}
-                    </div>
+            {wildVideoIdx !== null && (
+              <div className="fixed inset-0 z-[999] flex items-center justify-center" style={{ background: 'rgba(0,0,0,0.93)' }} onClick={() => setWildVideoIdx(null)}>
+                <div className="relative bg-black rounded-2xl overflow-hidden" style={{ width: 'min(380px, 92vw)', height: 'min(660px, 88vh)' }} onClick={e => e.stopPropagation()}>
+                  <video key={wildVideoIdx} src={WILD_VIDEOS[wildVideoIdx]} className="w-full h-full object-cover" autoPlay muted playsInline controls loop />
+                  <button className="absolute top-3 right-3 w-9 h-9 rounded-full flex items-center justify-center z-10" style={{ background: 'rgba(0,0,0,0.6)' }} onClick={() => setWildVideoIdx(null)}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+                  </button>
+                  <button className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10" style={{ background: 'rgba(0,0,0,0.5)' }} onClick={() => setWildVideoIdx(i => (i - 1 + WILD_VIDEOS.length) % WILD_VIDEOS.length)}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                  </button>
+                  <button className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full flex items-center justify-center z-10" style={{ background: 'rgba(0,0,0,0.5)' }} onClick={() => setWildVideoIdx(i => (i + 1) % WILD_VIDEOS.length)}>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                  </button>
+                  <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-1.5">
+                    {WILD_VIDEOS.map((_, i) => (
+                      <button key={i} onClick={() => setWildVideoIdx(i)} className="rounded-full transition-all" style={{ width: i === wildVideoIdx ? '20px' : '6px', height: '6px', background: i === wildVideoIdx ? 'white' : 'rgba(255,255,255,0.35)' }} />
+                    ))}
                   </div>
                 </div>
-              )}
-            </>
-          );
-        };
-
-        return <VideoSection />;
+              </div>
+            )}
+          </>
+        );
       })()}
 
       {/* Best Sellers Section */}
@@ -1275,12 +1203,12 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     <p className="text-gray-700 leading-relaxed mb-2 text-base">
                       {isAISummaryExpanded ? (
                         <>
-                          Customers love the personalised embossing and premium vegan leather quality of The Bae Shop bags. The name customisation is consistently praised for being precise and elegant. Many customers highlight how well the bags work as gifts — the magnetic gift box and personalised tag make unboxing a special experience. The satin-lined interior, sturdy metal zippers, and water-resistant exterior are frequently mentioned as standout features that make these bags feel truly luxurious.
+                          Customers love the long-lasting Bulgarian rose fragrance of Spinz Enchante and consistently praise its 24-hour protection even on hot days. The no-gas, no-stain formula is frequently highlighted as a standout feature — many reviewers mention zero white marks on dark clothing and no skin irritation even with daily use. Customers are especially impressed by the premium fragrance quality for the Rs.99 price point, with several comparing it favourably to much more expensive perfumes. The subtle, feminine rose scent receives the most compliments, with many buyers saying friends and colleagues regularly ask what they're wearing.
                           <button onClick={() => setIsAISummaryExpanded(false)} className="underline ml-1 cursor-pointer" style={{ color: '#351F31' }}>Read less</button>
                         </>
                       ) : (
                         <>
-                          Customers love the personalised embossing and premium vegan leather quality of The Bae Shop bags. The name customisation is consistently praised for being precise and elegant.
+                          Customers love the long-lasting Bulgarian rose fragrance and 24-hour protection of Spinz Enchante. The no-gas, no-stain formula and premium scent quality at Rs.99 are consistently praised.
                           <button onClick={() => setIsAISummaryExpanded(true)} className="underline ml-1 cursor-pointer" style={{ color: '#351F31' }}>Read more</button>
                         </>
                       )}
@@ -1509,16 +1437,16 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     </div>
                     
                     <h4 className="text-xl font-bold text-gray-900 mb-2">Customers say about the brand</h4>
-                    
+
                     <p className="text-gray-700 leading-relaxed mb-2 text-base">
                       {isBrandAISummaryExpanded ? (
                         <>
-                          Customers love The Bae Shop for its consistent quality, beautiful personalisation, and thoughtful packaging. The brand is known for premium vegan leather bags, elegant designs, and a cruelty-free ethos that resonates deeply with customers. Many shoppers praise the brand for its gifting experience — the magnetic gift box, personalised name tags, and careful packing make every order feel special. Customers also frequently highlight the brand's fast delivery, helpful customer support, and great value for money across all collections.
+                          Customers trust Spinz by CavinKare for delivering consistent fragrance quality across its entire deodorant range. The brand is widely praised for offering premium-feel products at accessible price points, making quality personal care available to everyone. Reviewers frequently highlight Spinz's gentle, skin-friendly formulas — particularly appreciated by those with sensitive skin. The brand's wide range of variants for both men and women, reliable 24-hour odour protection, and attractive packaging make it a favourite for daily use as well as gifting. Many loyal customers mention having used Spinz products for years, citing CavinKare's trusted legacy since 1983 as a key reason for their confidence in the brand.
                           <button onClick={() => setIsBrandAISummaryExpanded(false)} className="underline ml-1 cursor-pointer" style={{ color: '#351F31' }}>Read less</button>
                         </>
                       ) : (
                         <>
-                          Customers love The Bae Shop for its consistent quality, beautiful personalisation, and thoughtful packaging. The brand is known for premium vegan leather bags and a cruelty-free ethos.
+                          Customers trust Spinz by CavinKare for consistent fragrance quality and skin-friendly formulas at accessible prices. The brand's 24-hour protection and wide range of variants make it a long-time favourite.
                           <button onClick={() => setIsBrandAISummaryExpanded(true)} className="underline ml-1 cursor-pointer" style={{ color: '#351F31' }}>Read more</button>
                         </>
                       )}
