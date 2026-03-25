@@ -1,115 +1,226 @@
 import React, { useState } from 'react';
 import './AIBrandEngine.css';
 
+const MONTHS = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+
+const Sparkline = ({ data }) => {
+  const [hovered, setHovered] = useState(null);
+  const w = 200, h = 48, pad = 6;
+  const min = Math.min(...data);
+  const max = Math.max(...data);
+  const range = max - min || 1;
+  const pts = data.map((v, i) => ({
+    x: pad + (i / (data.length - 1)) * (w - pad * 2),
+    y: h - pad - ((v - min) / range) * (h - pad * 2),
+    v,
+    i,
+  }));
+  const pathD = 'M ' + pts.map(p => `${p.x},${p.y}`).join(' L ');
+  const areaD = `${pathD} L ${pts[pts.length-1].x},${h} L ${pts[0].x},${h} Z`;
+
+  return (
+    <div style={{ position: 'relative' }}>
+      {hovered !== null && (
+        <div style={{
+          position: 'absolute',
+          top: 0,
+          left: `${(pts[hovered].x / w) * 100}%`,
+          transform: 'translateX(-50%)',
+          background: '#1a1a2e',
+          color: '#fff',
+          fontSize: '9px',
+          fontWeight: 600,
+          padding: '3px 7px',
+          borderRadius: '5px',
+          whiteSpace: 'nowrap',
+          pointerEvents: 'none',
+          zIndex: 10,
+        }}>
+          {MONTHS[hovered]}: {data[hovered] * 8 + 22} orders
+        </div>
+      )}
+      <svg width="100%" viewBox={`0 0 ${w} ${h}`} preserveAspectRatio="none" style={{ display: 'block' }}>
+        <defs>
+          <linearGradient id="sparkGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stopColor="#1a1a2e" stopOpacity="0.12"/>
+            <stop offset="100%" stopColor="#1a1a2e" stopOpacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d={areaD} fill="url(#sparkGrad)"/>
+        <path d={pathD} fill="none" stroke="#1a1a2e" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"/>
+        {pts.map((p) => (
+          <circle
+            key={p.i}
+            cx={p.x}
+            cy={p.y}
+            r={hovered === p.i ? 3.5 : 2}
+            fill={hovered === p.i ? '#1a1a2e' : '#fff'}
+            stroke="#1a1a2e"
+            strokeWidth="1.4"
+            style={{ cursor: 'pointer', transition: 'r 0.15s' }}
+            onMouseEnter={() => setHovered(p.i)}
+            onMouseLeave={() => setHovered(null)}
+          />
+        ))}
+      </svg>
+    </div>
+  );
+};
+
 const AIBrandEngine = ({ showExtras = true }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [activeTab, setActiveTab] = useState('meera');
+  const [activeTab, setActiveTab] = useState('tws');
 
   if (!showExtras) return null;
 
   const tabs = [
-    { id: 'meera',    label: 'Meera'    },
-    { id: 'chik',     label: 'Chik'     },
-    { id: 'fairever', label: 'Fairever' },
-    { id: 'spinz',    label: 'Spinz'    },
-    { id: 'karthika', label: 'Karthika' },
-    { id: 'raaga',    label: 'Raaga'    },
+    { id: 'tws',       label: 'Earbuds'   },
+    { id: 'speakers',  label: 'Speakers'  },
+    { id: 'neckband',  label: 'Neckband'  },
+    { id: 'powerbank', label: 'PowerBank' },
+    { id: 'cables',    label: 'Cables'    },
+    { id: 'cctv',      label: 'CCTV'      },
   ];
 
   const content = {
-    meera: {
-      title: 'Meera — Herbal Hair Care',
-      category: 'Hair Care · Herbal',
+    tws: {
+      title: 'OlivLife AURA TWS',
+      category: 'Earbuds · True Wireless',
+      metrics: {
+        purchases: 18420,
+        reviews: 4312,
+        refundRate: 4.8,
+        qualityScore: 97,
+        trend: [40, 55, 48, 72, 65, 88, 102, 95, 118, 130, 122, 148],
+      },
       stats: [
-        { value: 'Herbal Shampoo',  label: 'Shikakai & Hibiscus blend' },
-        { value: 'Hair Oil',        label: 'Nourishing scalp treatment' },
-        { value: 'Hair Wash',       label: 'Traditional powder formula' },
+        { value: '40 Hrs',  label: 'Total playback time' },
+        { value: 'ENC',     label: 'Environmental noise cancellation' },
+        { value: 'BT 5.3',  label: 'Stable wireless connectivity' },
       ],
       highlights: [
-        'Trusted herbal haircare for 30+ years',
-        'Key ingredients: Shikakai, Amla, Hibiscus',
-        'Reduces hairfall & promotes growth',
-        'Available in shampoo, oil & powder',
+        'True wireless stereo earbuds with deep bass',
+        'Touch controls & instant pairing',
+        'IPX5 water-resistant build',
+        'Available in Black & White variants',
       ],
     },
-    chik: {
-      title: 'Chik — Everyday Shampoo',
-      category: 'Hair Care · Everyday',
+    speakers: {
+      title: 'OlivLife Speakers',
+      category: 'Audio · Portable Speakers',
+      metrics: {
+        purchases: 11870,
+        reviews: 2891,
+        refundRate: 3.6,
+        qualityScore: 98,
+        trend: [30, 38, 42, 50, 58, 70, 65, 80, 88, 95, 105, 118],
+      },
       stats: [
-        { value: 'Egg Protein',     label: 'Strengthens hair shaft' },
-        { value: '650ml / 1000ml',  label: 'Value family pack sizes' },
-        { value: 'Hairfall Control', label: 'Clinically tested formula' },
+        { value: '20W',    label: 'Boss 10.1 stereo output' },
+        { value: '5W',     label: 'X6 punchy mono sound' },
+        { value: 'BT 5.0', label: 'Multi-device connectivity' },
       ],
       highlights: [
-        'Affordable daily-use shampoo range',
-        'Protein-enriched for stronger hair',
-        'Variants: Hairfall, Jasmine, Blackshine',
-        'Best value-for-money in hair care',
+        'Boss 10.1 — powerful 20W stereo speaker',
+        'X6 compact speaker with rich mono sound',
+        'RGB lighting & 360° surround audio',
+        'Up to 8 hours playtime per charge',
       ],
     },
-    fairever: {
-      title: 'Fairever — Skin Brightening',
-      category: 'Skin Care · Brightening',
+    neckband: {
+      title: 'OlivLife Neckband',
+      category: 'Audio · Neckband Earphones',
+      metrics: {
+        purchases: 9340,
+        reviews: 2105,
+        refundRate: 5.2,
+        qualityScore: 95,
+        trend: [22, 28, 35, 40, 38, 52, 60, 55, 68, 75, 80, 92],
+      },
       stats: [
-        { value: 'Saffron',         label: 'Natural glow booster' },
-        { value: 'Milk & Rosehip',  label: 'Moisturising skin blend' },
-        { value: 'SPF Protection',  label: 'Sun defence in daily cream' },
+        { value: '24 Hrs',      label: 'Continuous playback' },
+        { value: 'Magnetic',    label: 'Auto on/off snap closure' },
+        { value: 'Fast Charge', label: '10 min charge = 2 hrs play' },
       ],
       highlights: [
-        'Visible brightness in 4 weeks',
-        'Key ingredients: Saffron, Milk, Rosehip Oil',
-        'Lightweight, non-greasy formula',
-        'Gentle enough for daily use',
+        'Ergonomic flexible neckband design',
+        'Hi-Fi sound with powerful bass',
+        'Built-in mic for clear calls',
+        'Available in Yellow & Black variants',
       ],
     },
-    spinz: {
-      title: 'Spinz — Deo & Fragrance',
-      category: 'Deodorant · Fragrance',
+    powerbank: {
+      title: 'OlivLife OG PowerBank',
+      category: 'Accessories · Power',
+      metrics: {
+        purchases: 7210,
+        reviews: 1680,
+        refundRate: 2.9,
+        qualityScore: 99,
+        trend: [18, 22, 30, 35, 40, 45, 50, 58, 62, 70, 78, 88],
+      },
       stats: [
-        { value: '24hr Fresh',      label: 'Long-lasting odour protection' },
-        { value: 'Bulgarian Rose',  label: 'Signature women\'s fragrance' },
-        { value: 'BB Cream',        label: 'Brightening face coverage' },
+        { value: '10,000 mAh', label: 'High-capacity battery' },
+        { value: 'Wireless',   label: 'Qi wireless fast charging' },
+        { value: '22.5W',      label: 'Wired fast charge output' },
       ],
       highlights: [
-        'Premium deodorant for men & women',
-        'Multiple fragrance variants available',
-        'Spinz BB cream for instant glow',
-        'Alcohol-free gentle formulas',
+        'Charge wirelessly — no cable needed',
+        'Dual USB + Type-C output ports',
+        'Slim & pocket-friendly design',
+        'LED battery level indicator',
       ],
     },
-    karthika: {
-      title: 'Karthika — Hair Fall Shield',
-      category: 'Hair Care · Specialised',
+    cables: {
+      title: 'OlivLife 4-in-1 USB',
+      category: 'Accessories · Cables',
+      metrics: {
+        purchases: 14580,
+        reviews: 3024,
+        refundRate: 2.1,
+        qualityScore: 99,
+        trend: [50, 60, 72, 80, 75, 90, 100, 112, 108, 125, 138, 155],
+      },
       stats: [
-        { value: 'Shikakai',        label: 'Traditional hair cleanser' },
-        { value: 'Hibiscus',        label: 'Strengthens & adds shine' },
-        { value: '650ml',           label: 'Value pack shampoo' },
+        { value: '4-in-1', label: 'Universal connector heads' },
+        { value: '65W',    label: 'Fast charging support' },
+        { value: '1.2m',   label: 'Braided durable length' },
       ],
       highlights: [
-        'Clinically proven hairfall reduction',
-        'Rooted in South Indian hair rituals',
-        'Suitable for men & women',
-        'No harsh sulphates in key variants',
+        'Type-C, Micro USB, Lightning & USB-A in one',
+        'Nylon braided for tangle-free durability',
+        'Data transfer up to 480 Mbps',
+        'Compatible with all major devices',
       ],
     },
-    raaga: {
-      title: 'Raaga Professional',
-      category: 'Skin Care · Professional',
+    cctv: {
+      title: 'OlivLife Security Cam',
+      category: 'Security · CCTV Cameras',
+      metrics: {
+        purchases: 5920,
+        reviews: 1342,
+        refundRate: 6.3,
+        qualityScore: 96,
+        trend: [15, 18, 22, 28, 32, 38, 42, 48, 55, 60, 68, 75],
+      },
       stats: [
-        { value: 'De-Tan Pack',     label: 'Kojic acid + Milk formula' },
-        { value: 'Salon Quality',   label: 'Professional-grade at home' },
-        { value: '500g Value',      label: 'Large professional size' },
+        { value: '2MP / 4MP',   label: 'Full HD & Ultra HD options' },
+        { value: 'Night Vision', label: 'IR up to 30m in darkness' },
+        { value: 'Wide Angle',  label: '120° field of view' },
       ],
       highlights: [
-        'Professional skin treatments at home',
-        'Visible tan removal in one use',
-        'Kojic acid for even skin tone',
-        'Full range: scrubs, packs & creams',
+        'Indoor & outdoor weatherproof models',
+        'Motion detection with instant alerts',
+        'Remote live view via mobile app',
+        'Easy DIY installation, no technician needed',
       ],
     },
   };
 
   const current = content[activeTab];
+  const m = current.metrics;
+
+  const fmt = (n) => n >= 1000 ? `${(n / 1000).toFixed(1)}k` : n;
 
   return (
     <div className={`ai-brand-engine ${isExpanded ? 'expanded' : ''}`}>
@@ -117,7 +228,7 @@ const AIBrandEngine = ({ showExtras = true }) => {
         <button
           className="ai-brand-engine-trigger"
           onClick={() => setIsExpanded(true)}
-          aria-label="Explore Brands"
+          aria-label="Explore Products"
         >
           <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
             <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
@@ -130,13 +241,12 @@ const AIBrandEngine = ({ showExtras = true }) => {
           <div className="panel-header">
             <div className="header-left">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
-                <line x1="3" y1="6" x2="21" y2="6"/>
-                <path d="M16 10a4 4 0 01-8 0"/>
+                <rect x="2" y="3" width="20" height="14" rx="2"/>
+                <path d="M8 21h8M12 17v4"/>
               </svg>
               <div>
-                <h3 className="panel-title">CavinKart</h3>
-                <p className="panel-subtitle">25+ Brands · One Store · Trusted Since 1983</p>
+                <h3 className="panel-title">OlivLife</h3>
+                <p className="panel-subtitle">Audio · Accessories · Security · Since 2023</p>
               </div>
             </div>
             <button className="panel-close-btn" onClick={() => setIsExpanded(false)} aria-label="Close">
@@ -161,20 +271,112 @@ const AIBrandEngine = ({ showExtras = true }) => {
 
           {/* Content */}
           <div className="panel-content">
+            {/* Title row */}
             <div className="content-header-row">
               <h4 className="content-title">{current.title}</h4>
               <span className="content-category">{current.category}</span>
             </div>
 
-            <div className="stats-grid">
-              {current.stats.map((item, i) => (
-                <div key={i} className="stat-card">
-                  <div className="stat-value">{item.value}</div>
-                  <div className="stat-label">{item.label}</div>
+            {/* Metric tiles */}
+            <div className="metric-tiles">
+              <div className="metric-tile">
+                <div className="metric-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                    <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+                  </svg>
                 </div>
-              ))}
+                <div className="metric-num">{fmt(m.purchases)}</div>
+                <div className="metric-lbl">Purchases</div>
+              </div>
+              <div className="metric-tile">
+                <div className="metric-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                  </svg>
+                </div>
+                <div className="metric-num">{fmt(m.reviews)}</div>
+                <div className="metric-lbl">Reviews</div>
+              </div>
+              <div className="metric-tile">
+                <div className="metric-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </div>
+                <div className="metric-num">{m.qualityScore}%</div>
+                <div className="metric-lbl">Quality</div>
+              </div>
+              <div className="metric-tile">
+                <div className="metric-icon">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-3.27"/>
+                  </svg>
+                </div>
+                <div className="metric-num">{m.refundRate}%</div>
+                <div className="metric-lbl">Refund</div>
+              </div>
             </div>
 
+            {/* Quality + Refund side by side */}
+            <div className="score-row">
+              {/* Quality score — arc gauge */}
+              <div className="score-card">
+                <div className="score-arc-wrap">
+                  <svg width="64" height="40" viewBox="0 0 64 40">
+                    {/* track arc */}
+                    <path
+                      d="M 6 38 A 26 26 0 0 1 58 38"
+                      fill="none" stroke="#ebebeb" strokeWidth="5" strokeLinecap="round"
+                    />
+                    {/* filled arc — dasharray trick on a 81.7px arc */}
+                    <path
+                      d="M 6 38 A 26 26 0 0 1 58 38"
+                      fill="none" stroke="#1a1a2e" strokeWidth="5" strokeLinecap="round"
+                      strokeDasharray={`${(m.qualityScore / 100) * 81.7} 81.7`}
+                    />
+                  </svg>
+                  <div className="score-arc-label">{m.qualityScore}%</div>
+                </div>
+                <div className="score-title">Quality</div>
+                <div className="score-sub">Customer satisfaction</div>
+              </div>
+
+              {/* Refund rate — segmented bar */}
+              <div className="score-card">
+                <div className="refund-gauge">
+                  <div className="refund-big">{m.refundRate}<span className="refund-pct">%</span></div>
+                  <div className="refund-bar-wrap">
+                    {[...Array(10)].map((_, i) => {
+                      const filled = i < Math.round(m.refundRate * 10 / 10);
+                      return (
+                        <div
+                          key={i}
+                          className={`refund-seg ${filled ? 'filled' : ''}`}
+                        />
+                      );
+                    })}
+                  </div>
+                </div>
+                <div className="score-title">Returns</div>
+                <div className="score-sub">Avg return rate</div>
+              </div>
+            </div>
+
+            {/* Purchase trend */}
+            <div className="trend-card">
+              <div className="trend-header">
+                <span className="trend-label">Purchase trend</span>
+                <span className="trend-badge">Last 12 months</span>
+              </div>
+              <Sparkline data={m.trend} />
+              <div className="trend-axes">
+                <span className="trend-axis">Jan</span>
+                <span className="trend-axis">Dec</span>
+              </div>
+            </div>
+
+            {/* Highlights */}
             <ul className="highlights-list">
               {current.highlights.map((h, i) => (
                 <li key={i} className="highlight-item">

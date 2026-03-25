@@ -9,55 +9,19 @@ import SocialProofBadge from './SocialProofBadge';
 // EDIT THESE VALUES TO CUSTOMIZE YOUR PRODUCT
 // ============================================
 
-import product1 from './assets/product1.png';
-import product2 from './assets/product2.png';
 import productHeader from './assets/product_header.png';
 
 
 import reviewData from '../review.json';
 
-// Product Images — used in review section
-import pi1  from './assets/Product Images/1.png';
-import pi2  from './assets/Product Images/2.png';
-import pi3  from './assets/Product Images/3.png';
-import pi4  from './assets/Product Images/4.png';
-import pi5  from './assets/Product Images/5.png';
-import pi6  from './assets/Product Images/6.png';
-import pi7  from './assets/Product Images/7.png';
-import pi8  from './assets/Product Images/8.png';
-import pi9  from './assets/Product Images/9.png';
-import pi10 from './assets/Product Images/10.png';
-import pi11 from './assets/Product Images/11.png';
-import pi12 from './assets/Product Images/12.png';
-import pi13 from './assets/Product Images/13.png';
-import pi14 from './assets/Product Images/14.png';
-import pi15 from './assets/Product Images/15.png';
 
-// Brand Images — used in brand image section
-import bi1 from './assets/Brand Images/1.png';
-import bi2 from './assets/Brand Images/2.png';
-import bi3 from './assets/Brand Images/3.png';
-import bi4 from './assets/Brand Images/4.png';
-import bi5 from './assets/Brand Images/5.png';
-import bi6 from './assets/Brand Images/6.png';
-import bi7 from './assets/Brand Images/7.png';
-import bi8 from './assets/Brand Images/8.png';
-import bi9 from './assets/Brand Images/9.png';
-import bi10 from './assets/Brand Images/10.png';
-import bi11 from './assets/Brand Images/11.png';
-import bi12 from './assets/Brand Images/12.png';
-
-// Product images — used in review section
-const PROD_IMG_1 = 'https://cavinkart.com/cdn/shop/files/fairever-beauty-lift-saffron-milk-rosehip-oil-face-cream-50g-3521142_500x500.png?v=1763021857';
-const PROD_IMG_2 = 'https://cavinkart.com/cdn/shop/files/raaga-professional-de-tan-pack-tan-removal-cream-with-kojic-and-milk-500-gm-7374242_500x500.png?v=1763022091';
-const PROD_IMG_3 = 'https://cavinkart.com/cdn/shop/files/nyle-naturals-damage-repair-shampoo-800ml-for-stronger-healthier-hair-with-shikakai-amla-and-hibiscus-paraben-free-herbal-shampoo-for-men-women-8732261_1197x1197.jpg?v=1763021902';
-const PROD_IMG_4 = 'https://cavinkart.com/cdn/shop/files/spinz-face-powder-spinz-bb-pro-brightening-face-cream-spinz-exotic-perfumed-deo-for-women-bulgarian-rose-fragrance-7049652_1078x1078.png?v=1766007009';
-const PROD_IMG_5 = 'https://cavinkart.com/cdn/shop/products/karthika-hair-fall-shield-shampoo-650-ml-with-the-goodness-of-shikakai-hibiscus-for-men-women-4484026_994x994.jpg?v=1763021903';
-
-/// Review section: Product Images folder (1–15)
-const ST_PRODUCT_IMGS = [pi1, pi2, pi3, pi4, pi5, pi6, pi7, pi8, pi9, pi10, pi11, pi12, pi13, pi14, pi15];
-// Brand image section: actual brand images
-const ST_BRAND_IMGS = [bi1, bi2, bi3, bi4, bi5, bi6, bi7, bi8, bi9, bi10, bi11, bi12];
+// OlivLife product card images (same as home page)
+const OLIVLIFE_IMGS = [
+  'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-11.jpg.webp',
+  'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-13.jpg.webp',
+  'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-9.jpg.webp',
+  'https://olivlife.in/wp-content/uploads/2025/05/Boss-10.1-Portable-Bluetooth-Wireless-Speaker-4-150x150.jpg',
+];
 
 function getReviewTitle(text) {
   const first = text.split(/[.!,]/)[0].trim();
@@ -70,26 +34,28 @@ const BRAND_NAME = "wordofmouth";
 
 // Product Images Array - All product images
 const PRODUCT_IMAGES = [
-  "https://cavinkart.com/cdn/shop/products/spinz-enchante-perfumed-deo-for-women-with-international-fragrances-for-long-lasting-freshness-and-24-hours-protection-150ml-international-fragrances-for-long-l-5333513_798x798.jpg?v=1763533560",
-  "https://cavinkart.com/cdn/shop/files/spinz-face-powder-spinz-bb-pro-brightening-face-cream-spinz-exotic-perfumed-deo-for-women-bulgarian-rose-fragrance-7049652_1078x1078.png?v=1766007009",
-  "https://cavinkart.com/cdn/shop/files/fairever-beauty-lift-saffron-milk-rosehip-oil-face-cream-50g-3521142_500x500.png?v=1763021857",
+  "https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-11.jpg.webp",
+  "https://olivlife.in/wp-content/uploads/2025/05/OlivLife-Earpods-Black-1-1.jpg.webp",
+  "https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-13.jpg.webp",
+  "https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-9.jpg.webp",
 ];
 
 // Product Video
-const PRODUCT_VIDEO = 'https://www.pexels.com/download/video/4251604/';
+const PRODUCT_VIDEO = 'https://www.pexels.com/download/video/6689313/';
 
 // Product Details
-const PRODUCT_NAME = "Spinz Enchante Perfumed Deo for Women, with International Fragrances for Long Lasting Freshness and 24 Hours Protection, 150ml";
-const PRODUCT_PRICE = 99;
-const PRODUCT_ORIGINAL_PRICE = 190;
-const PRODUCT_DISCOUNT = 48;
-const PRODUCT_SKU = "SPINZ-DEO-001";
-const PRODUCT_DESCRIPTION = "If you're looking for a premium deodorant, that blends international fragrances, ensuring long lasting fragrances and also a powerful odour protection, then Spinz Enchante Perfumed Deo is an ideal choice for you. This duo for women is created for those who desire a quality of perfume of being elegant and sophisticated with scent, and a quality of deodorant offering long lasting protection of 24 hours from sweat and body odour. A combined elegance with subtlety makes this Spinz Deo alluring and perfect for daily wear, as well as for special occasions. If you want to go work or gym, or you might just want to spend a good evening, Spinz perfume gives you a luxurious experience and helps you boost confidence by keeping you fresh anywhere.";
-const PRODUCT_BRAND = "Spinz";
+const PRODUCT_NAME = "OlivLife AURA TWS Earbuds (Black)";
+const PRODUCT_PRICE = 2499;
+const PRODUCT_ORIGINAL_PRICE = 3899;
+const PRODUCT_DISCOUNT = 36;
+const PRODUCT_SKU = "OLIV-AURA-TWS-BLK";
+const PRODUCT_DESCRIPTION = "OlivLife AURA TWS Earbuds deliver 40 hours of total playback, deep bass, and ENC (Environmental Noise Cancellation) for crystal-clear calls. Featuring Bluetooth 5.3 for stable wireless connectivity, IPX5 water resistance, and intuitive touch controls — the AURA TWS is your perfect everyday companion from the classroom to the office.";
+const PRODUCT_BRAND = "OlivLife";
 const PRODUCT_COLORS = [
-  { name: "Purple", value: "#7B2D8B" },
+  { name: "Black", value: "#1a1a1a" },
+  { name: "White", value: "#f5f5f5" },
 ];
-const PRODUCT_SIZES = ["150ml"];
+const PRODUCT_SIZES = ["One Size"];
 
 // You May Also Like Products Data
 const RELATED_PRODUCTS = [
@@ -133,11 +99,10 @@ const RELATED_PRODUCTS = [
 
 // Best Seller Products data — same as home page
 const bestSellerProducts = [
-  { id: 1, image: 'https://cavinkart.com/cdn/shop/files/fairever-beauty-lift-saffron-milk-rosehip-oil-face-cream-50g-3521142_500x500.png?v=1763021857',  title: 'Fairever Beauty Lift Saffron, Milk & Rosehip Oil Face Cream 50g', currentPrice: 115,  originalPrice: 122,  rating: 4.2, reviewCount: 3847, inStock: true },
-  { id: 2, image: 'https://cavinkart.com/cdn/shop/files/raaga-professional-de-tan-pack-tan-removal-cream-with-kojic-and-milk-500-gm-7374242_500x500.png?v=1763022091', title: 'Raaga Professional De-Tan Pack | Tan Removal Cream 500g',            currentPrice: 1345, originalPrice: 1495, rating: 4.5, reviewCount: 1203, inStock: true },
-  { id: 3, image: 'https://cavinkart.com/cdn/shop/files/nyle-naturals-damage-repair-shampoo-800ml-for-stronger-healthier-hair-with-shikakai-amla-and-hibiscus-paraben-free-herbal-shampoo-for-men-women-8732261_1197x1197.jpg?v=1763021902', title: 'Nyle Naturals Damage Repair Shampoo 800ml | Shikakai & Amla',        currentPrice: 449,  originalPrice: 749,  rating: 4.3, reviewCount: 2156, inStock: true },
-  { id: 4, image: 'https://cavinkart.com/cdn/shop/files/spinz-face-powder-spinz-bb-pro-brightening-face-cream-spinz-exotic-perfumed-deo-for-women-bulgarian-rose-fragrance-7049652_1078x1078.png?v=1766007009', title: 'Spinz BB Pro Brightening Face Cream | Bulgarian Rose Deo',           currentPrice: 799,  originalPrice: 1070, rating: 4.1, reviewCount: 892,  inStock: true },
-  { id: 5, image: 'https://cavinkart.com/cdn/shop/products/karthika-hair-fall-shield-shampoo-650-ml-with-the-goodness-of-shikakai-hibiscus-for-men-women-4484026_994x994.jpg?v=1763021903', title: 'Karthika Hair Fall Shield Shampoo 650ml | Shikakai & Hibiscus',      currentPrice: 499,  originalPrice: 999,  rating: 4.4, reviewCount: 1678, inStock: true },
+  { id: 1, image: 'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-11.jpg.webp', title: 'OlivLife AURA TWS (Black)', currentPrice: 2499, originalPrice: 3899, rating: 4.7, reviewCount: 1284, feature: '40 Hours Playback' },
+  { id: 2, image: 'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-13.jpg.webp', title: 'OlivLife X6 Speaker (W&G)', currentPrice: 2999, originalPrice: 3999, rating: 4.8, reviewCount: 956, feature: '5W punchy mono sound' },
+  { id: 3, image: 'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-9.jpg.webp', title: 'OlivLife Neckband (Yellow)', currentPrice: 899, originalPrice: 1999, rating: 5.0, reviewCount: 742, feature: '24 Hours Playback' },
+  { id: 4, image: 'https://olivlife.in/wp-content/uploads/2025/05/Boss-10.1-Portable-Bluetooth-Wireless-Speaker-4-150x150.jpg', title: 'OlivLife Boss 10.1 Speaker', currentPrice: 4999, originalPrice: 6999, rating: 5.0, reviewCount: 621, feature: '20W powerful stereo sound' },
 ];
 
 // ============================================
@@ -149,32 +114,32 @@ const dummyReviews = [
   {
     name: 'Priya Sharma',
     rating: 5,
-    title: 'Absolutely stunning bag!',
-    text: 'This personalised bae bag is absolutely beautiful! The vegan leather quality is excellent and the personalised embossing is so precise and elegant. I received so many compliments. Highly recommended!',
+    title: 'Amazing sound quality!',
+    text: 'These OlivLife earbuds are absolutely brilliant! The deep bass quality is excellent and the ENC feature works flawlessly. Highly recommended!',
     date: '1/20/2025',
     type: 'product'
   },
   {
     name: 'Anjali Mehta',
     rating: 4,
-    title: 'Great quality, love the colour',
-    text: 'The bag is well-made with premium vegan leather. The design is elegant and the colour is vibrant and exactly as shown. The zipper hardware is smooth and sturdy. Overall, a great purchase!',
+    title: 'Great quality, love the battery life',
+    text: 'The earbuds are well-made with a premium matte finish. The design is elegant and they fit perfectly. The 40-hour playback is super convenient. Overall, a great purchase!',
     date: '1/18/2025',
     type: 'product'
   },
   {
     name: 'Riya Patel',
     rating: 5,
-    title: 'Perfect gift for special occasions',
-    text: 'I bought this as a birthday gift and it was perfect! The packaging is premium, the gift box is magnetic and so luxurious. The personalised name tag added such a special touch. Worth every penny!',
+    title: 'Perfect for long calls',
+    text: 'I bought these for office use and they are perfect! The ENC mics are top-notch, making my voice crystal clear to others. The charging case is so sleek. Worth every penny!',
     date: '1/15/2025',
     type: 'product'
   },
   {
     name: 'Kavya Reddy',
     rating: 4,
-    title: 'Good bag, great value',
-    text: 'The bae bag is good quality. The vegan leather feels premium and the satin lining inside is so soft. The personalisation was done neatly. Very satisfied with the purchase!',
+    title: 'Good earbuds, great value',
+    text: 'The AURA TWS is good quality. The sound feels premium and the touch controls are very responsive. Bluetooth pairing was done instantly. Very satisfied with the purchase!',
     date: '1/12/2025',
     type: 'product'
   },
@@ -182,15 +147,15 @@ const dummyReviews = [
     name: 'Meera Singh',
     rating: 5,
     title: 'Exceeded my expectations!',
-    text: 'I was pleasantly surprised by the quality of the bag. The vegan leather is soft yet durable, the design is beautiful, and the personalised embossing looks stunning. The gift packaging is also very premium.',
+    text: 'I was pleasantly surprised by the quality of the earbuds. The bass is punchy yet balanced, the design is comfortable, and the battery life is outstanding. The packaging is also very premium.',
     date: '1/10/2025',
     type: 'product'
   },
   {
     name: 'Sneha Verma',
     rating: 5,
-    title: 'Best personalised gift brand!',
-    text: 'Ordered for my sister\'s wedding and she absolutely loved it. The vegan leather quality is top notch and the personalised name on the bag makes it so special. Delivery was fast and packaging was elegant.',
+    title: 'Best TWS brand!',
+    text: 'Ordered for my daily commute and I absolutely love them. The audio quality is top notch and the snug fit keeps them secure. Delivery was fast and packaging was elegant.',
     date: '1/08/2025',
     type: 'product'
   },
@@ -198,23 +163,23 @@ const dummyReviews = [
     name: 'Divya Nair',
     rating: 4,
     title: 'Great value for money',
-    text: 'The bae bag offers great value for the price. The vegan leather looks trendy and feels premium. The cruelty-free material is a big plus for me. Overall, a very satisfactory purchase!',
+    text: 'The AURA earbuds offer great value for the price. The case looks trendy and feels premium. The IPX5 water resistance is a big plus for my workouts. Overall, a very satisfactory purchase!',
     date: '1/05/2025',
     type: 'product'
   },
   {
     name: 'Pooja Mehta',
     rating: 5,
-    title: 'Love it! Perfect personalised bag',
-    text: 'This is one of the best personalised bags I\'ve purchased online. The vegan leather quality is excellent, the personalised embossing is perfect, and the design is so elegant. Already ordered another in a different colour!',
+    title: 'Love it! Perfect everyday earbuds',
+    text: 'This is one of the best TWS earbuds I\'ve purchased online. The sound quality is excellent, the connection is stable, and the design is so elegant. Already ordered another for my brother!',
     date: '1/03/2025',
     type: 'product'
   },
   {
     name: 'Neha Kapoor',
     rating: 4,
-    title: 'Nice everyday bag',
-    text: 'The bae bag is a great everyday carry. The vegan leather looks premium, the interior satin lining keeps things scratch-free, and the zipper is smooth. Exactly what I was looking for!',
+    title: 'Nice everyday companion',
+    text: 'The OlivLife AURA is a great everyday carry. The audio feels premium, the silicone tips keep things comfortable, and the connection is smooth. Exactly what I was looking for!',
     date: '12/30/2024',
     type: 'product'
   },
@@ -222,7 +187,7 @@ const dummyReviews = [
     name: 'Aarti Desai',
     rating: 5,
     title: 'Beautiful and functional',
-    text: 'I absolutely love my personalised bae bag! It\'s so stylish and the vegan leather quality is great. The personalised embossing looks elegant. Perfect for both daily use and gifting occasions.',
+    text: 'I absolutely love my OlivLife earbuds! They\'re so stylish and the audio quality is great. The fast charging is super helpful. Perfect for both daily use and working out.',
     date: '12/28/2024',
     type: 'product'
   }
@@ -356,11 +321,11 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
   
   // productImages already set from passedProduct above
 
-  // Customer review images - Brand Images 1→12
-  const customerReviewImages = [...ST_PRODUCT_IMGS];
+  // Customer review images — repeat to fill grid
+  const customerReviewImages = Array.from({ length: 8 }, (_, i) => OLIVLIFE_IMGS[i % OLIVLIFE_IMGS.length]);
 
-  // All review images (product + brand) for modal navigation
-  const allReviewImages = [...ST_PRODUCT_IMGS, ...ST_BRAND_IMGS];
+  // All review images for modal navigation
+  const allReviewImages = customerReviewImages;
 
   // Short reviews for carousel widget — from very_small + small entries in review.json
   const shortReviewMinutes = [10, 360, 1440, 5760, 30, 120, 2880, 720, 180, 4320, 60, 240, 480, 1200, 3600];
@@ -386,7 +351,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
       rating: r.rating,
       title: getReviewTitle(r.review),
       text: r.review,
-      images: [ST_PRODUCT_IMGS[(i * 2) % 15], ST_PRODUCT_IMGS[(i * 2 + 1) % 15]],
+      images: [OLIVLIFE_IMGS[(i * 2) % OLIVLIFE_IMGS.length], OLIVLIFE_IMGS[(i * 2 + 1) % OLIVLIFE_IMGS.length]],
     }));
 
   // Brand Reviews — from 'mid' type entries in review.json
@@ -401,7 +366,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
       rating: r.rating,
       title: getReviewTitle(r.review),
       text: r.review,
-      images: [ST_BRAND_IMGS[(i * 2) % 12], ST_BRAND_IMGS[(i * 2 + 1) % 12]],
+      images: [OLIVLIFE_IMGS[(i * 2) % OLIVLIFE_IMGS.length], OLIVLIFE_IMGS[(i * 2 + 1) % OLIVLIFE_IMGS.length]],
     }));
 
   // Handle like functionality
@@ -569,21 +534,21 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
       name: 'Pooja',
       action: 'bought this dress',
       time: 'Just now',
-      image: pi1
+      image: OLIVLIFE_IMGS[0]
     },
     {
       type: 'review',
       name: 'Neha',
       action: 'gave the review',
       time: '30 min ago',
-      image: pi2
+      image: OLIVLIFE_IMGS[1]
     },
     {
       type: 'viewed',
       name: 'Priya',
       action: 'recently viewed',
       time: '1 hour ago',
-      image: pi3
+      image: OLIVLIFE_IMGS[2]
     }
   ];
 
@@ -721,263 +686,249 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
         </div>
       )}
       
-      <main className="flex-1 py-8 md:py-12">
-        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-            {/* Product Images Section - Grid Layout for Laptop */}
-            <div className="w-full max-w-2xl mx-auto">
-              {/* Main Product Image */}
-              <div className="relative bg-white rounded-2xl overflow-hidden mb-6 group">
-                <div className="aspect-square flex items-center justify-center p-8">
-                  <img 
-                    src={productImages[selectedImage] || productImages[0]} 
-                    alt={productName}
-                    className="w-full h-full object-contain cursor-zoom-in transition-transform group-hover:scale-105"
-                  />
-                  
-                  {/* Zoom Icon */}
-                  <div className="absolute bottom-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7" />
-                    </svg>
-                  </div>
-                  
-                  {/* Save Badge */}
-                  <div className="absolute top-4 left-4 bg-[#351F31] text-white text-sm font-semibold px-3 py-1 rounded-lg">
-                    SAVE {productDiscount}%
-                  </div>
-                </div>
-              </div>
+      <main className="flex-1 py-8 md:py-12 bg-white">
+        <div className="max-w-6xl mx-auto px-4 md:px-6 lg:px-8">
 
-              {/* Thumbnail Gallery */}
-              <div className="flex gap-3 justify-center overflow-x-auto pb-2">
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-sm text-gray-400 mb-6">
+            <button onClick={onHomeClick} className="hover:text-gray-700 transition-colors">Home</button>
+            <span>›</span>
+            <span className="text-gray-500">True Wireless Earbuds</span>
+            <span>›</span>
+            <span className="text-gray-800 font-medium truncate">{productName}</span>
+          </nav>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16">
+
+            {/* LEFT: thumbnails + main image */}
+            <div className="flex gap-3">
+              {/* Vertical thumbnail strip */}
+              <div className="flex flex-col gap-2">
                 {productImages.map((img, index) => (
                   <button
                     key={index}
-                    className={`w-16 h-16 md:w-20 md:h-20 shrink-0 border-2 rounded-lg overflow-hidden cursor-pointer transition-all bg-white ${
-                      selectedImage === index 
-                        ? 'border-gray-900 shadow-lg ring-2 ring-gray-900/20' 
-                        : 'border-gray-200 hover:border-gray-400'
-                    }`}
                     onClick={() => setSelectedImage(index)}
+                    className={`w-16 h-16 rounded-lg overflow-hidden border-2 transition-all bg-gray-50 flex-shrink-0 ${
+                      selectedImage === index ? 'border-gray-800' : 'border-gray-200 hover:border-gray-400'
+                    }`}
                   >
-                    <img 
-                      src={img} 
-                      alt={`${productName} view ${index + 1}`}
-                      className="w-full h-full object-contain p-1"
-                    />
+                    <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-cover" />
                   </button>
                 ))}
               </div>
+
+              {/* Main image */}
+              <div className="relative flex-1 rounded-xl overflow-hidden bg-gray-50 group cursor-zoom-in" onClick={() => setIsModalOpen(true)}>
+                <img
+                  src={productImages[selectedImage] || productImages[0]}
+                  alt={productName}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  style={{ aspectRatio: '1/1' }}
+                />
+                {/* Discount badge */}
+                <div className="absolute top-3 left-3 w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white text-sm font-bold shadow">
+                  {productDiscount}%
+                </div>
+                {/* Expand icon */}
+                <button className="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/90 flex items-center justify-center shadow hover:bg-white transition-colors">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#333" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"/>
+                  </svg>
+                </button>
+              </div>
             </div>
 
-
-            {/* Product Details Section */}
-            <div className="flex flex-col gap-5 pt-2">
+            {/* RIGHT: product info */}
+            <div className="flex flex-col gap-4">
 
               {/* Title */}
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">{productName}</h1>
-              <p className="text-sm text-gray-500">by <span className="font-semibold text-gray-700">{PRODUCT_BRAND}</span></p>
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900 leading-tight">{productName}</h1>
 
-              {/* Rating + sold count row — below title */}
-              <div className="flex items-center gap-2.5 flex-wrap">
-                {/* Half-star aware star row */}
-                <div className="flex items-center gap-1">
-                  {[1,2,3,4,5].map(i => {
-                    const full = i <= Math.floor(productRating);
-                    const half = !full && i === Math.ceil(productRating) && productRating % 1 >= 0.3;
-                    const clipId = `star-clip-${i}`;
-                    return (
-                      <svg key={i} width="18" height="18" viewBox="0 0 24 24" style={{ filter: full || half ? 'drop-shadow(0 1px 1px rgba(245,158,11,0.4))' : 'none' }}>
-                        <defs>{half && <clipPath id={clipId}><rect x="0" y="0" width="12" height="24"/></clipPath>}</defs>
-                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#e5e7eb"/>
-                        {(full || half) && <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f59e0b" clipPath={half ? `url(#${clipId})` : undefined}/>}
-                      </svg>
-                    );
-                  })}
-                  <span className="text-sm font-bold text-gray-800 ml-1">{productRating}</span>
-                </div>
-                <span className="w-px h-4 bg-gray-300 rounded"/>
-                <span className="text-sm text-gray-500"><span className="font-semibold text-gray-700">{productReviews}</span> {productReviews === 1 ? 'Review' : 'Reviews'}</span>
-                <span className="w-px h-4 bg-gray-300 rounded"/>
-                <span className="text-sm text-gray-500 flex items-center gap-1">
-                  <svg className="w-3.5 h-3.5 text-amber-400" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd"/></svg>
-                  <span className="font-semibold text-gray-700">684</span> Sold this week
-                </span>
-              </div>
-
-              {/* Keyword pills — below rating */}
-              <div className="flex flex-wrap gap-2">
-                {['24Hr Protection', 'Long Lasting', 'For Women', 'Premium Fragrance', 'No Gas'].map(kw => (
-                  <span key={kw} className="inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-medium bg-[#f5f0f4] text-[#5c3a52] border border-[#e8d8e4]">
-                    <svg className="w-3 h-3" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
-                    {kw}
+              {/* Rating + sold + tags */}
+              <div className="flex flex-col gap-2.5">
+                {/* Stars row */}
+                <div className="flex items-center gap-3 flex-wrap">
+                  <div className="flex items-center gap-1">
+                    {[1,2,3,4,5].map(i => {
+                      const full = i <= Math.floor(4.8);
+                      const half = !full && i === 5;
+                      return (
+                        <svg key={i} width="18" height="18" viewBox="0 0 24 24">
+                          {half && (
+                            <defs>
+                              <clipPath id={`pdp-half-${i}`}>
+                                <rect x="0" y="0" width="12" height="24"/>
+                              </clipPath>
+                            </defs>
+                          )}
+                          <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#e5e7eb"/>
+                          {(full || half) && <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f59e0b" clipPath={half ? `url(#pdp-half-${i})` : undefined}/>}
+                        </svg>
+                      );
+                    })}
+                    <span className="text-sm font-bold text-gray-800 ml-1">4.8</span>
+                  </div>
+                  <span className="text-gray-300 text-sm">|</span>
+                  <span className="text-sm text-gray-500"><span className="font-semibold text-gray-800">320</span> Reviews</span>
+                  <span className="text-gray-300 text-sm">|</span>
+                  <span className="text-sm text-gray-500">
+                    <span className="text-amber-500 mr-1">⚡</span>
+                    <span className="font-semibold text-gray-800">684</span> Sold this week
                   </span>
-                ))}
-              </div>
+                </div>
 
-              {/* Price */}
-              <div className="flex items-baseline gap-3 flex-wrap">
-                <span className="text-2xl md:text-3xl font-bold text-gray-900">Rs. {productPrice.toLocaleString('en-IN')}.00</span>
-                <span className="text-lg line-through" style={{ color: '#c0392b' }}>Rs. {productOriginal.toLocaleString('en-IN')}.00</span>
-              </div>
-
-              {/* Save badge */}
-              <div className="inline-flex">
-                <span className="px-3 py-1.5 text-sm font-semibold text-white rounded" style={{ backgroundColor: '#2d6a2d' }}>
-                  SAVE Rs. {(productOriginal - productPrice).toLocaleString('en-IN')}.00 ({productDiscount}% OFF)
-                </span>
-              </div>
-
-              {/* Colour swatches */}
-              <div>
-                <p className="text-xs font-semibold text-gray-700 tracking-widest mb-3">AVAILABLE IN {productImages.length} COLOURS:</p>
-                <div className="flex gap-2 flex-wrap">
-                  {productImages.map((img, i) => (
-                    <button
-                      key={i}
-                      onClick={() => setSelectedImage(i)}
-                      className={`w-14 h-14 rounded overflow-hidden border-2 transition-all ${selectedImage === i ? 'border-gray-900' : 'border-gray-200 hover:border-gray-400'}`}
+                {/* Feature tags */}
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    { label: 'No Wires', icon: <path d="M17 6.1H3M21 12H8M21 12l-4-4m4 4l-4 4M3 17.9h8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/> },
+                    { label: '40Hr Playtime', icon: <><circle cx="12" cy="12" r="9" stroke="currentColor" strokeWidth="2"/><polyline points="12 7 12 12 15 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></> },
+                    { label: 'Clear Call Quality', icon: <><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.08 5.18 2 2 0 0 1 5.07 3h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L9.09 10.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 17.92z" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/></> },
+                    { label: 'Sweat & Rain Proof', icon: <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/> },
+                    { label: 'Instant Connect', icon: <><path d="M5 12.55a11 11 0 0 1 14.08 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M1.42 9a16 16 0 0 1 21.16 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><path d="M8.53 16.11a6 6 0 0 1 6.95 0" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/><circle cx="12" cy="20" r="1" fill="currentColor"/></> },
+                  ].map(({ label, icon }) => (
+                    <span
+                      key={label}
+                      className="inline-flex items-center gap-2 text-xs font-semibold text-gray-700 rounded-xl px-3 py-2"
+                      style={{ background: '#fff', border: '1px solid #e8e8e8' }}
                     >
-                      <img src={img} alt={`Colour ${i+1}`} className="w-full h-full object-cover"/>
-                    </button>
+                      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" style={{ color: '#374151', flexShrink: 0 }}>
+                        {icon}
+                      </svg>
+                      {label}
+                    </span>
                   ))}
                 </div>
               </div>
 
-              {/* Name on bag info */}
-              <div className="flex items-start gap-2 text-sm text-gray-600">
-                <svg className="w-4 h-4 mt-0.5 flex-shrink-0 text-gray-500" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
-                </svg>
-                <span>Please enter the name you'd like on your bag. If you have ordered more than 1, separate each name with a comma.</span>
+              {/* Price row */}
+              <div className="flex items-baseline gap-3">
+                <span className="text-lg text-gray-400 line-through">₹{productOriginal.toLocaleString('en-IN')}.00</span>
+                <span className="text-3xl font-bold text-gray-900">₹{productPrice.toLocaleString('en-IN')}.00</span>
               </div>
 
-              {/* Name input */}
-              <input
-                type="text"
-                placeholder="NAME ON THE BAG"
-                className="w-full border border-gray-300 rounded px-4 py-4 text-sm text-gray-500 tracking-widest focus:outline-none focus:border-gray-600 bg-white"
-              />
+              {/* In Stock */}
+              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-green-700 bg-green-50 border border-green-200 px-3 py-1 rounded-md w-fit">
+                <span className="w-2 h-2 rounded-full bg-green-500 inline-block" />
+                In Stock
+              </span>
 
-              {/* Add-ons */}
-              <div>
-                <div className="flex items-center gap-2 mb-4">
-                  <svg className="w-5 h-5 text-gray-700" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zM12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z"/>
-                  </svg>
-                  <span className="text-sm font-bold text-gray-900 tracking-widest">ADD-ONS</span>
-                </div>
-                {[
-                  { label: 'Gift Wrap Your Order', price: 50, img: 'https://thebaeshop.com/cdn/shop/files/2_6fa6df98-2639-4302-9159-e1569bbbe8bb.jpg?v=1771311357&width=1080' },
-                  { label: "Add A Photo & Message (We'll reach out to you for same once you order.)", price: 50, img: 'https://thebaeshop.com/cdn/shop/files/12_df44ffa7-3472-4888-9f08-0566995b2cda.jpg?v=1771311291&width=2000' },
-                ].map((addon, i) => (
-                  <div key={i} className="flex items-center gap-3 py-3 border-b border-gray-100 last:border-0">
-                    <img src={addon.img} alt={addon.label} className="w-14 h-14 rounded object-cover flex-shrink-0"/>
-                    <span className="flex-1 text-sm text-gray-800">{addon.label}</span>
-                    <span className="text-sm font-semibold text-gray-900 mr-3">₹{addon.price}.00</span>
-                    <input type="checkbox" className="w-5 h-5 rounded border-gray-400 accent-gray-800 cursor-pointer flex-shrink-0"/>
-                  </div>
-                ))}
-              </div>
-
-              {/* Quantity + Add to Cart */}
-              <div className="flex gap-3 items-stretch">
-                <div className="flex items-center border border-gray-300 rounded">
-                  <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="px-4 py-3 text-gray-600 hover:bg-gray-100 text-lg">‹</button>
-                  <span className="px-5 text-base font-medium text-gray-900">{quantity}</span>
-                  <button onClick={() => setQuantity(quantity + 1)} className="px-4 py-3 text-gray-600 hover:bg-gray-100 text-lg">›</button>
-                </div>
-                <button className="flex-1 py-3 text-white font-bold text-sm uppercase tracking-widest rounded transition-opacity hover:opacity-90" style={{ backgroundColor: '#8B1A3A' }}>
-                  ADD TO CART
+              {/* Pincode */}
+              <div className="flex gap-2">
+                <input
+                  type="text"
+                  placeholder="Enter Pincode"
+                  maxLength={6}
+                  className="flex-1 border border-gray-300 rounded px-4 py-2.5 text-sm focus:outline-none focus:border-gray-600"
+                />
+                <button className="px-5 py-2.5 bg-gray-800 text-white text-sm font-semibold rounded hover:bg-gray-900 transition-colors">
+                  Check Pincode
                 </button>
               </div>
 
-              {/* Promo banner */}
-              <div className="px-4 py-3 rounded text-sm text-gray-700" style={{ backgroundColor: '#f0eaf5' }}>
-                5% off on your first order. Use code <strong>FIRSTGIFT</strong>. Extra 5% off on all pre-paid orders.
-              </div>
-
-              {/* Free shipping */}
-              <div className="flex items-center gap-2">
-                <svg className="w-5 h-5 text-gray-700 flex-shrink-0" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8zM5.5 19.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3zM18.5 19.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z"/>
+              {/* Added to carts banner */}
+              <div className="flex items-center gap-2 px-4 py-3 rounded-md text-sm" style={{ backgroundColor: '#fff8f0', border: '1px solid #fed7aa' }}>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ea580c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+                  <path d="M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6"/>
                 </svg>
-                <span className="text-sm font-bold text-gray-900">Free Shipping. Ships within 24–48 hours.</span>
+                <span style={{ color: '#9a3412' }}>This product has been added to <strong style={{ color: '#ea580c' }}>98 people's</strong> carts.</span>
               </div>
 
-              {/* Accordion */}
-              {[
-                { key: 'details', label: 'Product Details', icon: 'M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2', content: PRODUCT_DESCRIPTION },
-                { key: 'shipping', label: 'Shipping Details', icon: 'M1 3h15v13H1zM16 8h4l3 3v5h-7V8z', content: 'Free shipping on all orders. Ships within 24–48 hours. Express delivery available for metro cities.' },
-                { key: 'returns', label: 'Returns & Exchanges', icon: 'M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15', content: '7-day hassle-free returns. Item must be unused and in original packaging.' },
-              ].map(({ key, label, icon, content }) => (
-                <div key={key} className="border-t border-gray-200">
-                  <button
-                    onClick={() => setIsDescriptionOpen(isDescriptionOpen === key ? null : key)}
-                    className="w-full flex items-center justify-between py-4 text-sm font-semibold text-gray-900"
-                  >
-                    <div className="flex items-center gap-3">
-                      <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" strokeWidth="1.8" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" d={icon}/>
-                      </svg>
-                      {label}
-                    </div>
-                    <svg className={`w-5 h-5 text-gray-500 transition-transform ${isDescriptionOpen === key ? 'rotate-45' : ''}`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16M4 12h16"/>
-                    </svg>
+              {/* Delivery options */}
+              <div className="border border-gray-200 rounded-lg p-4">
+                <p className="text-sm text-gray-600 mb-3 font-medium">Check delivery options in your location:</p>
+                <div className="flex gap-2">
+                  <input
+                    type="text"
+                    placeholder="Enter a Pincode"
+                    maxLength={6}
+                    className="flex-1 border border-gray-300 rounded px-3 py-2 text-sm focus:outline-none focus:border-gray-600"
+                  />
+                  <button className="px-4 py-2 bg-gray-800 text-white text-sm font-semibold rounded hover:bg-gray-900 transition-colors">
+                    Check
                   </button>
-                  {isDescriptionOpen === key && (
-                    <div className="pb-4 text-sm text-gray-600">{content}</div>
-                  )}
                 </div>
-              ))}
-              <div className="border-t border-gray-200" />
+                <p className="text-xs text-gray-400 mt-2">Shipping to <strong className="text-gray-600">IN</strong> · <button className="underline hover:text-gray-800">change</button></p>
+              </div>
+
+              {/* Quantity + Add to Cart */}
+              <div className="flex gap-3 items-center">
+                <div className="flex items-center border border-gray-300 rounded-lg overflow-hidden">
+                  <button onClick={() => setQuantity(Math.max(1, quantity - 1))} className="w-10 h-11 flex items-center justify-center text-xl text-gray-600 hover:bg-gray-50 transition-colors">−</button>
+                  <span className="w-10 text-center text-base font-semibold text-gray-900">{quantity}</span>
+                  <button onClick={() => setQuantity(quantity + 1)} className="w-10 h-11 flex items-center justify-center text-xl text-gray-600 hover:bg-gray-50 transition-colors">+</button>
+                </div>
+                <button className="flex-1 py-3 bg-green-600 hover:bg-green-700 text-white font-bold text-sm rounded-lg transition-colors tracking-wide">
+                  Add to cart
+                </button>
+              </div>
+
+              {/* Add to wishlist */}
+              <button className="flex items-center gap-2 text-sm text-gray-600 hover:text-gray-900 transition-colors w-fit">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
+                </svg>
+                Add to wishlist
+              </button>
+
+              <div className="border-t border-gray-100 my-1" />
+
+              {/* Delivery info checklist */}
+              <ul className="flex flex-col gap-2.5">
+                {[
+                  { bold: 'Delivered today', rest: '(order Mon–Fri before 12:00, delivery between 17:00 and 22:00)' },
+                  { bold: 'Including', rest: 'shipping costs, fulfilled by OlivLife' },
+                  { bold: null, rest: 'Pick up at an OlivLife collection point is possible' },
+                  { bold: null, rest: '30 days to change your mind and free returns' },
+                  { bold: null, rest: 'Day and night customer service' },
+                ].map((item, i) => (
+                  <li key={i} className="flex items-start gap-2 text-sm text-gray-700">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#16a34a" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-shrink-0">
+                      <path d="M20 6L9 17l-5-5"/>
+                    </svg>
+                    <span>{item.bold && <strong>{item.bold} </strong>}{item.rest}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div className="border-t border-gray-100 my-1" />
+
+              {/* Category */}
+              <p className="text-sm text-gray-400">Category: <span className="text-gray-600 font-medium">True Wireless Earbuds</span></p>
 
             </div>
           </div>
         </div>
       </main>
 
-      {/* PDP Banner Images */}
-      <div className="w-full bg-white">
-        <img src={product1} alt="" className="w-full block" />
-        <img src={product2} alt="" className="w-full block" />
-      </div>
 
       {/* See It In The Wild */}
       {(() => {
         const WILD_VIDEOS = [
-          'https://www.pexels.com/download/video/4251604/',
-          'https://www.pexels.com/download/video/9015595/',
-          'https://www.pexels.com/download/video/6584528/',
-          'https://www.pexels.com/download/video/6648853/',
-          'https://www.pexels.com/download/video/5095328/',
+          'https://www.pexels.com/download/video/6689313/',
+          'https://www.pexels.com/download/video/7382316/',
+          'https://www.pexels.com/download/video/6322740/',
+          'https://www.pexels.com/download/video/7988851/',
+          'https://www.pexels.com/download/video/4884004/',
         ];
-        const WILD_LABELS = ['Fairever', 'Raaga', 'Nyle', 'Spinz', 'Karthika'];
         return (
           <>
-            <div className="w-full py-12" style={{ background: '#264171' }}>
+            <div className="w-full py-7" style={{ background: '#264171' }}>
               <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-                <div className="flex items-end justify-between mb-8">
-                  <div>
-                    <p className="text-xs font-semibold tracking-[0.25em] mb-2" style={{ color: 'rgba(255,255,255,0.5)' }}>REAL PEOPLE · REAL PRODUCTS</p>
-                    <h2 className="text-2xl md:text-3xl font-bold text-white leading-tight">See It In The Wild</h2>
-                  </div>
-                  <span className="hidden md:flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full" style={{ color: 'rgba(255,255,255,0.6)', border: '1px solid rgba(255,255,255,0.15)' }}>
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
-                    @cavinkart
+                <div className="flex items-center justify-between mb-5">
+                  <h2 className="text-base font-bold text-white tracking-wide">See It In The Wild</h2>
+                  <span className="flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full" style={{ color: 'rgba(255,255,255,0.55)', border: '1px solid rgba(255,255,255,0.15)' }}>
+                    Real customers
                   </span>
                 </div>
                 <div className="overflow-x-auto pb-2" style={{ scrollbarWidth: 'none' }}>
-                  <div className="flex gap-4 min-w-max">
+                  <div className="flex gap-3 min-w-max">
                     {WILD_VIDEOS.map((url, idx) => (
-                      <button key={idx} className="flex flex-col items-center gap-2 focus:outline-none" onClick={() => setWildVideoIdx(idx)}>
-                        <div className="relative overflow-hidden" style={{ width: '130px', height: '220px', borderRadius: '999px', border: '2px solid rgba(255,255,255,0.2)' }}>
+                      <button key={idx} className="focus:outline-none" onClick={() => setWildVideoIdx(idx)}>
+                        <div className="relative overflow-hidden" style={{ width: '108px', height: '180px', borderRadius: '999px', border: '2px solid rgba(255,255,255,0.18)' }}>
                           <video src={url} className="w-full h-full object-cover" autoPlay muted playsInline loop />
-                          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.4) 0%, transparent 55%)' }} />
+                          <div className="absolute inset-0 pointer-events-none" style={{ background: 'linear-gradient(to top, rgba(0,0,0,0.3) 0%, transparent 50%)' }} />
                         </div>
-                        <span className="text-[11px] font-medium" style={{ color: 'rgba(255,255,255,0.7)' }}>{WILD_LABELS[idx]}</span>
                       </button>
                     ))}
                   </div>
@@ -1139,7 +1090,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                             <path d="M12 2.69c-2.5 0-4.5 2-4.5 4.5 0 1.5.7 2.8 1.7 3.7L12 18l2.8-7.1c1-0.9 1.7-2.2 1.7-3.7 0-2.5-2-4.5-4.5-4.5z" />
                           </svg>
                         ), 
-                        label: 'Love the vegan leather quality',
+                        label: 'Love the deep bass quality',
                         value: '92%'
                       },
                     ].map((stat, idx) => (
@@ -1161,29 +1112,28 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
             {/* Right Side - Reviews */}
             <div className="lg:col-span-2">
               {/* Tab Headers */}
-              <div className="flex flex-wrap mb-6 bg-gray-100 rounded-lg p-1 gap-1">
-                <button 
-                  className={`flex-1 py-3 px-6 rounded-md text-sm font-medium transition-all ${
-                    activeTab === 'product' 
-                    ? 'bg-white shadow-sm text-gray-900' 
-                    : 'hover:text-gray-900'
-                  }`}
-                  style={{ color: activeTab === 'product' ? undefined : '#351F31' }}
-                  onClick={() => setActiveTab('product')}
-                >
-                  Product Reviews
-                </button>
-                <button 
-                  className={`flex-1 py-3 px-6 rounded-md text-sm font-medium transition-all ${
-                    activeTab === 'brand' 
-                    ? 'bg-white shadow-sm text-gray-900' 
-                    : 'hover:text-gray-900'
-                  }`}
-                  style={{ color: activeTab === 'brand' ? undefined : '#351F31' }}
-                  onClick={() => setActiveTab('brand')}
-                >
-                  Brand Reviews
-                </button>
+              <div className="flex gap-2 mb-6">
+                {[['product', 'Product Reviews'], ['brand', 'Brand Reviews']].map(([id, label]) => (
+                  <button
+                    key={id}
+                    onClick={() => setActiveTab(id)}
+                    style={{
+                      padding: '6px 14px',
+                      fontSize: '12px',
+                      fontWeight: '600',
+                      borderRadius: '0',
+                      border: '1.5px solid',
+                      borderColor: activeTab === id ? '#111' : '#e0e0e0',
+                      background: activeTab === id ? '#111' : '#fff',
+                      color: activeTab === id ? '#fff' : '#666',
+                      cursor: 'pointer',
+                      transition: 'all 0.15s ease',
+                      letterSpacing: '0.01em',
+                    }}
+                  >
+                    {label}
+                  </button>
+                ))}
               </div>
 
               {/* Product Tab Content - AI Insight & Customer Photos */}
@@ -1203,12 +1153,12 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     <p className="text-gray-700 leading-relaxed mb-2 text-base">
                       {isAISummaryExpanded ? (
                         <>
-                          Customers love the long-lasting Bulgarian rose fragrance of Spinz Enchante and consistently praise its 24-hour protection even on hot days. The no-gas, no-stain formula is frequently highlighted as a standout feature — many reviewers mention zero white marks on dark clothing and no skin irritation even with daily use. Customers are especially impressed by the premium fragrance quality for the Rs.99 price point, with several comparing it favourably to much more expensive perfumes. The subtle, feminine rose scent receives the most compliments, with many buyers saying friends and colleagues regularly ask what they're wearing.
+                          Customers love the long-lasting battery life of the OlivLife AURA Earbuds and consistently praise its 40-hour total playback even with heavy use. The deep bass and ENC (Environmental Noise Cancellation) are frequently highlighted as standout features — many reviewers mention crystal-clear calls and zero connection drops even with daily commuting. Customers are especially impressed by the premium audio quality for the Rs. 2499 price point, with several comparing it favourably to much more expensive TWS brands. The comfortable fit and sleek design receive the most compliments, with many buyers saying they can wear them for hours without any ear fatigue.
                           <button onClick={() => setIsAISummaryExpanded(false)} className="underline ml-1 cursor-pointer" style={{ color: '#351F31' }}>Read less</button>
                         </>
                       ) : (
                         <>
-                          Customers love the long-lasting Bulgarian rose fragrance and 24-hour protection of Spinz Enchante. The no-gas, no-stain formula and premium scent quality at Rs.99 are consistently praised.
+                          Customers love the long-lasting battery life and 40-hour playback of the OlivLife AURA Earbuds. The deep bass, crystal-clear ENC for calls, and premium audio quality at Rs. 2499 are consistently praised.
                           <button onClick={() => setIsAISummaryExpanded(true)} className="underline ml-1 cursor-pointer" style={{ color: '#351F31' }}>Read more</button>
                         </>
                       )}
@@ -1223,7 +1173,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     <div>
                       <p className="text-[11px] font-medium text-gray-400 mb-3 uppercase tracking-widest">Customers Frequently Mention</p>
                       <div className="flex flex-wrap gap-x-4 gap-y-1.5">
-                        {['Personalised Embossing', 'Vegan Leather', 'Gift Ready', 'Premium Quality', 'Satin Lining'].map((item, index) => (
+                        {['Deep Bass', 'Long Battery Life', 'Clear Calls', 'Premium Quality', 'Comfortable Fit'].map((item, index) => (
                           <span key={index} className="text-xs font-semibold" style={{ color: '#7a4f6d' }}>
                             {item}
                           </span>
@@ -1345,17 +1295,17 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     {reviews.slice(0, reviewsToShow).map((review) => {
                       const likeKey = `product-${review.id}`;
                       return (
-                        <div key={review.id} className="py-5">
+                        <div key={review.id} className="py-3">
                           {/* Top row: stars + name + date */}
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center gap-2">
+                          <div className="flex items-center justify-between mb-1.5">
+                            <div className="flex items-center gap-1.5">
                               <div className="flex items-center gap-0.5">
                                 {[1,2,3,4,5].map(i => {
                                   const full = i <= Math.floor(review.rating);
                                   const half = !full && i === Math.ceil(review.rating) && review.rating % 1 >= 0.3;
                                   const cId = `rc-clip-${review.id}-${i}`;
                                   return (
-                                    <svg key={i} width="13" height="13" viewBox="0 0 24 24">
+                                    <svg key={i} width="16" height="16" viewBox="0 0 24 24">
                                       <defs>{half && <clipPath id={cId}><rect x="0" y="0" width="12" height="24"/></clipPath>}</defs>
                                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#e5e7eb"/>
                                       {(full || half) && <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f59e0b" clipPath={half ? `url(#${cId})` : undefined}/>}
@@ -1363,16 +1313,19 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                                   );
                                 })}
                               </div>
-                              <span className="text-sm font-semibold text-gray-900">{review.name}</span>
-                              <svg className="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                              <span className="text-xs font-semibold text-gray-900">{review.name}</span>
+                              <svg className="w-3 h-3 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                               </svg>
                             </div>
                             <span className="text-xs text-gray-400">{getDaysAgo(review.date)}</span>
                           </div>
 
+                          {/* Title */}
+                          {review.title && <p className="text-xs font-semibold text-gray-800 mb-1">{review.title}</p>}
+
                           {/* Review text */}
-                          <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                          <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-2">
                             {expandedReviews[`product-${review.id}`] ? review.text : `${review.text.slice(0, 140)}...`}
                             <button onClick={() => handleReadMore(review.id, 'product')} className="ml-1 text-xs font-medium underline text-gray-400 hover:text-gray-600">
                               {expandedReviews[`product-${review.id}`] ? 'less' : 'more'}
@@ -1381,9 +1334,9 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
 
                           {/* Images */}
                           {review.images?.length > 0 && (
-                            <div className="flex gap-2 mb-3">
+                            <div className="flex gap-1.5 mb-2">
                               {review.images.map((image, imgIndex) => (
-                                <div key={imgIndex} className="w-16 h-16 rounded-lg overflow-hidden cursor-pointer flex-shrink-0 hover:opacity-80 transition-opacity"
+                                <div key={imgIndex} className="w-14 h-14 overflow-hidden cursor-pointer shrink-0 hover:opacity-80 transition-opacity"
                                   onClick={() => { const idx = allReviewImages.indexOf(image); if (idx !== -1) handleImageClick(idx); }}>
                                   <img src={image} alt="" className="w-full h-full object-cover"/>
                                 </div>
@@ -1392,11 +1345,19 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                           )}
 
                           {/* Footer */}
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs text-gray-400">{review.location}</span>
-                            <button onClick={() => handleLike(review.id, 'product')} className="text-xs text-gray-400 hover:text-gray-600 transition-colors">
-                              Helpful ({reviewLikes[likeKey] || 4})
-                            </button>
+                          <div className="flex items-center justify-between mt-3 pt-2.5 -mx-4 px-4 pb-1" style={{ background: '#f7f8fa', borderTop: '1px solid #efefef' }}>
+                            <div className="flex items-center gap-3">
+                              <span className="text-xs text-gray-400">Helpful?</span>
+                              <button onClick={() => handleLike(review.id, 'product')} className="flex items-center gap-1 text-xs text-gray-500 hover:text-orange-500 transition-colors">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                                ({reviewLikes[likeKey] || 716})
+                              </button>
+                              <button className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600 transition-colors">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                                (0)
+                              </button>
+                            </div>
+                            <button className="text-xs font-medium" style={{ color: '#2563eb' }}>Report</button>
                           </div>
                         </div>
                       );
@@ -1441,12 +1402,12 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     <p className="text-gray-700 leading-relaxed mb-2 text-base">
                       {isBrandAISummaryExpanded ? (
                         <>
-                          Customers trust Spinz by CavinKare for delivering consistent fragrance quality across its entire deodorant range. The brand is widely praised for offering premium-feel products at accessible price points, making quality personal care available to everyone. Reviewers frequently highlight Spinz's gentle, skin-friendly formulas — particularly appreciated by those with sensitive skin. The brand's wide range of variants for both men and women, reliable 24-hour odour protection, and attractive packaging make it a favourite for daily use as well as gifting. Many loyal customers mention having used Spinz products for years, citing CavinKare's trusted legacy since 1983 as a key reason for their confidence in the brand.
+                          Customers trust OlivLife for delivering consistent audio quality across its entire range of audio products. The brand is widely praised for offering premium-feel TWS earbuds at accessible price points, making high-quality sound available to everyone. Reviewers frequently highlight OlivLife's reliable Bluetooth connectivity and long battery life — particularly appreciated by those who travel or work remotely. The brand's focus on user comfort, environmental noise cancellation (ENC), and sleek packaging make it a favourite for daily use as well as gifting. Many loyal customers mention having used OlivLife products for years, citing their trusted customer service as a key reason for their confidence in the brand.
                           <button onClick={() => setIsBrandAISummaryExpanded(false)} className="underline ml-1 cursor-pointer" style={{ color: '#351F31' }}>Read less</button>
                         </>
                       ) : (
                         <>
-                          Customers trust Spinz by CavinKare for consistent fragrance quality and skin-friendly formulas at accessible prices. The brand's 24-hour protection and wide range of variants make it a long-time favourite.
+                          Customers trust OlivLife for consistent audio quality and reliable connectivity at accessible prices. The brand's long battery life, focus on comfort, and ENC technology make it a long-time favourite.
                           <button onClick={() => setIsBrandAISummaryExpanded(true)} className="underline ml-1 cursor-pointer" style={{ color: '#351F31' }}>Read more</button>
                         </>
                       )}
@@ -1461,7 +1422,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     <div>
                       <p className="text-[11px] font-medium text-gray-400 mb-3 uppercase tracking-widest">Brand Frequently Mentioned</p>
                       <div className="flex flex-wrap gap-x-4 gap-y-1.5">
-                        {['Cruelty-Free', 'Personalised Gifting', 'Elegant Packaging', 'Fast Delivery', 'Premium Vegan Leather', 'Great Value'].map((item, index) => (
+                        {['Great Value', 'Fast Delivery', 'Excellent Support', 'Premium Audio', 'Reliable Connection', 'Sleek Design'].map((item, index) => (
                           <span key={index} className="text-xs font-semibold" style={{ color: '#7a4f6d' }}>
                             {item}
                           </span>
@@ -1595,17 +1556,17 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     {brandReviews.slice(0, brandReviewsToShow).map((review) => {
                       const likeKey = `brand-${review.id}`;
                       return (
-                        <div key={review.id} className="py-5">
+                        <div key={review.id} className="py-3">
                           {/* Top row: stars + name + date */}
-                          <div className="flex items-center justify-between mb-2">
-                            <div className="flex items-center gap-2">
+                          <div className="flex items-center justify-between mb-1.5">
+                            <div className="flex items-center gap-1.5">
                               <div className="flex items-center gap-0.5">
                                 {[1,2,3,4,5].map(i => {
                                   const full = i <= Math.floor(review.rating);
                                   const half = !full && i === Math.ceil(review.rating) && review.rating % 1 >= 0.3;
                                   const cId = `br-clip-${review.id}-${i}`;
                                   return (
-                                    <svg key={i} width="13" height="13" viewBox="0 0 24 24">
+                                    <svg key={i} width="16" height="16" viewBox="0 0 24 24">
                                       <defs>{half && <clipPath id={cId}><rect x="0" y="0" width="12" height="24"/></clipPath>}</defs>
                                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#e5e7eb"/>
                                       {(full || half) && <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" fill="#f59e0b" clipPath={half ? `url(#${cId})` : undefined}/>}
@@ -1613,16 +1574,19 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                                   );
                                 })}
                               </div>
-                              <span className="text-sm font-semibold text-gray-900">{review.name}</span>
-                              <svg className="w-3.5 h-3.5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                              <span className="text-xs font-semibold text-gray-900">{review.name}</span>
+                              <svg className="w-3 h-3 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                               </svg>
                             </div>
                             <span className="text-xs text-gray-400">{getDaysAgo(review.date)}</span>
                           </div>
 
+                          {/* Title */}
+                          {review.title && <p className="text-xs font-semibold text-gray-800 mb-1">{review.title}</p>}
+
                           {/* Review text */}
-                          <p className="text-sm text-gray-600 leading-relaxed mb-3">
+                          <p className="text-sm md:text-base text-gray-600 leading-relaxed mb-2">
                             {expandedReviews[`brand-${review.id}`] ? review.text : `${review.text.slice(0, 140)}...`}
                             {review.text.length > 140 && (
                               <button onClick={() => handleReadMore(review.id, 'brand')} className="ml-1 text-xs font-medium underline text-gray-400 hover:text-gray-600">
@@ -1633,9 +1597,9 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
 
                           {/* Images */}
                           {review.images?.length > 0 && (
-                            <div className="flex gap-2 mb-3">
+                            <div className="flex gap-1.5 mb-2">
                               {review.images.map((image, imgIndex) => (
-                                <div key={imgIndex} className="w-16 h-16 rounded-lg overflow-hidden cursor-pointer flex-shrink-0 hover:opacity-80 transition-opacity"
+                                <div key={imgIndex} className="w-14 h-14 overflow-hidden cursor-pointer shrink-0 hover:opacity-80 transition-opacity"
                                   onClick={() => { const idx = allReviewImages.indexOf(image); if (idx !== -1) handleImageClick(idx); }}>
                                   <img src={image} alt="" className="w-full h-full object-cover"/>
                                 </div>
@@ -1644,11 +1608,19 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                           )}
 
                           {/* Footer */}
-                          <div className="flex items-center justify-between">
-                            <span className="text-xs text-gray-400">{review.location}</span>
-                            <button onClick={() => handleLike(review.id, 'brand')} className="text-xs text-gray-400 hover:text-gray-600 transition-colors">
-                              Helpful ({reviewLikes[likeKey] || 4})
-                            </button>
+                          <div className="flex items-center justify-between mt-3 pt-2.5 -mx-4 px-4 pb-1" style={{ background: '#f7f8fa', borderTop: '1px solid #efefef' }}>
+                            <div className="flex items-center gap-3">
+                              <span className="text-xs text-gray-400">Helpful?</span>
+                              <button onClick={() => handleLike(review.id, 'brand')} className="flex items-center gap-1 text-xs text-gray-500 hover:text-orange-500 transition-colors">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                                ({reviewLikes[likeKey] || 716})
+                              </button>
+                              <button className="flex items-center gap-1 text-xs text-gray-400 hover:text-gray-600 transition-colors">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3H10z"/><path d="M17 2h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                                (0)
+                              </button>
+                            </div>
+                            <button className="text-xs font-medium" style={{ color: '#2563eb' }}>Report</button>
                           </div>
                         </div>
                       );
@@ -2139,4 +2111,3 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
 };
 
 export default ShopifyProductPage;
-

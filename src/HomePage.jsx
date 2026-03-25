@@ -4,25 +4,15 @@ import ShopifyFooter from './ShopifyFooter';
 import ProductCard from './ProductCard';
 import AIBrandEngine from './AIBrandEngine';
 import LiveUserCounter from './LiveUserCounter';
+import ActivityBanner from './ActivityBanner';
 import './HomePage.css';
-import pi1 from './assets/Product Images/1.png';
-import pi2 from './assets/Product Images/2.png';
-import pi3 from './assets/Product Images/3.png';
-// Bestseller product images
-const BS_IMG_1 = 'https://cavinkart.com/cdn/shop/files/fairever-beauty-lift-saffron-milk-rosehip-oil-face-cream-50g-3521142_500x500.png?v=1763021857';
-const BS_IMG_2 = 'https://cavinkart.com/cdn/shop/files/raaga-professional-de-tan-pack-tan-removal-cream-with-kojic-and-milk-500-gm-7374242_500x500.png?v=1763022091';
-const BS_IMG_3 = 'https://cavinkart.com/cdn/shop/files/nyle-naturals-damage-repair-shampoo-800ml-for-stronger-healthier-hair-with-shikakai-amla-and-hibiscus-paraben-free-herbal-shampoo-for-men-women-8732261_1197x1197.jpg?v=1763021902';
-const BS_IMG_4 = 'https://cavinkart.com/cdn/shop/files/spinz-face-powder-spinz-bb-pro-brightening-face-cream-spinz-exotic-perfumed-deo-for-women-bulgarian-rose-fragrance-7049652_1078x1078.png?v=1766007009';
-const BS_IMG_5 = 'https://cavinkart.com/cdn/shop/products/karthika-hair-fall-shield-shampoo-650-ml-with-the-goodness-of-shikakai-hibiscus-for-men-women-4484026_994x994.jpg?v=1763021903';
-const MEERA_IMG = 'https://cavinkart.com/cdn/shop/files/meera-strong-and-healthy-shampoo-650ml-with-sunflower-radan-7259302_500x500.png?v=1763021902';
-const CHIK_IMG  = 'https://cavinkart.com/cdn/shop/files/chik-protein-solution-hairfall-prevent-shampoo-650-ml-3947821_500x500.jpg?v=1763021903';
 
 const SHOPIFY_VIDEO_URLS = [
-  'https://www.pexels.com/download/video/4251604/',
-  'https://www.pexels.com/download/video/9015595/',
-  'https://www.pexels.com/download/video/6584528/',
-  'https://www.pexels.com/download/video/6648853/',
-  'https://www.pexels.com/download/video/5095328/',
+  'https://www.pexels.com/download/video/6689313/',
+  'https://www.pexels.com/download/video/7382316/',
+  'https://www.pexels.com/download/video/6322740/',
+  'https://www.pexels.com/download/video/7988851/',
+  'https://www.pexels.com/download/video/4884004/',
 ];
 
 const BRAND_NAME = "wordofmouth";
@@ -31,53 +21,43 @@ const BRAND_NAME = "wordofmouth";
 const bestSellerProducts = [
   {
     id: 1,
-    image: BS_IMG_1,
-    title: 'Fairever Beauty Lift Saffron, Milk & Rosehip Oil Face Cream 50g',
-    currentPrice: 115,
-    originalPrice: 122,
-    inStock: true,
-    rating: 4.2,
-    reviewCount: 3847,
+    image: 'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-11.jpg.webp',
+    title: 'OlivLife AURA TWS (Black)',
+    currentPrice: 2499,
+    originalPrice: 3899,
+    rating: 4.7,
+    badge: 'New Launch',
+    feature: '40 Hours Playback',
   },
   {
     id: 2,
-    image: BS_IMG_2,
-    title: 'Raaga Professional De-Tan Pack | Tan Removal Cream with Kojic & Milk 500g',
-    currentPrice: 1345,
-    originalPrice: 1495,
-    inStock: true,
-    rating: 4.5,
-    reviewCount: 1203,
+    image: 'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-13.jpg.webp',
+    title: 'OlivLife X6 Speaker (W&G)',
+    currentPrice: 2999,
+    originalPrice: 3999,
+    rating: 4.8,
+    badge: 'Best Sellers',
+    feature: '5W punchy mono sound',
   },
   {
     id: 3,
-    image: BS_IMG_3,
-    title: 'Nyle Naturals Damage Repair Shampoo 800ml | Shikakai, Amla & Hibiscus',
-    currentPrice: 449,
-    originalPrice: 749,
-    inStock: true,
-    rating: 4.3,
-    reviewCount: 2156,
+    image: 'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-9.jpg.webp',
+    title: 'OlivLife Neckband (Y)',
+    currentPrice: 899,
+    originalPrice: 1999,
+    rating: 5.0,
+    badge: 'Trending',
+    feature: '24 Hours Playback',
   },
   {
     id: 4,
-    image: BS_IMG_4,
-    title: 'Spinz BB Pro Brightening Face Cream | Exotic Perfumed Deo Bulgarian Rose',
-    currentPrice: 799,
-    originalPrice: 1070,
-    inStock: true,
-    rating: 4.1,
-    reviewCount: 892,
-  },
-  {
-    id: 5,
-    image: BS_IMG_5,
-    title: 'Karthika Hair Fall Shield Shampoo 650ml | Shikakai & Hibiscus',
-    currentPrice: 499,
-    originalPrice: 999,
-    inStock: true,
-    rating: 4.4,
-    reviewCount: 1678,
+    image: 'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-13.jpg.webp',
+    title: 'OlivLife Boss 10.1 Speaker',
+    currentPrice: 4999,
+    originalPrice: 6999,
+    rating: 5.0,
+    badge: 'Best Sellers',
+    feature: '20W powerful stereo sound',
   },
 ];
 
@@ -89,51 +69,51 @@ const videoProducts = [
   {
     id: 1,
     video: SHOPIFY_VIDEO_URLS[0],
-    image: BS_IMG_1,
+    image: 'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-11.jpg.webp',
     views: '4.0K',
-    title: 'Fairever Beauty Lift Face Cream',
-    currentPrice: 115,
-    originalPrice: 122,
+    title: 'OlivLife AURA TWS (Black)',
+    currentPrice: 2499,
+    originalPrice: 3899,
     soldThisWeek: getRandomSoldThisWeek(),
   },
   {
     id: 2,
     video: SHOPIFY_VIDEO_URLS[1],
-    image: BS_IMG_2,
+    image: 'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-13.jpg.webp',
     views: '4.2K',
-    title: 'Raaga De-Tan Pack 500g',
-    currentPrice: 1345,
-    originalPrice: 1495,
+    title: 'OlivLife X6 Speaker (W&G)',
+    currentPrice: 2999,
+    originalPrice: 3999,
     soldThisWeek: getRandomSoldThisWeek(),
   },
   {
     id: 3,
     video: SHOPIFY_VIDEO_URLS[2],
-    image: BS_IMG_3,
+    image: 'https://olivlife.in/wp-content/uploads/2025/07/product-wise-banner-9.jpg.webp',
     views: '3.8K',
-    title: 'Nyle Damage Repair Shampoo 800ml',
-    currentPrice: 449,
-    originalPrice: 749,
+    title: 'OlivLife Neckband (Yellow)',
+    currentPrice: 899,
+    originalPrice: 1999,
     soldThisWeek: getRandomSoldThisWeek(),
   },
   {
     id: 4,
     video: SHOPIFY_VIDEO_URLS[3],
-    image: BS_IMG_4,
+    image: 'https://olivlife.in/wp-content/uploads/2025/05/Boss-10.1-Portable-Bluetooth-Wireless-Speaker-4-150x150.jpg',
     views: '3.1K',
-    title: 'Spinz BB Pro Brightening Cream',
-    currentPrice: 799,
-    originalPrice: 1070,
+    title: 'OlivLife Boss 10.1 Speaker',
+    currentPrice: 4999,
+    originalPrice: 6999,
     soldThisWeek: getRandomSoldThisWeek(),
   },
   {
     id: 5,
     video: SHOPIFY_VIDEO_URLS[4],
-    image: BS_IMG_5,
+    image: 'https://olivlife.in/wp-content/uploads/2025/05/OlivLife-Earpods-Black-1-1.jpg.webp',
     views: '2.9K',
-    title: 'Karthika Hair Fall Shield Shampoo',
-    currentPrice: 499,
-    originalPrice: 999,
+    title: 'OlivLife 4-in-1 USB Cable',
+    currentPrice: 299,
+    originalPrice: 599,
     soldThisWeek: getRandomSoldThisWeek(),
   },
 ];
@@ -162,54 +142,6 @@ const HomePage = ({ onProductClick }) => {
   const instagramCarouselRef = React.useRef(null);
   
 
-  const [socialProofIndex, setSocialProofIndex] = useState(0);
-  const [showCarousel, setShowCarousel] = useState(true);
-  const socialProofItems = [
-    {
-      type: 'bought',
-      name: 'Pooja',
-      action: 'bought this dress',
-      time: 'Just now',
-      image: pi1
-    },
-    {
-      type: 'review',
-      name: 'Neha',
-      action: 'gave the review',
-      time: '30 min ago',
-      image: pi2
-    },
-    {
-      type: 'viewed',
-      name: 'Priya',
-      action: 'recently viewed',
-      time: '1 hour ago',
-      image: pi3
-    }
-  ];
-
-  // Auto-rotate social proof carousel
-  useEffect(() => {
-    if (!showCarousel) return;
-    
-    const interval = setInterval(() => {
-      setSocialProofIndex((prev) => {
-        const nextIndex = (prev + 1) % socialProofItems.length;
-        // If we've shown the last item and are about to cycle back to first, hide carousel
-        if (prev === socialProofItems.length - 1) {
-          setShowCarousel(false);
-          // Show again after 3 seconds
-          setTimeout(() => {
-            setShowCarousel(true);
-            setSocialProofIndex(0);
-          }, 3000);
-          return prev; // Keep showing last item until hidden
-        }
-        return nextIndex;
-      });
-    }, 4000);
-    return () => clearInterval(interval);
-  }, [showCarousel, socialProofItems.length]);
   
   // Instagram Section - Fresh Implementation
   const [showInstagramModal, setShowInstagramModal] = useState(false);
@@ -217,17 +149,17 @@ const HomePage = ({ onProductClick }) => {
   
   // Instagram post URLs
   const instagramPosts = [
-    'https://www.instagram.com/p/DSpyocPCd1T/',
-    'https://www.instagram.com/p/DJl5YM3vaqO/',
-    'https://www.instagram.com/p/DJlSRciS967/',
-    'https://www.instagram.com/p/DJjQY1fyQUh/',
-    'https://www.instagram.com/p/DJeUcZwogHb/',
-    'https://www.instagram.com/p/Cxxk1kRBfQA/',
-    'https://www.instagram.com/p/DJRPfIqPUOr/',
-    'https://www.instagram.com/p/CxvAzdQijln/',
-    'https://www.instagram.com/p/Cwm3r68PoH0/',
-    'https://www.instagram.com/p/Cx0Icu9sNR3/',
-    'https://www.instagram.com/p/DJjZr_ysWWS/',
+    'https://www.instagram.com/p/DWOVN7Ck0py/',
+    'https://www.instagram.com/p/DWOGWyvDS8Y/',
+    'https://www.instagram.com/p/DV_Iky9iBDT/',
+    'https://www.instagram.com/p/DV8nGktlGHJ/',
+    'https://www.instagram.com/p/DViwTKdDO2d/',
+    'https://www.instagram.com/p/DVdtsV7jN4n/',
+    'https://www.instagram.com/p/DVQyM7jDysY/',
+    'https://www.instagram.com/p/DVOUQe2gft4/',
+    'https://www.instagram.com/p/DVJHNUBj9_f/',
+    'https://www.instagram.com/p/DVBY3QpAnnk/',
+    'https://www.instagram.com/p/DUQhPq5Eulx/',
   ];
 
   // Load Instagram embed script
@@ -426,13 +358,12 @@ const HomePage = ({ onProductClick }) => {
       
 
 
-      {/* Best Seller Section */}
+      {/* Big Deals Section */}
       <section className="w-full py-12 md:py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-          <div className="text-center mb-8 md:mb-12">
-            <h2 className="font-serif text-3xl md:text-4xl lg:text-5xl font-normal text-[#8B4513] mb-3 tracking-wide">
-              Best Sellers
-            </h2>
+          <div className="flex items-center justify-between mb-8 md:mb-10">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900">Big Deals</h2>
+            <button className="text-base md:text-lg font-bold text-gray-900 hover:opacity-70 transition-opacity">View All</button>
           </div>
           <div className="overflow-x-auto -mx-4 px-4 scrollbar-hide">
             <div className="flex gap-4 md:gap-5 min-w-max pb-2">
@@ -452,117 +383,6 @@ const HomePage = ({ onProductClick }) => {
       </section>
 
 
-      {/* Testimonials Section */}
-      <section className="w-full py-16 md:py-24 bg-white overflow-hidden">
-
-        {/* Header */}
-        <div className="text-center mb-12 px-4">
-          <p className="text-gray-400 text-xs font-semibold tracking-[0.25em] uppercase mb-3">Customer Stories</p>
-          <h2 className="text-3xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">
-            Loved Across Every Brand
-          </h2>
-          <p className="text-gray-400 text-base max-w-xl mx-auto leading-relaxed">
-            From Meera to Raaga — millions trust the CavinKare family of brands every single day.
-          </p>
-        </div>
-
-        {/* Marquee rows */}
-        <style>{`
-          @keyframes marquee-left  { from { transform: translateX(0) } to { transform: translateX(-50%) } }
-          @keyframes marquee-right { from { transform: translateX(-50%) } to { transform: translateX(0) } }
-          .marquee-left  { animation: marquee-left  35s linear infinite; }
-          .marquee-right { animation: marquee-right 35s linear infinite; }
-          .marquee-left:hover, .marquee-right:hover { animation-play-state: paused; }
-        `}</style>
-
-        {(() => {
-          const row1 = [
-            { name: 'Priya Sharma',   location: 'Mumbai',    brand: 'Meera',    brandImg: MEERA_IMG, stars: 5, text: 'Meera shampoo has been my go-to for years. Hair feels so nourished — herbal goodness truly unmatched.' },
-            { name: 'Anjali Reddy',   location: 'Hyderabad', brand: 'Fairever', brandImg: BS_IMG_1,  stars: 5, text: 'Fairever cream is my daily essential. Skin feels visibly brighter and softer. Gentle enough for everyday.' },
-            { name: 'Karthik Nair',   location: 'Chennai',   brand: 'Chik',     brandImg: CHIK_IMG,  stars: 4, text: 'Best value shampoo out there. Clean hair without drying it out.' },
-            { name: 'Meena Pillai',   location: 'Pune',      brand: 'Nyle',     brandImg: BS_IMG_3,  stars: 5, text: 'Nyle Naturals transformed my damaged hair. Smells amazing and leaves hair silky smooth every wash.' },
-            { name: 'Rohan Verma',    location: 'Jaipur',    brand: 'Raaga',    brandImg: BS_IMG_2,  stars: 5, text: 'Raaga De-Tan Pack is a game changer. Salon-level results right at home. Worth every rupee.' },
-          ];
-          const row2 = [
-            { name: 'Sneha Iyer',     location: 'Bengaluru', brand: 'Spinz',    brandImg: BS_IMG_4,  stars: 5, text: "Stays fresh all day even in Bangalore's heat. The fragrance is subtle and long-lasting." },
-            { name: 'Divya Menon',    location: 'Kochi',     brand: 'Karthika', brandImg: BS_IMG_5,  stars: 5, text: "Transformed my hair in two months. Less hairfall, more shine. My grandmother's pick — and now mine too." },
-            { name: 'Rahul Gupta',    location: 'Delhi',     brand: 'Raaga',    brandImg: BS_IMG_2,  stars: 4, text: 'Visible tan removal in a single use. I\'m genuinely impressed by the results.' },
-            { name: 'Lakshmi Iyer',   location: 'Chennai',   brand: 'Meera',    brandImg: MEERA_IMG, stars: 5, text: 'Been using Meera hair oil for 10 years. Nothing else comes close to that herbal nourishment.' },
-            { name: 'Pooja Tiwari',   location: 'Mumbai',    brand: 'Fairever', brandImg: BS_IMG_1,  stars: 5, text: 'My skin looks noticeably brighter. The saffron blend is so gentle — zero irritation whatsoever.' },
-          ];
-
-          const Card = ({ t }) => (
-            <div
-              className="flex-shrink-0 flex flex-col bg-white rounded-2xl mx-3"
-              style={{ width: '280px', border: '1px solid #efefef', boxShadow: '0 2px 16px rgba(0,0,0,0.05)' }}
-            >
-              <div className="flex items-center gap-2.5 px-4 pt-4 pb-2">
-                <div className="w-8 h-8 rounded-lg overflow-hidden flex-shrink-0 bg-gray-50" style={{ border: '1px solid #f0f0f0' }}>
-                  <img src={t.brandImg || BS_IMG_1} alt={t.brand} className="w-full h-full object-contain p-0.5"
-                    onError={e => { e.target.onerror=null; e.target.src=BS_IMG_1; }} />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <p className="text-gray-900 font-bold text-xs leading-tight truncate">{t.brand}</p>
-                  <p className="text-gray-400 text-[10px]">CavinKare Brand</p>
-                </div>
-                <span className="shrink-0 flex items-center gap-0.5 text-[10px] font-medium text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-full">
-                  <svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#059669" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>
-                  Verified
-                </span>
-              </div>
-              <div className="px-4 pb-4 flex flex-col gap-2.5">
-                <div className="flex gap-0.5">
-                  {[1,2,3,4,5].map(s => (
-                    <svg key={s} width="13" height="13" viewBox="0 0 24 24">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
-                        fill={s <= t.stars ? '#F59E0B' : '#E5E7EB'} />
-                    </svg>
-                  ))}
-                </div>
-                <p className="text-gray-600 text-[12.5px] leading-[1.65]">"{t.text}"</p>
-                <div style={{ height: '1px', background: '#f3f3f3' }} />
-                <div>
-                  <p className="text-gray-900 text-xs font-semibold">{t.name}</p>
-                  <p className="text-gray-400 text-[10px] mt-0.5">{t.location} · Verified Buyer</p>
-                </div>
-              </div>
-            </div>
-          );
-
-          return (
-            <div className="flex flex-col gap-4">
-              {/* Row 1 — scrolls left */}
-              <div className="w-full overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)' }}>
-                <div className="flex marquee-left" style={{ width: 'max-content' }}>
-                  {[...row1, ...row1].map((t, i) => <Card key={i} t={t} />)}
-                </div>
-              </div>
-              {/* Row 2 — scrolls right */}
-              <div className="w-full overflow-hidden" style={{ maskImage: 'linear-gradient(to right, transparent, black 8%, black 92%, transparent)' }}>
-                <div className="flex marquee-right" style={{ width: 'max-content' }}>
-                  {[...row2, ...row2].map((t, i) => <Card key={i} t={t} />)}
-                </div>
-              </div>
-            </div>
-          );
-        })()}
-
-        {/* Bottom stat strip */}
-        <div className="max-w-4xl mx-auto px-4 mt-16 grid grid-cols-2 md:grid-cols-4 gap-8 text-center" style={{ borderTop: '1px solid #f0f0f0', paddingTop: '3rem' }}>
-          {[
-            { value: '25+', label: 'Brands Acquired' },
-            { value: '500M+', label: 'Products Sold Yearly' },
-            { value: '4.8★', label: 'Average Rating' },
-            { value: '40+', label: 'Years of Trust' },
-          ].map((stat, i) => (
-            <div key={i} className="flex flex-col gap-1">
-              <span className="text-3xl md:text-4xl font-bold text-gray-900">{stat.value}</span>
-              <span className="text-gray-400 text-sm">{stat.label}</span>
-            </div>
-          ))}
-        </div>
-
-      </section>
 
 
       {/* Video Section - moved to product page */}
@@ -734,14 +554,6 @@ const HomePage = ({ onProductClick }) => {
                                 ₹ {product.currentPrice.toLocaleString('en-IN')}
                               </div>
                             )}
-                            {product.originalPrice && (
-                              <div 
-                                className="text-gray-500 line-through font-normal"
-                                style={{ color: '#84848d', fontStyle: 'normal', textDecoration: 'line-through' }}
-                              >
-                                ₹ {product.originalPrice.toLocaleString('en-IN')}
-                              </div>
-                            )}
                           </div>
                           
                           {/* Offer Percentage */}
@@ -786,10 +598,12 @@ const HomePage = ({ onProductClick }) => {
       {/* Shop Videos Section */}
       <section className="w-full py-10 bg-white">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="text-center mb-8">
-            <h2 className="font-serif text-3xl md:text-4xl font-normal text-[#8B4513] mb-3 tracking-wide">
-              SHOP THE LOOK
-            </h2>
+          <div className="flex items-center justify-between mb-8">
+            <div>
+              <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-1">Featured Drops</p>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900">🎧 Shop the Sound</h2>
+            </div>
+            <button className="text-sm font-bold text-gray-900 hover:opacity-70 transition-opacity">View All</button>
           </div>
           <div className="overflow-x-auto scrollbar-hide -mx-4 px-4">
             <div className="flex gap-4 md:gap-6 min-w-max pb-2">
@@ -852,9 +666,6 @@ const HomePage = ({ onProductClick }) => {
                             {product.currentPrice && (
                               <span className="text-black font-semibold">Rs. {product.currentPrice.toLocaleString('en-IN')}.00</span>
                             )}
-                            {product.originalPrice && (
-                              <span className="text-gray-400 line-through text-sm">Rs. {product.originalPrice.toLocaleString('en-IN')}.00</span>
-                            )}
                           </div>
                         </div>
                       </div>
@@ -886,7 +697,7 @@ const HomePage = ({ onProductClick }) => {
             <div className="flex justify-center">
               <div className="rounded-full p-[3px]" style={{ background: 'linear-gradient(45deg, #f9a825, #f06292, #ab47bc)' }}>
                 <div className="w-32 h-32 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                  <img src="https://cavinkart.com/cdn/shop/files/CavinKart_Official_Online_Store_of_CavinKare_Products_805x220.webp?v=1772102542" alt="CavinKart" className="w-full h-full object-contain p-2" />
+                  <img src="https://olivlife.in/wp-content/uploads/2025/05/Abhay-Health-And-Oliv-Life-All-Products-with-BG-15.png" alt="OlivLife" className="w-full h-full object-contain p-2" />
                 </div>
               </div>
             </div>
@@ -894,32 +705,32 @@ const HomePage = ({ onProductClick }) => {
             {/* CENTER: username + stats */}
             <div className="flex flex-col items-center gap-3 text-center">
               <div className="flex items-center gap-3">
-                <a href="https://www.instagram.com/cavinkart/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/oliv_life_/" target="_blank" rel="noopener noreferrer"
                   className="text-gray-900 font-semibold text-xl hover:opacity-70 transition-opacity">
-                  cavinkart
+                  oliv_life_
                 </a>
                 <span className="text-gray-400 text-base tracking-widest">···</span>
               </div>
               <div className="flex gap-8">
                 <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">271</p>
+                  <p className="font-bold text-gray-900 text-base">473</p>
                   <p className="text-gray-400 text-sm">posts</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">2,456</p>
+                  <p className="font-bold text-gray-900 text-base">2,465</p>
                   <p className="text-gray-400 text-sm">followers</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">66</p>
+                  <p className="font-bold text-gray-900 text-base">8</p>
                   <p className="text-gray-400 text-sm">following</p>
                 </div>
               </div>
               <div className="flex gap-2 pt-1">
-                <a href="https://www.instagram.com/cavinkart/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/oliv_life_/" target="_blank" rel="noopener noreferrer"
                   className="px-8 py-1.5 rounded-lg text-sm font-semibold text-white" style={{ backgroundColor: '#4f6ef7' }}>
                   Follow
                 </a>
-                <a href="https://www.instagram.com/cavinkart/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/oliv_life_/" target="_blank" rel="noopener noreferrer"
                   className="px-6 py-1.5 rounded-lg text-sm font-semibold text-white hover:opacity-80 transition-opacity" style={{ backgroundColor: '#363636' }}>
                   Message
                 </a>
@@ -933,17 +744,10 @@ const HomePage = ({ onProductClick }) => {
 
             {/* RIGHT: bio */}
             <div className="space-y-1">
-              <p className="text-gray-900 text-sm font-semibold">CavinKart</p>
-              <p className="text-gray-400 text-sm">E-commerce website</p>
-              <p className="text-gray-800 text-sm">Never run out of your essentials!</p>
-              <p className="text-gray-800 text-sm">Shop all your favorite <span className="text-[#4f6ef7]">@cavinkareindia</span> brands now from Cavinkart.</p>
-              <a href="https://bit.ly/cavinkart" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-1 text-[#4f6ef7] text-sm pt-0.5">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 0 0-5.656 0l-4 4a4 4 0 1 0 5.656 5.656l1.102-1.101m-.758-4.899a4 4 0 0 0 5.656 0l4-4a4 4 0 0 0-5.656-5.656l-1.1 1.1"/>
-                </svg>
-                bit.ly/cavinkart
-              </a>
+              <p className="text-gray-900 text-sm font-semibold">OlivLife | Audio &amp; Accessories</p>
+              <p className="text-gray-400 text-sm">Electronics</p>
+              <p className="text-gray-800 text-sm">🚀Empowering your hustle from the classroom to the office. 🎧</p>
+              <p className="text-gray-800 text-sm">Affordable tech products for modern lifestyle. Quality you deserve, prices you'll love.</p>
             </div>
           </div>
 
@@ -955,22 +759,22 @@ const HomePage = ({ onProductClick }) => {
               <div className="flex-shrink-0">
                 <div className="rounded-full p-[3px]" style={{ background: 'linear-gradient(45deg, #f9a825, #f06292, #ab47bc)' }}>
                   <div className="w-20 h-20 rounded-full overflow-hidden bg-white flex items-center justify-center">
-                    <img src="https://cavinkart.com/cdn/shop/files/CavinKart_Official_Online_Store_of_CavinKare_Products_805x220.webp?v=1772102542" alt="CavinKart" className="w-full h-full object-contain p-1.5" />
+                    <img src="https://olivlife.in/wp-content/uploads/2025/05/Abhay-Health-And-Oliv-Life-All-Products-with-BG-15.png" alt="OlivLife" className="w-full h-full object-contain p-1.5" />
                   </div>
                 </div>
               </div>
               {/* Stats row */}
               <div className="flex flex-1 justify-around">
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">271</p>
+                  <p className="font-semibold text-gray-900 text-base">473</p>
                   <p className="text-gray-400 text-xs">posts</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">2,456</p>
+                  <p className="font-semibold text-gray-900 text-base">2,465</p>
                   <p className="text-gray-400 text-xs">followers</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">66</p>
+                  <p className="font-semibold text-gray-900 text-base">8</p>
                   <p className="text-gray-400 text-xs">following</p>
                 </div>
               </div>
@@ -978,26 +782,19 @@ const HomePage = ({ onProductClick }) => {
 
             {/* Bio block */}
             <div className="space-y-0.5">
-              <p className="text-gray-900 text-sm font-semibold">CavinKart</p>
-              <p className="text-gray-400 text-xs">E-commerce website</p>
-              <p className="text-gray-800 text-sm">Never run out of your essentials!</p>
-              <p className="text-gray-800 text-sm">Shop all your favorite <span className="text-[#4f6ef7]">@cavinkareindia</span> brands now from Cavinkart.</p>
-              <a href="https://bit.ly/cavinkart" target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-1 text-[#4f6ef7] text-sm pt-0.5">
-                <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 0 0-5.656 0l-4 4a4 4 0 1 0 5.656 5.656l1.102-1.101m-.758-4.899a4 4 0 0 0 5.656 0l4-4a4 4 0 0 0-5.656-5.656l-1.1 1.1"/>
-                </svg>
-                bit.ly/cavinkart
-              </a>
+              <p className="text-gray-900 text-sm font-semibold">OlivLife | Audio &amp; Accessories</p>
+              <p className="text-gray-400 text-xs">Electronics</p>
+              <p className="text-gray-800 text-sm">🚀Empowering your hustle from the classroom to the office. 🎧</p>
+              <p className="text-gray-800 text-sm">Affordable tech products for modern lifestyle. Quality you deserve, prices you'll love.</p>
             </div>
 
             {/* Buttons — full width like Instagram */}
             <div className="flex gap-2">
-              <a href="https://www.instagram.com/cavinkart/" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.instagram.com/oliv_life_/" target="_blank" rel="noopener noreferrer"
                 className="flex-1 py-1.5 rounded-lg text-sm font-semibold text-white text-center" style={{ backgroundColor: '#4f6ef7' }}>
                 Follow
               </a>
-              <a href="https://www.instagram.com/cavinkart/" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.instagram.com/oliv_life_/" target="_blank" rel="noopener noreferrer"
                 className="flex-1 py-1.5 rounded-lg text-sm font-semibold text-white text-center" style={{ backgroundColor: '#363636' }}>
                 Message
               </a>
@@ -1337,32 +1134,6 @@ const HomePage = ({ onProductClick }) => {
         </div>
       )}
 
-      {/* Social Proof Toast */}
-      {showCarousel && !selectedVideo && !selectedLookVideo && !showInstagramModal && (
-        <div className="fixed bottom-20 left-4 md:bottom-24 md:left-5 z-40 pointer-events-none">
-          <div
-            className="flex items-center gap-2.5 px-3 py-2 rounded-2xl pointer-events-auto"
-            style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(12px)', boxShadow: '0 2px 12px rgba(0,0,0,0.1)', border: '1px solid rgba(0,0,0,0.07)', maxWidth: '220px' }}
-          >
-            <div className="w-9 h-9 rounded-xl overflow-hidden flex-shrink-0">
-              <img src={socialProofItems[socialProofIndex].image} alt="" className="w-full h-full object-cover" />
-            </div>
-            <div className="flex-1 min-w-0">
-              <p className="text-xs font-semibold text-gray-800 leading-tight truncate">{socialProofItems[socialProofIndex].name}</p>
-              <p className="text-[11px] text-gray-500 leading-tight truncate">{socialProofItems[socialProofIndex].action}</p>
-              <p className="text-[10px] text-gray-400 mt-0.5">{socialProofItems[socialProofIndex].time}</p>
-            </div>
-            <button
-              onClick={() => setShowCarousel(false)}
-              className="flex-shrink-0 text-gray-300 hover:text-gray-500 ml-1"
-            >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none">
-                <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round"/>
-              </svg>
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* Floating Instagram Button */}
       <button
@@ -1455,6 +1226,7 @@ const HomePage = ({ onProductClick }) => {
 
       <ShopifyFooter brandName={BRAND_NAME} />
       <AIBrandEngine />
+      <ActivityBanner />
     </div>
   );
 };
