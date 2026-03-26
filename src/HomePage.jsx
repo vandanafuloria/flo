@@ -281,39 +281,78 @@ const HomePage = ({ onProductClick }) => {
       {/* Live User Counter */}
       <LiveUserCounter className={`fixed left-4 z-50 transition-all duration-300 ${isScrolled ? 'top-4' : 'top-[46px]'}`} />
       
-      {/* Trusted Customers Widget - Sticky on right side */}
-      <div 
-        className="fixed right-4 rounded-lg px-3 md:px-6 py-2 md:py-3 shadow-lg z-30 bg-white"
-        style={{
-          visibility: 'visible',
-          display: 'block',
-          zIndex: 30,
-          top: '226px',
-          transform: 'rotate(270deg)',
-          transformOrigin: 'right',
-          minWidth: '200px'
-        }}
-      >
-        <div className="flex items-center gap-2 md:gap-3 whitespace-nowrap">
-          <div className="flex items-center gap-0.5 md:gap-1">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <svg
-                key={star}
-                className="w-3 h-3 md:w-5 md:h-5"
-                viewBox="0 0 16 16"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+      {/* Trust Carousel Widget - Sticky on right side, slide bottom→top */}
+      {(() => {
+        const StarIcon = ({ color = '#FF9500' }) => (
+          <svg width="12" height="12" viewBox="0 0 24 24" fill={color}>
+            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+          </svg>
+        );
+        const trustSlides = [
+          {
+            icon: <div className="flex items-center gap-0.5">{[1,2,3,4,5].map(i => <StarIcon key={i}/>)}</div>,
+            text: 'Trusted by 10,000+ Customers',
+          },
+          {
+            icon: <img src="https://static.vecteezy.com/system/resources/previews/014/018/561/non_2x/amazon-logo-on-transparent-background-free-vector.jpg" alt="Amazon" style={{ height: '16px', width: 'auto', objectFit: 'contain' }} />,
+            text: '2,000+ Ratings',
+            badge: '4.5',
+          },
+          {
+            icon: <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-ear6tLG-5_mPMoXZt9_V0GikgHnxFObsog&s" alt="Flipkart" style={{ height: '16px', width: 'auto', objectFit: 'contain' }} />,
+            text: '1,500+ Reviews',
+            badge: '4.4',
+          },
+          {
+            icon: <StarIcon color="#FF9500"/>,
+            text: '100% Natural & Toxin-Free',
+          },
+          {
+            icon: <StarIcon color="#FF9500"/>,
+            text: 'Dermatologist Tested & Approved',
+          },
+        ];
+        const [trustIdx, setTrustIdx] = React.useState(0);
+        const [animKey, setAnimKey] = React.useState(0);
+        React.useEffect(() => {
+          const t = setInterval(() => {
+            setTrustIdx(i => (i + 1) % trustSlides.length);
+            setAnimKey(k => k + 1);
+          }, 2500);
+          return () => clearInterval(t);
+        }, []);
+        return (
+          <>
+            <style>{`
+              @keyframes slideLeftRight {
+                0%   { transform: translateX(-100%); opacity: 0; }
+                100% { transform: translateX(0);     opacity: 1; }
+              }
+              .trust-slide { animation: slideLeftRight 0.45s cubic-bezier(0.22,1,0.36,1) both; }
+            `}</style>
+            <div
+              className="fixed right-4 rounded-lg px-4 py-2.5 shadow-lg z-30 overflow-hidden"
+              style={{ top: '226px', transform: 'rotate(270deg)', transformOrigin: 'right', minWidth: '230px', height: '36px', backgroundColor: '#f2f2e6' }}
+            >
+              <div
+                key={animKey}
+                className="trust-slide flex items-center gap-2 whitespace-nowrap h-full"
               >
-                <path
-                  d="M8 0L10.06 5.51L16 6.18L12 10.15L12.94 16L8 13.18L3.06 16L4 10.15L0 6.18L5.94 5.51L8 0Z"
-                  fill="#FF9500"
-                />
-              </svg>
-            ))}
-          </div>
-          <span className="text-xs md:text-sm font-bold text-gray-900 font-['Space_Grotesk']">Trusted by 10,000+ customers</span>
-        </div>
-      </div>
+                <span>{trustSlides[trustIdx].icon}</span>
+                <span className="text-xs font-bold text-gray-900">{trustSlides[trustIdx].text}</span>
+                {trustSlides[trustIdx].badge && (
+                  <div className="flex items-center gap-1 px-2 py-0.5 rounded-md" style={{ backgroundColor: '#3d4f35' }}>
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="#f5c518">
+                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                    </svg>
+                    <span className="font-bold text-white" style={{ fontSize: '11px' }}>{trustSlides[trustIdx].badge}</span>
+                  </div>
+                )}
+              </div>
+            </div>
+          </>
+        );
+      })()}
       
 
 
