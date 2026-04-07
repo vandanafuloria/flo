@@ -241,6 +241,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
   const [productSortBy, setProductSortBy] = useState('most-recent');
   const [brandSortBy, setBrandSortBy] = useState('most-recent');
   const [showInstagramModal, setShowInstagramModal] = useState(false);
+  const [activeStory, setActiveStory] = useState(null);
   const [instagramLoading, setInstagramLoading] = useState(true);
   const [isShippingOpen, setIsShippingOpen] = useState(false);
   const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
@@ -632,6 +633,84 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
         <img src={productHeader} alt="Product Header" className="w-full object-cover" />
       </div>
 
+      {/* Instagram-style Stories / Reels */}
+      <div className="w-full bg-white py-4 px-4 border-b border-gray-100">
+        <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-1">
+          {[
+            { label: 'Ergo Mattress', video: VIBECRAFTS_VIDEOS[0], thumb: PRODUCT_IMAGES[0] },
+            { label: 'Deep Sleep', video: VIBECRAFTS_VIDEOS[1], thumb: PRODUCT_IMAGES[1] },
+            { label: 'Spine Support', video: VIBECRAFTS_VIDEOS[2], thumb: PRODUCT_IMAGES[2] },
+            { label: 'Shape Shield', video: VIBECRAFTS_VIDEOS[3], thumb: PRODUCT_IMAGES[5] },
+            { label: '100 Night Trial', video: VIBECRAFTS_VIDEOS[4], thumb: PRODUCT_IMAGES[4] },
+          ].map((story, i) => (
+            <button
+              key={i}
+              className="flex flex-col items-center gap-1.5 flex-shrink-0 focus:outline-none"
+              onClick={() => setActiveStory(story)}
+            >
+              <div
+                className="rounded-full p-[2.5px]"
+                style={{ background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)' }}
+              >
+                <div className="rounded-full p-[2px] bg-white">
+                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden">
+                    <img
+                      src={story.thumb}
+                      alt={story.label}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </div>
+              </div>
+              <span className="text-[11px] text-gray-700 font-medium text-center max-w-[72px] truncate">{story.label}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {/* Story Viewer Modal */}
+      {activeStory && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90"
+          onClick={() => setActiveStory(null)}
+        >
+          <div
+            className="relative w-full max-w-sm h-[85vh] rounded-2xl overflow-hidden"
+            onClick={e => e.stopPropagation()}
+          >
+            <video
+              src={activeStory.video}
+              className="w-full h-full object-cover"
+              autoPlay
+              loop
+              playsInline
+              muted={false}
+              controls={false}
+            />
+            <div className="absolute top-4 left-0 right-0 flex gap-1 px-4">
+              {[0,1,2,3,4].map(i => (
+                <div key={i} className="flex-1 h-0.5 rounded-full bg-white/40">
+                  <div className="h-full rounded-full bg-white w-full" />
+                </div>
+              ))}
+            </div>
+            <div className="absolute top-8 left-4 flex items-center gap-2">
+              <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-white">
+                <img src={activeStory.thumb} alt="" className="w-full h-full object-cover" />
+              </div>
+              <span className="text-white text-sm font-semibold">flomattress</span>
+            </div>
+            <button
+              className="absolute top-6 right-4 text-white text-2xl font-bold leading-none"
+              onClick={() => setActiveStory(null)}
+            >✕</button>
+            <div className="absolute bottom-6 left-4 right-4">
+              <p className="text-white text-sm font-semibold drop-shadow">{activeStory.label}</p>
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Product Video - Draggable floating card */}
       {showVideoCard && (
         <div
@@ -717,7 +796,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
               {/* Main image */}
               <div
                 className="relative w-full overflow-hidden cursor-zoom-in"
-                style={{ backgroundColor: '#e8e3da' }}
+                style={{ backgroundColor: '#ffffff' }}
                 onClick={() => setIsModalOpen(true)}
               >
                 <img
@@ -739,7 +818,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                       width: '80px',
                       height: '80px',
                       border: selectedImage === index ? '2px solid #1a1a1a' : '2px solid transparent',
-                      backgroundColor: '#e8e3da',
+                      backgroundColor: '#ffffff',
                     }}
                   >
                     <img src={img} alt={`View ${index + 1}`} className="w-full h-full object-cover" />
@@ -846,7 +925,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                 </div>
                 <button
                   className="flex-1 h-12 text-white text-sm font-semibold tracking-widest uppercase transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: '#5c6b45', letterSpacing: '0.12em' }}
+                  style={{ backgroundColor: '#0B4DA9', letterSpacing: '0.12em' }}
                 >
                   Add to Cart
                 </button>
@@ -874,7 +953,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
               <div className="flex flex-col gap-4">
                 {/* Estimated delivery */}
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style={{ backgroundColor: '#e8e3da' }}>
+                  <div className="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style={{ backgroundColor: '#ffffff' }}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B4DA9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
                     </svg>
@@ -886,7 +965,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
 
                 {/* Free shipping */}
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style={{ backgroundColor: '#e8e3da' }}>
+                  <div className="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style={{ backgroundColor: '#ffffff' }}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B4DA9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/>
                     </svg>
@@ -896,7 +975,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
 
                 {/* Query */}
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style={{ backgroundColor: '#e8e3da' }}>
+                  <div className="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style={{ backgroundColor: '#ffffff' }}>
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B4DA9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
                     </svg>
