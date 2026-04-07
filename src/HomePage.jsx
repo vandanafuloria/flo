@@ -330,7 +330,7 @@ const HomePage = ({ onProductClick }) => {
             `}</style>
             <div
               className="fixed right-4 rounded-lg px-4 py-2.5 shadow-lg z-30 overflow-hidden"
-              style={{ top: '226px', transform: 'rotate(270deg)', transformOrigin: 'right', minWidth: '230px', height: '36px', backgroundColor: '#f2f2e6' }}
+              style={{ top: '226px', transform: 'rotate(270deg)', transformOrigin: 'right', minWidth: '230px', height: '36px', backgroundColor: '#ffffff' }}
             >
               <div
                 key={animKey}
@@ -339,7 +339,7 @@ const HomePage = ({ onProductClick }) => {
                 <span>{trustSlides[trustIdx].icon}</span>
                 <span className="text-xs font-bold text-gray-900">{trustSlides[trustIdx].text}</span>
                 {trustSlides[trustIdx].badge && (
-                  <div className="flex items-center gap-1 px-2 py-0.5 rounded-md" style={{ backgroundColor: '#3d4f35' }}>
+                  <div className="flex items-center gap-1 px-2 py-0.5 rounded-md" style={{ backgroundColor: '#0B4DA9' }}>
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="#f5c518">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                     </svg>

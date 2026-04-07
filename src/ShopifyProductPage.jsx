@@ -610,7 +610,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
   );
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50 relative">
+    <div className="min-h-screen flex flex-col bg-white relative">
 
       {/* Back to Home */}
       {onHomeClick && (
@@ -700,7 +700,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
         </div>
       )}
       
-      <main className="flex-1 py-8 md:py-12" style={{ backgroundColor: '#f0ece3' }}>
+      <main className="flex-1 py-8 md:py-12" style={{ backgroundColor: '#ffffff' }}>
         <div className="w-full px-4 md:px-8">
 
           {/* Breadcrumb */}
@@ -925,8 +925,8 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
             <div className="w-full py-7" style={{ background: '#0B4DA9' }}>
               <div className="w-full px-4">
                 <div className="flex items-center justify-between mb-5">
-                  <h2 className="text-base font-bold text-white tracking-wide">In Your Skincare Routine</h2>
-                  <a href="https://www.instagram.com/luxova_official/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full" style={{ color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.25)', textDecoration: 'none' }}>
+                  <h2 className="text-base font-bold text-white tracking-wide">In Your Bedroom</h2>
+                  <a href="https://www.instagram.com/flomattress/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full" style={{ color: 'rgba(255,255,255,0.85)', border: '1px solid rgba(255,255,255,0.25)', textDecoration: 'none' }}>
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none">
                       <rect x="2" y="2" width="20" height="20" rx="5" stroke="white" strokeWidth="1.8"/>
                       <circle cx="12" cy="12" r="4.5" stroke="white" strokeWidth="1.8"/>
