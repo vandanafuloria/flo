@@ -633,30 +633,10 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
         <img src={productHeader} alt="Product Header" className="w-full object-cover" />
       </div>
 
-      {/* Instagram-style Reels Carousel — centered, infinite auto-scroll */}
-      <div className="w-full bg-white py-6 border-b border-gray-100 overflow-hidden">
-        <style>{`
-          @keyframes scrollReels {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-          }
-          .reels-track {
-            display: flex;
-            gap: 16px;
-            animation: scrollReels 18s linear infinite;
-            width: max-content;
-          }
-          .reels-track:hover {
-            animation-play-state: paused;
-          }
-        `}</style>
-        <div className="reels-track">
+      {/* Instagram-style Reels — centered, static */}
+      <div className="w-full bg-white py-6 border-b border-gray-100">
+        <div className="flex justify-center gap-4 px-4 overflow-x-auto scrollbar-hide">
           {[
-            { label: 'Ergo Mattress', video: VIBECRAFTS_VIDEOS[0] },
-            { label: 'Deep Sleep', video: VIBECRAFTS_VIDEOS[1] },
-            { label: 'Spine Support', video: VIBECRAFTS_VIDEOS[2] },
-            { label: 'Shape Shield', video: VIBECRAFTS_VIDEOS[3] },
-            { label: '100 Night Trial', video: VIBECRAFTS_VIDEOS[4] },
             { label: 'Ergo Mattress', video: VIBECRAFTS_VIDEOS[0] },
             { label: 'Deep Sleep', video: VIBECRAFTS_VIDEOS[1] },
             { label: 'Spine Support', video: VIBECRAFTS_VIDEOS[2] },
