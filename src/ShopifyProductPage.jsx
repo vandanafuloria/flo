@@ -633,36 +633,64 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
         <img src={productHeader} alt="Product Header" className="w-full object-cover" />
       </div>
 
-      {/* Instagram-style Stories / Reels */}
-      <div className="w-full bg-white py-4 px-4 border-b border-gray-100">
-        <div className="flex gap-4 overflow-x-auto scrollbar-hide pb-1">
+      {/* Instagram-style Reels Carousel — centered, infinite auto-scroll */}
+      <div className="w-full bg-white py-6 border-b border-gray-100 overflow-hidden">
+        <style>{`
+          @keyframes scrollReels {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+          }
+          .reels-track {
+            display: flex;
+            gap: 16px;
+            animation: scrollReels 18s linear infinite;
+            width: max-content;
+          }
+          .reels-track:hover {
+            animation-play-state: paused;
+          }
+        `}</style>
+        <div className="reels-track">
           {[
-            { label: 'Ergo Mattress', video: VIBECRAFTS_VIDEOS[0], thumb: PRODUCT_IMAGES[0] },
-            { label: 'Deep Sleep', video: VIBECRAFTS_VIDEOS[1], thumb: PRODUCT_IMAGES[1] },
-            { label: 'Spine Support', video: VIBECRAFTS_VIDEOS[2], thumb: PRODUCT_IMAGES[2] },
-            { label: 'Shape Shield', video: VIBECRAFTS_VIDEOS[3], thumb: PRODUCT_IMAGES[5] },
-            { label: '100 Night Trial', video: VIBECRAFTS_VIDEOS[4], thumb: PRODUCT_IMAGES[4] },
-          ].map((story, i) => (
+            { label: 'Ergo Mattress', video: VIBECRAFTS_VIDEOS[0] },
+            { label: 'Deep Sleep', video: VIBECRAFTS_VIDEOS[1] },
+            { label: 'Spine Support', video: VIBECRAFTS_VIDEOS[2] },
+            { label: 'Shape Shield', video: VIBECRAFTS_VIDEOS[3] },
+            { label: '100 Night Trial', video: VIBECRAFTS_VIDEOS[4] },
+            { label: 'Ergo Mattress', video: VIBECRAFTS_VIDEOS[0] },
+            { label: 'Deep Sleep', video: VIBECRAFTS_VIDEOS[1] },
+            { label: 'Spine Support', video: VIBECRAFTS_VIDEOS[2] },
+            { label: 'Shape Shield', video: VIBECRAFTS_VIDEOS[3] },
+            { label: '100 Night Trial', video: VIBECRAFTS_VIDEOS[4] },
+          ].map((reel, i) => (
             <button
               key={i}
-              className="flex flex-col items-center gap-1.5 flex-shrink-0 focus:outline-none"
-              onClick={() => setActiveStory(story)}
+              className="flex flex-col items-center gap-2 flex-shrink-0 focus:outline-none"
+              onClick={() => setActiveStory(reel)}
             >
               <div
-                className="rounded-full p-[2.5px]"
+                className="rounded-[18px] p-[2.5px]"
                 style={{ background: 'linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888)' }}
               >
-                <div className="rounded-full p-[2px] bg-white">
-                  <div className="w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden">
-                    <img
-                      src={story.thumb}
-                      alt={story.label}
+                <div className="rounded-[16px] p-[2px] bg-white">
+                  <div className="w-24 h-36 md:w-28 md:h-44 rounded-[14px] overflow-hidden relative bg-black">
+                    <video
+                      src={reel.video}
                       className="w-full h-full object-cover"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
                     />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="w-8 h-8 rounded-full bg-white/30 flex items-center justify-center backdrop-blur-sm">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M8 5v14l11-7z"/></svg>
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
-              <span className="text-[11px] text-gray-700 font-medium text-center max-w-[72px] truncate">{story.label}</span>
+              <span className="text-[11px] text-gray-700 font-medium text-center max-w-[80px] truncate">{reel.label}</span>
             </button>
           ))}
         </div>
