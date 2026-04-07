@@ -8,12 +8,11 @@ import ActivityBanner from './ActivityBanner';
 import './HomePage.css';
 
 const SHOPIFY_VIDEO_URLS = [
-  'https://www.luxova.in/cdn/shop/files/quinn_vwgff828tv7lpcepnfgllnhr.mp4#t=0.1',
-  'https://www.luxova.in/cdn/shop/files/quinn_ep6v9azbcgyfirjy2k93jg1a.mp4#t=0.1',
-  'https://www.luxova.in/cdn/shop/files/quinn_prlxca5a18163gp9umry98em.mp4#t=0.1',
-  'https://www.luxova.in/cdn/shop/files/quinn_wz5nlug6cyex50opla3y46bj.mp4#t=0.1',
-  'https://www.luxova.in/cdn/shop/files/quinn_ftl1ge2kq7fzk5jq8w6p3eco.mp4#t=0.1',
-  'https://www.luxova.in/cdn/shop/files/quinn_urmhs7hbsh51h8sbwyiypex7.mp4#t=0.1',
+  'https://www.flomattress.com/cdn/shop/files/quinn_m3vgugbuc3cwn1kj1e7zscoi.mp4#t=0.1',
+  'https://www.flomattress.com/cdn/shop/files/quinn_gsre4eh5tlasgo3xmnzf6i1t.mp4#t=0.1',
+  'https://www.flomattress.com/cdn/shop/files/quinn_s6amnum2q1msc5a2avcq3zuj.mp4#t=0.1',
+  'https://www.flomattress.com/cdn/shop/files/quinn_wb3pm8r0agprrmrv0mwq8wjh.mp4#t=0.1',
+  'https://www.flomattress.com/cdn/shop/files/quinn_nkdry0k593xlnyl5tys88tg8.mp4#t=0.1',
 ];
 
 const BRAND_NAME = "wordofmouth";
@@ -22,43 +21,43 @@ const BRAND_NAME = "wordofmouth";
 const bestSellerProducts = [
   {
     id: 1,
-    image: 'https://www.luxova.in/cdn/shop/files/PureSilverOvernightFaceOilSerum_2.png?v=1769862702&width=1946',
-    title: 'Pure Silver Overnight Face Oil Serum',
+    image: 'https://www.flomattress.com/cdn/shop/files/Ergo1_square_be09f073-9e1c-4dd4-835c-1ff7ab92ac02.jpg?v=1756710733&width=713',
+    title: 'Flo Ergo Mattress',
     currentPrice: 1299,
     originalPrice: 1399,
     rating: 4.8,
     badge: 'Best Sellers',
-    feature: 'Natural Ingredients',
+    feature: 'Ergonomic Support',
   },
   {
     id: 2,
-    image: 'https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888&width=1946',
-    title: 'Luxova Frames Collection',
+    image: 'https://www.flomattress.com/cdn/shop/files/1_30292ab9-6a45-4900-b0c4-f41558412344.jpg?v=1758539815&width=713',
+    title: 'Flo Ortho Plus Mattress',
     currentPrice: 999,
     originalPrice: 1199,
     rating: 4.7,
     badge: 'Trending',
-    feature: 'Premium Quality',
+    feature: 'Orthopaedic Support',
   },
   {
     id: 3,
-    image: 'https://www.luxova.in/cdn/shop/files/20231018_175734_0000_2.png?v=1769163609&width=1946',
-    title: 'Luxova Skincare Kit',
+    image: 'https://www.flomattress.com/cdn/shop/products/01-sw.jpg?v=1637393521&width=713',
+    title: 'Flo Spine Guard Mattress',
     currentPrice: 1799,
     originalPrice: 2199,
     rating: 4.9,
     badge: 'New Launch',
-    feature: 'Scientifically Formulated',
+    feature: 'Spine Alignment',
   },
   {
     id: 4,
-    image: 'https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888',
-    title: 'Luxova Premium Frames',
+    image: 'https://www.flomattress.com/cdn/shop/products/DarkMirage-Front.jpg?v=1741594144&width=713',
+    title: 'Flo Dark Mirage Mattress',
     currentPrice: 1499,
     originalPrice: 1799,
     rating: 4.8,
     badge: 'Best Sellers',
-    feature: 'Luxova Exclusive',
+    feature: 'Premium Comfort',
   },
 ];
 
@@ -66,10 +65,10 @@ const getRandomSoldThisWeek = (min = 180, max = 420) =>
   Math.floor(Math.random() * (max - min + 1)) + min;
 
 const VIBECRAFTS_IMGS = [
-  'https://www.luxova.in/cdn/shop/files/PureSilverOvernightFaceOilSerum_2.png?v=1769862702&width=1946',
-  'https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888&width=1946',
-  'https://www.luxova.in/cdn/shop/files/20231018_175734_0000_2.png?v=1769163609&width=1946',
-  'https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888',
+  'https://www.flomattress.com/cdn/shop/files/Ergo1_square_be09f073-9e1c-4dd4-835c-1ff7ab92ac02.jpg?v=1756710733&width=713',
+  'https://www.flomattress.com/cdn/shop/files/1_30292ab9-6a45-4900-b0c4-f41558412344.jpg?v=1758539815&width=713',
+  'https://www.flomattress.com/cdn/shop/products/01-sw.jpg?v=1637393521&width=713',
+  'https://www.flomattress.com/cdn/shop/products/DarkMirage-Front.jpg?v=1741594144&width=713',
 ];
 
 // Video Products data
@@ -113,12 +112,11 @@ const HomePage = ({ onProductClick }) => {
   
   // Instagram post URLs
   const instagramPosts = [
-    'https://www.instagram.com/p/DWI_vPwERMl/',
-    'https://www.instagram.com/p/DWS_b6EEYXN/',
-    'https://www.instagram.com/p/DV0D0CjEQA-/',
-    'https://www.instagram.com/p/DVL9Wc7DJ2p/',
-    'https://www.instagram.com/p/DUPuPObCtu0/',
-    'https://www.instagram.com/p/DTXfCP_Ep2C/',
+    'https://www.instagram.com/p/DWlW6VpgkRQ/',
+    'https://www.instagram.com/p/DWjm9n2FR4Z/',
+    'https://www.instagram.com/p/DWjGAZJgM_t/',
+    'https://www.instagram.com/p/DWeMgLeE8Zu/',
+    'https://www.instagram.com/p/DWTx3_MERRb/',
   ];
 
   // Load Instagram embed script
@@ -669,7 +667,7 @@ const HomePage = ({ onProductClick }) => {
                       </div>
                       <button
                         onClick={(e) => e.stopPropagation()}
-                        className="w-full text-white py-2.5 px-4 rounded-lg font-semibold text-xs uppercase tracking-wide transition-all duration-300 hover:shadow-md mt-3" style={{ backgroundColor: '#868753' }}
+                        className="w-full text-white py-2.5 px-4 rounded-lg font-semibold text-xs uppercase tracking-wide transition-all duration-300 hover:shadow-md mt-3" style={{ backgroundColor: '#0B4DA9' }}
                       >
                         ADD TO CART
                       </button>
@@ -723,32 +721,33 @@ const HomePage = ({ onProductClick }) => {
             {/* CENTER: username + stats */}
             <div className="flex flex-col items-center gap-3 text-center">
               <div className="flex items-center gap-3">
-                <a href="https://www.instagram.com/luxova_official/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/flomattress/" target="_blank" rel="noopener noreferrer"
                   className="text-gray-900 font-semibold text-xl hover:opacity-70 transition-opacity">
-                  luxova_official
+                  flomattress
                 </a>
+                <svg className="w-5 h-5" viewBox="0 0 24 24" fill="#3897f0"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm4.707 7.707l-5.657 5.657a1 1 0 0 1-1.414 0l-2.829-2.829a1 1 0 1 1 1.414-1.414l2.122 2.122 4.95-4.95a1 1 0 1 1 1.414 1.414z"/></svg>
                 <span className="text-gray-400 text-base tracking-widest">···</span>
               </div>
               <div className="flex gap-8">
                 <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">731</p>
+                  <p className="font-bold text-gray-900 text-base">530</p>
                   <p className="text-gray-400 text-sm">posts</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">9,332</p>
+                  <p className="font-bold text-gray-900 text-base">197K</p>
                   <p className="text-gray-400 text-sm">followers</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-bold text-gray-900 text-base">78</p>
+                  <p className="font-bold text-gray-900 text-base">0</p>
                   <p className="text-gray-400 text-sm">following</p>
                 </div>
               </div>
               <div className="flex gap-2 pt-1">
-                <a href="https://www.instagram.com/luxova_official/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/flomattress/" target="_blank" rel="noopener noreferrer"
                   className="px-8 py-1.5 rounded-lg text-sm font-semibold text-white" style={{ backgroundColor: '#4f6ef7' }}>
                   Follow
                 </a>
-                <a href="https://www.instagram.com/luxova_official/" target="_blank" rel="noopener noreferrer"
+                <a href="https://www.instagram.com/flomattress/" target="_blank" rel="noopener noreferrer"
                   className="px-6 py-1.5 rounded-lg text-sm font-semibold text-white hover:opacity-80 transition-opacity" style={{ backgroundColor: '#363636' }}>
                   Message
                 </a>
@@ -762,11 +761,10 @@ const HomePage = ({ onProductClick }) => {
 
             {/* RIGHT: bio */}
             <div className="space-y-1">
-              <p className="text-gray-900 text-sm font-semibold">Luxova Skincare</p>
-              <p className="text-gray-400 text-sm">Skincare</p>
-              <p className="text-gray-800 text-sm">Experience the Art and Science of Skincare</p>
-              <p className="text-gray-800 text-sm">- Scientifically formulated with natural ingredients</p>
-              <a href="https://www.luxova.in" target="_blank" rel="noopener noreferrer" className="text-sm font-medium" style={{ color: '#4f6ef7' }}>www.luxova.in</a>
+              <p className="text-gray-900 text-sm font-semibold">Flo</p>
+              <p className="text-gray-400 text-sm">Product/service</p>
+              <p className="text-gray-800 text-sm">The deepest sleep or your money back.</p>
+              <p className="text-gray-800 text-sm">😴😴😴😴100 night risk free trial.</p>
             </div>
           </div>
 
@@ -804,15 +802,15 @@ const HomePage = ({ onProductClick }) => {
               {/* Stats row */}
               <div className="flex flex-1 justify-around">
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">731</p>
+                  <p className="font-semibold text-gray-900 text-base">530</p>
                   <p className="text-gray-400 text-xs">posts</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">9,332</p>
+                  <p className="font-semibold text-gray-900 text-base">197K</p>
                   <p className="text-gray-400 text-xs">followers</p>
                 </div>
                 <div className="text-center">
-                  <p className="font-semibold text-gray-900 text-base">78</p>
+                  <p className="font-semibold text-gray-900 text-base">0</p>
                   <p className="text-gray-400 text-xs">following</p>
                 </div>
               </div>
@@ -820,20 +818,19 @@ const HomePage = ({ onProductClick }) => {
 
             {/* Bio block */}
             <div className="space-y-0.5">
-              <p className="text-gray-900 text-sm font-semibold">Luxova Skincare</p>
-              <p className="text-gray-400 text-xs">Skincare</p>
-              <p className="text-gray-800 text-sm">Experience the Art and Science of Skincare</p>
-              <p className="text-gray-800 text-sm">- Scientifically formulated with natural ingredients</p>
-              <a href="https://www.luxova.in" target="_blank" rel="noopener noreferrer" className="text-sm font-medium" style={{ color: '#4f6ef7' }}>www.luxova.in</a>
+              <p className="text-gray-900 text-sm font-semibold">Flo</p>
+              <p className="text-gray-400 text-xs">Product/service</p>
+              <p className="text-gray-800 text-sm">The deepest sleep or your money back.</p>
+              <p className="text-gray-800 text-sm">😴😴😴😴100 night risk free trial.</p>
             </div>
 
             {/* Buttons — full width like Instagram */}
             <div className="flex gap-2">
-              <a href="https://www.instagram.com/luxova_official/" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.instagram.com/flomattress/" target="_blank" rel="noopener noreferrer"
                 className="flex-1 py-1.5 rounded-lg text-sm font-semibold text-white text-center" style={{ backgroundColor: '#4f6ef7' }}>
                 Follow
               </a>
-              <a href="https://www.instagram.com/luxova_official/" target="_blank" rel="noopener noreferrer"
+              <a href="https://www.instagram.com/flomattress/" target="_blank" rel="noopener noreferrer"
                 className="flex-1 py-1.5 rounded-lg text-sm font-semibold text-white text-center" style={{ backgroundColor: '#363636' }}>
                 Message
               </a>

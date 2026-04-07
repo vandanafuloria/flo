@@ -15,12 +15,12 @@ import productHeader from './assets/product_header.png';
 import reviewData from '../review.json';
 
 
-// Luxova product card images
+// Flo Mattress product card images
 const OLIVLIFE_IMGS = [
-  'https://www.luxova.in/cdn/shop/files/PureSilverOvernightFaceOilSerum_2.png?v=1769862702&width=1946',
-  'https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888&width=1946',
-  'https://www.luxova.in/cdn/shop/files/20231018_175734_0000_2.png?v=1769163609&width=1946',
-  'https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888',
+  'https://www.flomattress.com/cdn/shop/files/Ergo1_square_be09f073-9e1c-4dd4-835c-1ff7ab92ac02.jpg?v=1756710733&width=713',
+  'https://www.flomattress.com/cdn/shop/files/1_30292ab9-6a45-4900-b0c4-f41558412344.jpg?v=1758539815&width=713',
+  'https://www.flomattress.com/cdn/shop/products/01-sw.jpg?v=1637393521&width=713',
+  'https://www.flomattress.com/cdn/shop/products/DarkMirage-Front.jpg?v=1741594144&width=713',
 ];
 
 function getReviewTitle(text) {
@@ -34,27 +34,32 @@ const BRAND_NAME = "wordofmouth";
 
 // Product Images Array - All product images
 const PRODUCT_IMAGES = [
-  "https://www.luxova.in/cdn/shop/files/PureSilverOvernightFaceOilSerum_2.png?v=1769862702&width=1946",
-  "https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888&width=1946",
-  "https://www.luxova.in/cdn/shop/files/20231018_175734_0000_2.png?v=1769163609&width=1946",
-  "https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888",
+  "https://www.flomattress.com/cdn/shop/files/Ergo1_square_be09f073-9e1c-4dd4-835c-1ff7ab92ac02.jpg?v=1756710733&width=2160",
+  "https://www.flomattress.com/cdn/shop/files/Ergo2_square_117e3e59-cd74-4f97-9b5a-8e477f8ea345.jpg?v=1764683636&width=1620",
+  "https://www.flomattress.com/cdn/shop/files/Ergo3_Square_4c8e4164-ff4f-4cae-9ce6-39d8ed65e5b1.jpg?v=1765542335&width=2160",
+  "https://www.flomattress.com/cdn/shop/files/upto5xslowerregain_53c2b748-cc94-4192-8760-83382329d274.jpg?v=1765542335&width=1200",
+  "https://www.flomattress.com/cdn/shop/files/Ergofinal_149c7a2c-4ca2-4d6e-899c-06921f589ec0.png?v=1765542335&width=1200",
+  "https://www.flomattress.com/cdn/shop/files/Ergo5featurescircles_98992e88-49b7-411c-b637-e0ad3f7d2ebe.jpg?v=1765542335&width=1200",
+  "https://www.flomattress.com/cdn/shop/files/ShapeShieldCreative_55595b69-c0b9-4dbf-bb64-79e7061e8544.jpg?v=1765542335&width=1200",
+  "https://www.flomattress.com/cdn/shop/files/GridVsFoam_1_1.png?v=1774518089&width=2848",
+  "https://www.flomattress.com/cdn/shop/files/OrthovsErgo_b56cf54d-da37-47e7-9f09-9894f3d9b4d0.jpg?v=1774517923&width=1200",
+  "https://www.flomattress.com/cdn/shop/files/Howtochoose_497a12c6-23a8-4763-b3c2-e1ea3a16664c.png?v=1774518025&width=2400",
 ];
 
 // Product Video
-const PRODUCT_VIDEO = 'https://www.luxova.in/cdn/shop/files/quinn_vwgff828tv7lpcepnfgllnhr.mp4#t=0.1';
+const PRODUCT_VIDEO = 'https://www.flomattress.com/cdn/shop/files/quinn_m3vgugbuc3cwn1kj1e7zscoi.mp4#t=0.1';
 
-// All Luxova videos for video section
+// All Flo videos for video section
 const VIBECRAFTS_VIDEOS = [
-  'https://www.luxova.in/cdn/shop/files/quinn_vwgff828tv7lpcepnfgllnhr.mp4#t=0.1',
-  'https://www.luxova.in/cdn/shop/files/quinn_ep6v9azbcgyfirjy2k93jg1a.mp4#t=0.1',
-  'https://www.luxova.in/cdn/shop/files/quinn_prlxca5a18163gp9umry98em.mp4#t=0.1',
-  'https://www.luxova.in/cdn/shop/files/quinn_wz5nlug6cyex50opla3y46bj.mp4#t=0.1',
-  'https://www.luxova.in/cdn/shop/files/quinn_ftl1ge2kq7fzk5jq8w6p3eco.mp4#t=0.1',
-  'https://www.luxova.in/cdn/shop/files/quinn_urmhs7hbsh51h8sbwyiypex7.mp4#t=0.1',
+  'https://www.flomattress.com/cdn/shop/files/quinn_m3vgugbuc3cwn1kj1e7zscoi.mp4#t=0.1',
+  'https://www.flomattress.com/cdn/shop/files/quinn_gsre4eh5tlasgo3xmnzf6i1t.mp4#t=0.1',
+  'https://www.flomattress.com/cdn/shop/files/quinn_s6amnum2q1msc5a2avcq3zuj.mp4#t=0.1',
+  'https://www.flomattress.com/cdn/shop/files/quinn_wb3pm8r0agprrmrv0mwq8wjh.mp4#t=0.1',
+  'https://www.flomattress.com/cdn/shop/files/quinn_nkdry0k593xlnyl5tys88tg8.mp4#t=0.1',
 ];
 
 // Product Details
-const PRODUCT_NAME = "Pure Silver Overnight Face Oil Serum";
+const PRODUCT_NAME = "Flo Super Soft Bedsheet";
 const PRODUCT_PRICE = 2699;
 const PRODUCT_ORIGINAL_PRICE = 6599;
 const PRODUCT_DISCOUNT = 59;
@@ -62,7 +67,7 @@ const PRODUCT_SKU = "PTVCH-4307";
 const PRODUCT_DESCRIPTION = "Bring the timeless beauty of Indian art into your living space with this stunning Vibrant Peacock and Red Lotus Floral Canvas Wall Painting. Featuring a majestic peacock set against a backdrop of blooming lotus flowers and lush foliage in rich jewel tones, this artwork is digitally printed on premium-grade canvas with UV-resistant, fade-proof inks. Ready to hang with a fitted wood frame — no assembly needed.";
 const PRODUCT_BRAND = "VibeCrafts";
 const PRODUCT_COLORS = [
-  { name: "Standard", value: "#868753" },
+  { name: "Standard", value: "#0B4DA9" },
   { name: "Vibrant", value: "#c0392b" },
 ];
 const PRODUCT_SIZES = ["18x12 inch", "24x16 inch", "36x24 inch", "48x32 inch"];
@@ -71,8 +76,8 @@ const PRODUCT_SIZES = ["18x12 inch", "24x16 inch", "36x24 inch", "48x32 inch"];
 const RELATED_PRODUCTS = [
   {
     id: 1,
-    name: "Pure Silver Overnight Face Oil Serum",
-    image: "https://www.luxova.in/cdn/shop/files/PureSilverOvernightFaceOilSerum_2.png?v=1769862702&width=1946",
+    name: "Flo Ergo Mattress",
+    image: "https://www.flomattress.com/cdn/shop/files/Ergo1_square_be09f073-9e1c-4dd4-835c-1ff7ab92ac02.jpg?v=1756710733&width=713",
     price: 1299,
     originalPrice: 1399,
     rating: 4.8,
@@ -80,8 +85,8 @@ const RELATED_PRODUCTS = [
   },
   {
     id: 2,
-    name: "Luxova Frames Collection",
-    image: "https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888&width=1946",
+    name: "Flo Ortho Plus Mattress",
+    image: "https://www.flomattress.com/cdn/shop/files/1_30292ab9-6a45-4900-b0c4-f41558412344.jpg?v=1758539815&width=713",
     price: 999,
     originalPrice: 1199,
     rating: 4.7,
@@ -89,8 +94,8 @@ const RELATED_PRODUCTS = [
   },
   {
     id: 3,
-    name: "Luxova Skincare Kit",
-    image: "https://www.luxova.in/cdn/shop/files/20231018_175734_0000_2.png?v=1769163609&width=1946",
+    name: "Flo Spine Guard Mattress",
+    image: "https://www.flomattress.com/cdn/shop/products/01-sw.jpg?v=1637393521&width=713",
     price: 1799,
     originalPrice: 2199,
     rating: 4.9,
@@ -98,8 +103,8 @@ const RELATED_PRODUCTS = [
   },
   {
     id: 4,
-    name: "Luxova Premium Frames",
-    image: "https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888",
+    name: "Flo Dark Mirage Mattress",
+    image: "https://www.flomattress.com/cdn/shop/products/DarkMirage-Front.jpg?v=1741594144&width=713",
     price: 1499,
     originalPrice: 1799,
     rating: 4.6,
@@ -109,10 +114,10 @@ const RELATED_PRODUCTS = [
 
 // Best Seller Products data — same as home page
 const bestSellerProducts = [
-  { id: 1, image: 'https://www.luxova.in/cdn/shop/files/PureSilverOvernightFaceOilSerum_2.png?v=1769862702&width=1946', title: 'Pure Silver Overnight Face Oil Serum', currentPrice: 1299, originalPrice: 1399, rating: 4.8, reviewCount: 320, feature: 'Natural Ingredients' },
-  { id: 2, image: 'https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888&width=1946', title: 'Luxova Frames Collection', currentPrice: 999, originalPrice: 1199, rating: 4.7, reviewCount: 218, feature: 'Premium Quality' },
-  { id: 3, image: 'https://www.luxova.in/cdn/shop/files/20231018_175734_0000_2.png?v=1769163609&width=1946', title: 'Luxova Skincare Kit', currentPrice: 1799, originalPrice: 2199, rating: 4.9, reviewCount: 415, feature: 'Scientifically Formulated' },
-  { id: 4, image: 'https://www.luxova.in/cdn/shop/files/frames_3.png?v=1770109888', title: 'Luxova Premium Frames', currentPrice: 1499, originalPrice: 1799, rating: 4.6, reviewCount: 178, feature: 'Luxova Exclusive' },
+  { id: 1, image: 'https://www.flomattress.com/cdn/shop/files/Ergo1_square_be09f073-9e1c-4dd4-835c-1ff7ab92ac02.jpg?v=1756710733&width=713', title: 'Flo Ergo Mattress', currentPrice: 1299, originalPrice: 1399, rating: 4.8, reviewCount: 320, feature: 'Ergonomic Support' },
+  { id: 2, image: 'https://www.flomattress.com/cdn/shop/files/1_30292ab9-6a45-4900-b0c4-f41558412344.jpg?v=1758539815&width=713', title: 'Flo Ortho Plus Mattress', currentPrice: 999, originalPrice: 1199, rating: 4.7, reviewCount: 218, feature: 'Orthopaedic Support' },
+  { id: 3, image: 'https://www.flomattress.com/cdn/shop/products/01-sw.jpg?v=1637393521&width=713', title: 'Flo Spine Guard Mattress', currentPrice: 1799, originalPrice: 2199, rating: 4.9, reviewCount: 415, feature: 'Spine Alignment' },
+  { id: 4, image: 'https://www.flomattress.com/cdn/shop/products/DarkMirage-Front.jpg?v=1741594144&width=713', title: 'Flo Dark Mirage Mattress', currentPrice: 1499, originalPrice: 1799, rating: 4.6, reviewCount: 178, feature: 'Premium Comfort' },
 ];
 
 // ============================================
@@ -792,11 +797,11 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
 
                 {/* Feature tags */}
                 <div className="flex flex-wrap gap-2">
-                  {['Natural Ingredients', 'Silver-Infused', 'Paraben-Free', 'Cruelty-Free', 'Dermatologist Tested'].map(label => (
+                  {['Ergonomic Support', 'Memory Foam', 'Orthopedic', 'Motion Isolation', 'CertiPUR-US Certified'].map(label => (
                     <span
                       key={label}
                       className="text-xs font-semibold px-3 py-1.5 text-white"
-                      style={{ backgroundColor: '#868753', borderRadius: '999px' }}
+                      style={{ backgroundColor: '#0B4DA9', borderRadius: '999px' }}
                     >
                       {label}
                     </span>
@@ -806,7 +811,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
 
               {/* Price row */}
               <div className="flex items-center gap-3 flex-wrap">
-                <span className="font-bold text-xl" style={{ color: '#868753' }}>
+                <span className="font-bold text-xl" style={{ color: '#0B4DA9' }}>
                   Rs. {productPrice.toLocaleString('en-IN')}.00
                 </span>
                 <span className="line-through text-base" style={{ color: '#999' }}>
@@ -870,7 +875,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                 {/* Estimated delivery */}
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style={{ backgroundColor: '#e8e3da' }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#868753" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B4DA9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/>
                     </svg>
                   </div>
@@ -882,7 +887,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                 {/* Free shipping */}
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style={{ backgroundColor: '#e8e3da' }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#868753" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B4DA9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/>
                     </svg>
                   </div>
@@ -892,7 +897,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                 {/* Query */}
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 flex items-center justify-center rounded-full flex-shrink-0" style={{ backgroundColor: '#e8e3da' }}>
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#868753" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0B4DA9" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
                     </svg>
                   </div>
@@ -909,16 +914,15 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
       {/* In Your Home */}
       {(() => {
         const WILD_VIDEOS = [
-          'https://www.luxova.in/cdn/shop/files/quinn_vwgff828tv7lpcepnfgllnhr.mp4#t=0.1',
-          'https://www.luxova.in/cdn/shop/files/quinn_ep6v9azbcgyfirjy2k93jg1a.mp4#t=0.1',
-          'https://www.luxova.in/cdn/shop/files/quinn_prlxca5a18163gp9umry98em.mp4#t=0.1',
-          'https://www.luxova.in/cdn/shop/files/quinn_wz5nlug6cyex50opla3y46bj.mp4#t=0.1',
-          'https://www.luxova.in/cdn/shop/files/quinn_ftl1ge2kq7fzk5jq8w6p3eco.mp4#t=0.1',
-          'https://www.luxova.in/cdn/shop/files/quinn_urmhs7hbsh51h8sbwyiypex7.mp4#t=0.1',
+          'https://www.flomattress.com/cdn/shop/files/quinn_m3vgugbuc3cwn1kj1e7zscoi.mp4#t=0.1',
+          'https://www.flomattress.com/cdn/shop/files/quinn_gsre4eh5tlasgo3xmnzf6i1t.mp4#t=0.1',
+          'https://www.flomattress.com/cdn/shop/files/quinn_s6amnum2q1msc5a2avcq3zuj.mp4#t=0.1',
+          'https://www.flomattress.com/cdn/shop/files/quinn_wb3pm8r0agprrmrv0mwq8wjh.mp4#t=0.1',
+          'https://www.flomattress.com/cdn/shop/files/quinn_nkdry0k593xlnyl5tys88tg8.mp4#t=0.1',
         ];
         return (
           <>
-            <div className="w-full py-7" style={{ background: '#868753' }}>
+            <div className="w-full py-7" style={{ background: '#0B4DA9' }}>
               <div className="w-full px-4">
                 <div className="flex items-center justify-between mb-5">
                   <h2 className="text-base font-bold text-white tracking-wide">In Your Skincare Routine</h2>
@@ -1012,13 +1016,13 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     <div
                       className="w-32 h-32 rounded-full flex items-center justify-center mb-4 relative mx-auto"
                       style={{
-                        background: `conic-gradient(#868753 0% 96%, #d4e0d3 96% 100%)`,
-                        boxShadow: '0 8px 24px rgba(65,84,63,0.25)'
+                        background: `conic-gradient(#0B4DA9 0% 96%, #d4e0d3 96% 100%)`,
+                        boxShadow: '0 8px 24px rgba(11,77,169,0.25)'
                       }}
                     >
                       <div className="absolute inset-[6px] rounded-full bg-white flex items-center justify-center">
                         <div className="flex items-baseline gap-0.5">
-                          <span className="text-3xl font-bold" style={{ color: '#868753' }}>4.8</span>
+                          <span className="text-3xl font-bold" style={{ color: '#0B4DA9' }}>4.8</span>
                           <span className="text-sm font-medium text-gray-400">/5</span>
                         </div>
                       </div>
@@ -1033,7 +1037,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                       ))}
                     </div>
                     <p className="text-sm text-gray-500 mb-3">Based on <strong className="text-gray-800">147</strong> reviews</p>
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border" style={{ backgroundColor: 'rgba(65,84,63,0.07)', color: '#868753', borderColor: 'rgba(65,84,63,0.25)' }}>
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium border" style={{ backgroundColor: 'rgba(11,77,169,0.07)', color: '#0B4DA9', borderColor: 'rgba(11,77,169,0.25)' }}>
                       <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd"/>
                       </svg>
@@ -1063,7 +1067,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                             style={{
                               width: `${item.percent}%`,
                               minWidth: '2px',
-                              backgroundColor: '#868753',
+                              backgroundColor: '#0B4DA9',
                               borderRadius: '1px'
                             }}
                           />
@@ -1133,8 +1137,8 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                       fontWeight: '600',
                       borderRadius: '0',
                       border: '1.5px solid',
-                      borderColor: activeTab === id ? '#868753' : '#e0e0e0',
-                      background: activeTab === id ? '#868753' : '#fff',
+                      borderColor: activeTab === id ? '#0B4DA9' : '#e0e0e0',
+                      background: activeTab === id ? '#0B4DA9' : '#fff',
                       color: activeTab === id ? '#fff' : '#666',
                       cursor: 'pointer',
                       transition: 'all 0.15s ease',
@@ -1163,13 +1167,13 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     <p className="text-gray-700 leading-relaxed mb-2 text-base">
                       {isAISummaryExpanded ? (
                         <>
-                          Customers consistently praise Luxova's Pure Silver Overnight Face Oil Serum for visibly improving skin texture within just one week of use. The lightweight, non-greasy formula is a standout highlight — reviewers love that it absorbs quickly and leaves the skin feeling plump and hydrated by morning. Many customers mention a noticeable reduction in fine lines, dark spots, and dullness after regular use. The natural ingredient blend, including the silver-infused formula, earns trust from buyers looking for clean, toxin-free skincare. Packaging is frequently described as premium and gift-worthy, and customers appreciate the brand's science-backed approach to natural skincare. Several long-term users mention switching from expensive international brands after discovering Luxova's results at an accessible price.
-                          <button onClick={() => setIsAISummaryExpanded(false)} className="underline ml-1 cursor-pointer" style={{ color: '#868753' }}>Read less</button>
+                          Customers consistently praise Flo's Super Soft Bedsheet for its incredibly soft feel and fade-free quality even after multiple washes. The ultra-soft fabric is a standout highlight — reviewers love that it stays smooth, cool, and comfortable throughout the night. Many customers mention a noticeable improvement in sleep quality after switching to Flo. The premium material earns trust from buyers looking for long-lasting, high-quality bedding. Packaging is frequently described as premium and gift-worthy, and customers appreciate Flo's commitment to quality at an accessible price.
+                          <button onClick={() => setIsAISummaryExpanded(false)} className="underline ml-1 cursor-pointer" style={{ color: '#0B4DA9' }}>Read less</button>
                         </>
                       ) : (
                         <>
-                          Customers love Luxova's Pure Silver Overnight Face Oil Serum for its lightweight formula and visible results — softer, brighter skin within days. The natural ingredient blend and science-backed approach are consistently praised.
-                          <button onClick={() => setIsAISummaryExpanded(true)} className="underline ml-1 cursor-pointer" style={{ color: '#868753' }}>Read more</button>
+                          Customers love Flo's Super Soft Bedsheet for its ultra-soft feel and fade-free quality. The premium fabric and sleep-enhancing comfort are consistently praised.
+                          <button onClick={() => setIsAISummaryExpanded(true)} className="underline ml-1 cursor-pointer" style={{ color: '#0B4DA9' }}>Read more</button>
                         </>
                       )}
                     </p>
@@ -1184,7 +1188,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                       <p className="text-[11px] font-medium text-gray-400 mb-3 uppercase tracking-widest">Customers Frequently Mention</p>
                       <div className="flex flex-wrap gap-x-4 gap-y-1.5">
                         {['Glowing Skin', 'Natural Ingredients', 'Fast Absorption', 'Visible Results', 'Great Packaging', 'Science-backed'].map((item, index) => (
-                          <span key={index} className="text-xs font-semibold" style={{ color: '#868753' }}>
+                          <span key={index} className="text-xs font-semibold" style={{ color: '#0B4DA9' }}>
                             {item}
                           </span>
                         ))}
@@ -1324,7 +1328,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                                 })}
                               </div>
                               <span className="text-xs font-semibold text-gray-900">{review.name}</span>
-                              <svg className="w-3 h-3 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                              <svg className="w-3 h-3 text-[#0B4DA9] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                               </svg>
                             </div>
@@ -1413,12 +1417,12 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                       {isBrandAISummaryExpanded ? (
                         <>
                           Customers deeply trust Luxova Skincare for its commitment to blending science with nature. The brand is widely praised for formulating products that deliver real, visible results without relying on harsh chemicals or synthetic additives. Reviewers frequently highlight Luxova's transparency about ingredients — particularly the use of pure silver, natural oils, and botanical extracts that are clearly labelled and explained. The brand's skincare range is celebrated for being suitable for Indian skin types, addressing common concerns like pigmentation, dullness, uneven tone, and signs of ageing. Long-term customers mention switching from expensive international skincare brands after experiencing Luxova's results at a fraction of the price. The luxurious packaging, fast delivery, and responsive customer support further strengthen buyer confidence. Many reviewers describe Luxova as a brand that genuinely cares about skin health, not just sales.
-                          <button onClick={() => setIsBrandAISummaryExpanded(false)} className="underline ml-1 cursor-pointer" style={{ color: '#868753' }}>Read less</button>
+                          <button onClick={() => setIsBrandAISummaryExpanded(false)} className="underline ml-1 cursor-pointer" style={{ color: '#0B4DA9' }}>Read less</button>
                         </>
                       ) : (
                         <>
                           Customers trust Luxova Skincare for science-backed, natural formulas that deliver real results. The brand's transparency about ingredients, suitability for Indian skin, and premium packaging make it a consistent favourite.
-                          <button onClick={() => setIsBrandAISummaryExpanded(true)} className="underline ml-1 cursor-pointer" style={{ color: '#868753' }}>Read more</button>
+                          <button onClick={() => setIsBrandAISummaryExpanded(true)} className="underline ml-1 cursor-pointer" style={{ color: '#0B4DA9' }}>Read more</button>
                         </>
                       )}
                     </p>
@@ -1432,8 +1436,8 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                     <div>
                       <p className="text-[11px] font-medium text-gray-400 mb-3 uppercase tracking-widest">Brand Frequently Mentioned</p>
                       <div className="flex flex-wrap gap-x-4 gap-y-1.5">
-                        {['Clean Ingredients', 'Visible Glow', 'Fast Delivery', 'Trusted by Dermatologists', 'Cruelty-Free', 'Premium Packaging', 'Great Value'].map((item, index) => (
-                          <span key={index} className="text-xs font-semibold" style={{ color: '#868753' }}>
+                        {['Pressure Relief', 'Spine Alignment', 'Temperature Neutral', 'Zero Partner Disturbance', '100 Night Trial', 'Free Delivery', 'Great Value'].map((item, index) => (
+                          <span key={index} className="text-xs font-semibold" style={{ color: '#0B4DA9' }}>
                             {item}
                           </span>
                         ))}
@@ -1585,7 +1589,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                                 })}
                               </div>
                               <span className="text-xs font-semibold text-gray-900">{review.name}</span>
-                              <svg className="w-3 h-3 text-green-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                              <svg className="w-3 h-3 text-[#0B4DA9] shrink-0" fill="currentColor" viewBox="0 0 20 20">
                                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
                               </svg>
                             </div>
@@ -1982,7 +1986,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                   <div className="flex items-start justify-between mb-4">
                     <div className="flex items-center gap-2">
                       <span className="font-semibold text-gray-900 text-lg md:text-xl">{selectedReview.name}</span>
-                      <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="w-5 h-5 text-[#0B4DA9] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                       </svg>
         </div>
@@ -2071,7 +2075,7 @@ const ShopifyProductPage = ({ product: passedProduct, onHomeClick }) => {
                 <div className="flex items-start justify-between mb-3">
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-gray-900 text-base">{selectedReview.name}</span>
-                    <svg className="w-4 h-4 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-4 h-4 text-[#0B4DA9]" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
                     </svg>
                   </div>

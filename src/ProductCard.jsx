@@ -79,7 +79,7 @@ const ProductCard = ({ product, onClick }) => {
         {/* Add to cart */}
         <button
           className="w-full py-1.5 text-white font-semibold uppercase mt-1"
-          style={{ backgroundColor: '#5c6b45', letterSpacing: '0.08em', fontSize: '10px' }}
+          style={{ backgroundColor: '#0B4DA9', letterSpacing: '0.08em', fontSize: '10px' }}
           onClick={(e) => { e.stopPropagation(); onClick && onClick(); }}
         >
           Add to Cart

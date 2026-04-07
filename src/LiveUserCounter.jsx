@@ -11,7 +11,7 @@ const LiveUserCounter = ({
   interval = 4500,
   label = 'Live',
   suffix = 'Glam Seekers Now',
-  indicatorColor = '#1fa971',
+  indicatorColor = '#0B4DA9',
   className = '',
 }) => {
   const [count, setCount] = useState(() => getRandomInRange(initialMin, initialMax));
@@ -56,8 +56,8 @@ const LiveUserCounter = ({
     >
       {/* Pulsating dot - in front of number */}
       <div className="relative flex items-center justify-center">
-        <span className="w-2 h-2 rounded-full bg-green-500 shadow-sm">
-          <span className="absolute inset-0 w-2 h-2 rounded-full bg-green-500 animate-ping opacity-75"></span>
+        <span className="w-2 h-2 rounded-full bg-[#0B4DA9] shadow-sm">
+          <span className="absolute inset-0 w-2 h-2 rounded-full bg-[#0B4DA9] animate-ping opacity-75"></span>
         </span>
       </div>
       
