@@ -58,120 +58,120 @@ const Sparkline = ({ data }) => {
 
 const AIBrandEngine = ({ showExtras = true }) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const [activeTab, setActiveTab] = useState('serum');
+  const [activeTab, setActiveTab] = useState('ergo');
 
   if (!showExtras) return null;
 
   const tabs = [
-    { id: 'serum',      label: 'Serums'       },
-    { id: 'moisturiser',label: 'Moisturisers' },
-    { id: 'facepack',   label: 'Face Packs'   },
-    { id: 'oil',        label: 'Face Oils'    },
-    { id: 'suncare',    label: 'Suncare'      },
-    { id: 'kits',       label: 'Kits'         },
+    { id: 'ergo',       label: 'Ergo'         },
+    { id: 'supersoft',  label: 'Super Soft'   },
+    { id: 'ortho',      label: 'Ortho'        },
+    { id: 'bedsheets',  label: 'Bedsheets'    },
+    { id: 'pillows',    label: 'Pillows'      },
+    { id: 'bundles',    label: 'Bundles'      },
   ];
 
   const content = {
-    serum: {
-      title: 'Luxova Serum Collection',
-      category: 'Skincare · Serums & Treatments',
-      metrics: { purchases: 9332, reviews: 2814, refundRate: 1.2, qualityScore: 98,
-        trend: [38, 50, 45, 68, 72, 85, 90, 105, 98, 118, 132, 148] },
+    ergo: {
+      title: 'Flo Ergo Mattress',
+      category: 'Mattresses · Ergonomic Support',
+      metrics: { purchases: 18420, reviews: 5630, refundRate: 0.8, qualityScore: 99,
+        trend: [60, 72, 85, 95, 108, 120, 135, 148, 162, 175, 190, 210] },
       stats: [
-        { value: 'Silver',   label: 'Pure Silver Overnight Face Oil Serum' },
-        { value: '7% OFF',   label: 'Limited time pricing' },
-        { value: 'Natural',  label: 'Blend of natural oils' },
+        { value: '7-Zone',  label: '7-zone targeted body support' },
+        { value: '100N',    label: '100-night free trial' },
+        { value: '10 Yr',   label: '10-year warranty' },
       ],
       highlights: [
-        'Pure silver-infused formula for overnight skin repair',
-        'Reduces wrinkles, fine lines & pigmentation',
-        'Blend of natural oils — no harmful chemicals',
-        'Lightweight, non-greasy texture absorbs fast',
+        '7-zone ergonomic support for spine alignment',
+        'Adaptive foam responds to your body shape',
+        '100-night risk-free trial — return if not satisfied',
+        'Certified by orthopedists for back pain relief',
       ],
     },
-    moisturiser: {
-      title: 'Luxova Moisturiser Collection',
-      category: 'Skincare · Hydration & Moisture',
-      metrics: { purchases: 7210, reviews: 1980, refundRate: 1.5, qualityScore: 97,
-        trend: [28, 35, 42, 50, 55, 68, 72, 80, 88, 95, 108, 122] },
+    supersoft: {
+      title: 'Flo Super Soft Mattress',
+      category: 'Mattresses · Plush Comfort',
+      metrics: { purchases: 14280, reviews: 4120, refundRate: 0.9, qualityScore: 98,
+        trend: [45, 58, 68, 80, 92, 105, 118, 130, 142, 155, 168, 182] },
       stats: [
-        { value: 'Deep',     label: 'Deep hydration for 24 hrs' },
-        { value: 'Glow',     label: 'Instant luminous finish' },
-        { value: 'Natural',  label: 'Natural ingredient formula' },
+        { value: 'Plush',   label: 'Cloud-like plush comfort layer' },
+        { value: '6-inch',  label: 'Available in 6 & 8 inch' },
+        { value: 'Cool',    label: 'AirFlow cooling technology' },
       ],
       highlights: [
-        'Scientifically formulated for Indian skin types',
-        'Hyaluronic acid & botanical extract blend',
-        'Suitable for dry, oily & combination skin',
-        'Dermatologist tested, paraben-free formula',
+        'Ultra-plush memory foam for deep pressure relief',
+        'AirFlow channels keep you cool all night',
+        'Ideal for side sleepers & light sleepers',
+        'CertiPUR-US certified foam — safe & non-toxic',
       ],
     },
-    facepack: {
-      title: 'Luxova Face Pack Collection',
-      category: 'Skincare · Masks & Face Packs',
-      metrics: { purchases: 5840, reviews: 1542, refundRate: 1.8, qualityScore: 96,
-        trend: [22, 28, 32, 40, 48, 55, 60, 70, 75, 85, 92, 105] },
+    ortho: {
+      title: 'Flo Ortho Mattress',
+      category: 'Mattresses · Orthopedic Support',
+      metrics: { purchases: 11540, reviews: 3280, refundRate: 0.7, qualityScore: 99,
+        trend: [40, 52, 62, 74, 88, 100, 112, 125, 138, 150, 162, 178] },
       stats: [
-        { value: 'Glow',     label: 'Instant brightening effect' },
-        { value: 'Clay',     label: 'Deep pore cleansing action' },
-        { value: 'Herbal',   label: 'Ayurvedic herb infusion' },
+        { value: 'Firm',    label: 'Firm ortho support core' },
+        { value: 'Back',    label: 'Recommended for back pain' },
+        { value: '10 Yr',   label: '10-year manufacturer warranty' },
       ],
       highlights: [
-        'Watermelon & saffron — deep moisturising pack',
-        'Removes tan, impurities & excess oil',
-        'Leaves skin visibly brighter in one use',
-        'Suitable for weekly detox skin routine',
+        'High-density ortho foam for firm spinal support',
+        'Medically recommended for chronic back pain',
+        'Dual-sided — flip for soft or firm feel',
+        'Anti-sagging technology retains shape for years',
       ],
     },
-    oil: {
-      title: 'Luxova Face Oil Collection',
-      category: 'Skincare · Oils & Elixirs',
-      metrics: { purchases: 6120, reviews: 1730, refundRate: 1.3, qualityScore: 98,
-        trend: [30, 42, 38, 55, 60, 72, 80, 88, 95, 110, 120, 138] },
+    bedsheets: {
+      title: 'Flo Bedsheets Collection',
+      category: 'Bedding · Sheets & Covers',
+      metrics: { purchases: 22800, reviews: 6940, refundRate: 1.1, qualityScore: 97,
+        trend: [70, 85, 95, 110, 125, 140, 152, 165, 178, 192, 205, 220] },
       stats: [
-        { value: 'Pure',     label: 'Cold-pressed natural oils' },
-        { value: 'Silver',   label: 'Pure silver overnight serum' },
-        { value: '100%',     label: 'Natural, toxin-free formula' },
+        { value: '500TC',   label: '500 thread count pure cotton' },
+        { value: 'Soft',    label: 'Buttery smooth texture' },
+        { value: 'Easy',    label: 'Easy-fit elastic all around' },
       ],
       highlights: [
-        'Pure Silver Overnight Face Oil Serum — bestseller',
-        'Repairs skin barrier while you sleep',
-        'Rosehip, argan & jojoba oil complex',
-        'Visibly plumper, softer skin in 7 days',
+        '100% pure cotton — breathable & skin-friendly',
+        '500 thread count for hotel-like luxury feel',
+        'Deep-pocket elastic fits up to 14-inch mattresses',
+        'Pre-washed — no shrinking after multiple washes',
       ],
     },
-    suncare: {
-      title: 'Luxova Suncare Collection',
-      category: 'Skincare · SPF & Sun Protection',
-      metrics: { purchases: 4380, reviews: 1120, refundRate: 2.0, qualityScore: 95,
-        trend: [18, 22, 28, 35, 42, 58, 70, 80, 72, 65, 55, 48] },
+    pillows: {
+      title: 'Flo Pillow Collection',
+      category: 'Bedding · Pillows & Bolsters',
+      metrics: { purchases: 16350, reviews: 4820, refundRate: 1.2, qualityScore: 97,
+        trend: [50, 62, 72, 85, 98, 110, 122, 135, 148, 160, 172, 185] },
       stats: [
-        { value: 'SPF 50',   label: 'Broad spectrum protection' },
-        { value: 'PA+++',    label: 'UVA & UVB shield' },
-        { value: 'No White', label: 'Zero white cast formula' },
+        { value: 'Memory',  label: 'Memory foam contour pillow' },
+        { value: 'Neck',    label: 'Cervical neck support design' },
+        { value: 'Cool',    label: 'Cool-touch bamboo cover' },
       ],
       highlights: [
-        'Lightweight SPF 50 PA+++ sunscreen',
-        'No white cast — suitable for all skin tones',
-        'Moisturises while protecting from sun damage',
-        'Water-resistant formula for active lifestyles',
+        'Contour memory foam for neck & shoulder relief',
+        'Cool-touch bamboo cover — stays fresh all night',
+        'Anti-microbial & dust-mite resistant filling',
+        'Available in soft, medium & firm loft options',
       ],
     },
-    kits: {
-      title: 'Luxova Skincare Kits',
-      category: 'Skincare · Combo Sets & Gift Kits',
-      metrics: { purchases: 3910, reviews: 980, refundRate: 1.4, qualityScore: 97,
-        trend: [20, 25, 30, 38, 45, 52, 60, 68, 75, 85, 95, 112] },
+    bundles: {
+      title: 'Flo Sleep Bundles',
+      category: 'Bundles · Complete Sleep Sets',
+      metrics: { purchases: 8920, reviews: 2640, refundRate: 0.6, qualityScore: 99,
+        trend: [30, 40, 52, 65, 78, 92, 108, 122, 138, 155, 172, 195] },
       stats: [
-        { value: 'Complete', label: 'Full skincare routine in one box' },
-        { value: 'Gift',     label: 'Premium gift-ready packaging' },
-        { value: 'Value',    label: 'Save up to 30% vs individual' },
+        { value: 'Save',    label: 'Save up to 40% vs individual' },
+        { value: 'Complete',label: 'Mattress + pillow + bedsheet' },
+        { value: 'Trial',   label: '100-night trial on all bundles' },
       ],
       highlights: [
-        'Curated AM & PM skincare routine kits',
-        'Includes cleanser, serum, moisturiser & SPF',
-        'Perfect for gifting — luxurious unboxing experience',
-        'Scientifically formulated with natural ingredients',
+        'Complete sleep setup — mattress, pillow & bedsheet',
+        'Save up to 40% compared to buying individually',
+        'Curated by sleep experts for best combination',
+        '100-night trial + 10-year warranty included',
       ],
     },
   };
@@ -203,8 +203,8 @@ const AIBrandEngine = ({ showExtras = true }) => {
                 <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
               </svg>
               <div>
-                <h3 className="panel-title">Luxova Skincare</h3>
-                <p className="panel-subtitle">Skincare · Natural Ingredients · Science-backed</p>
+                <h3 className="panel-title">Flo Mattress</h3>
+                <p className="panel-subtitle">Sleep · Comfort · Science-backed Support</p>
               </div>
             </div>
             <button className="panel-close-btn" onClick={() => setIsExpanded(false)} aria-label="Close">
